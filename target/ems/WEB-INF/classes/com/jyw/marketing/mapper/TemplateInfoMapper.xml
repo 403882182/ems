@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jyw.marketing.mapper.TemplateInfoMapper">
+  <resultMap id="BaseResultMap" type="com.jyw.model.TemplateInfo">
+    <constructor>
+      <idArg column="template_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="template_title" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="template_content" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="template_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    template_id, template_title, template_content, template_type
+  </sql>
+  <select id="selectByExample" parameterType="com.jyw.model.TemplateInfoCriteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from template_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from template_info
+    where template_id = #{templateId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from template_info
+    where template_id = #{templateId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.jyw.model.TemplateInfoCriteria">
+    delete from template_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.jyw.model.TemplateInfo">
+    insert into template_info (template_id, template_title, template_content, 
+      template_type)
+    values (#{templateId,jdbcType=INTEGER}, #{templateTitle,jdbcType=VARCHAR}, #{templateContent,jdbcType=VARCHAR}, 
+      #{templateType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jyw.model.TemplateInfo">
+    insert into template_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="templateId != null">
+        template_id,
+      </if>
+      <if test="templateTitle != null">
+        template_title,
+      </if>
+      <if test="templateContent != null">
+        template_content,
+      </if>
+      <if test="templateType != null">
+        template_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="templateId != null">
+        #{templateId,jdbcType=INTEGER},
+      </if>
+      <if test="templateTitle != null">
+        #{templateTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="templateContent != null">
+        #{templateContent,jdbcType=VARCHAR},
+      </if>
+      <if test="templateType != null">
+        #{templateType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.jyw.model.TemplateInfoCriteria" resultType="java.lang.Long">
+    select count(*) from template_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update template_info
+    <set>
+      <if test="record.templateId != null">
+        template_id = #{record.templateId,jdbcType=INTEGER},
+      </if>
+      <if test="record.templateTitle != null">
+        template_title = #{record.templateTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.templateContent != null">
+        template_content = #{record.templateContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.templateType != null">
+        template_type = #{record.templateType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update template_info
+    set template_id = #{record.templateId,jdbcType=INTEGER},
+      template_title = #{record.templateTitle,jdbcType=VARCHAR},
+      template_content = #{record.templateContent,jdbcType=VARCHAR},
+      template_type = #{record.templateType,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jyw.model.TemplateInfo">
+    update template_info
+    <set>
+      <if test="templateTitle != null">
+        template_title = #{templateTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="templateContent != null">
+        template_content = #{templateContent,jdbcType=VARCHAR},
+      </if>
+      <if test="templateType != null">
+        template_type = #{templateType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where template_id = #{templateId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jyw.model.TemplateInfo">
+    update template_info
+    set template_title = #{templateTitle,jdbcType=VARCHAR},
+      template_content = #{templateContent,jdbcType=VARCHAR},
+      template_type = #{templateType,jdbcType=VARCHAR}
+    where template_id = #{templateId,jdbcType=INTEGER}
+  </update>
+</mapper>
