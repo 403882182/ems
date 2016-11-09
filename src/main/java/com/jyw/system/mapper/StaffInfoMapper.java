@@ -74,4 +74,11 @@ public interface StaffInfoMapper {
      * @param record
      */
     int updateByPrimaryKey(StaffInfo record);
+
+    /**
+     * 根据员工信息获取员工列表
+     * @param record
+     * @return
+     */
+    List<StaffInfo> getStaffInfoList(StaffInfo record);
 }

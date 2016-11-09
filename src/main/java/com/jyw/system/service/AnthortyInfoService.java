@@ -26,4 +26,6 @@ public interface AnthortyInfoService {
     int insert(AnthortyInfo record);
 
     int insertSelective(AnthortyInfo record);
+
+    List<AnthortyInfo> getAnthList(Integer roleId);
 }

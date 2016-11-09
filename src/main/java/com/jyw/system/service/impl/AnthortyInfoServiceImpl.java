@@ -62,4 +62,8 @@ public class AnthortyInfoServiceImpl implements AnthortyInfoService {
     public int insertSelective(AnthortyInfo record) {
         return this.anthortyInfoMapper.insertSelective(record);
     }
+
+    public List<AnthortyInfo> getAnthList(Integer roleId) {
+        return this.anthortyInfoMapper.getAnthortyByRoleIdList(roleId);
+    }
 }
