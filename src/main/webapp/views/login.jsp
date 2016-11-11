@@ -45,7 +45,7 @@
 											<i class="icon-coffee red"></i>  ${info }
 										</h4>
 										<div class="space-6"></div>
-										<form action="login.do" method="post" onsubmit="return check()">
+										<form action="/index" method="post" onsubmit="return check()">
 											<fieldset>
 												<label class="block clearfix"> <span
 													class="block input-icon input-icon-right"> <input id="userId"

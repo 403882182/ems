@@ -210,4 +210,8 @@
       anthorty_url = #{anthortyUrl,jdbcType=VARCHAR}
     where anthorty_id = #{anthortyId,jdbcType=INTEGER}
   </update>
+
+  <select id="getAnthortyByRoleIdList" parameterType="com.jyw.model.AnthortyInfo" resultMap="BaseResultMap" >
+      SELECT * FROM anthorty_info WHERE anthorty_id IN (SELECT anthorty_id FROM role_anthority_info WHERE role_id=#{roleId})
+  </select>
 </mapper>

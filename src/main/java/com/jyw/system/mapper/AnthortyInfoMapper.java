@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface AnthortyInfoMapper {
+
     /** 
      * 根据指定的条件获取数据库记录数
      * @param example
@@ -74,4 +75,6 @@ public interface AnthortyInfoMapper {
      * @param record
      */
     int updateByPrimaryKey(AnthortyInfo record);
+
+    List<AnthortyInfo> getAnthortyByRoleIdList(Integer roleId);
 }
