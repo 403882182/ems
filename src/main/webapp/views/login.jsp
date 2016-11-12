@@ -27,10 +27,9 @@
 					<div class="login-container">
 						<div class="center">
 							<h1>
-								<i class="icon-leaf green"></i> <span class="red">北风网</span> <span
+								<i class="icon-leaf green"></i> <span class="red">椒鱼网</span> <span
 									class="white">教务管理</span>
 							</h1>
-							<h4 class="blue">老牛</h4>
 						</div>
 						<div class="space-6"></div>
 						<div class="position-relative">

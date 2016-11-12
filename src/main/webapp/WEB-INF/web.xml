@@ -5,7 +5,19 @@
     <welcome-file-list>
         <welcome-file>views/login.jsp</welcome-file>
     </welcome-file-list>
-
+    <!-- 配置编码格式 -->
+    <filter>
+        <filter-name>characterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>characterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
     <!-- 配置 HiddenHttpMethodFilter: 可以把 POST 请求转为 DELETE 或 PUT 请求 -->
     <filter>
       <filter-name>HiddenHttpMethodFilter</filter-name>

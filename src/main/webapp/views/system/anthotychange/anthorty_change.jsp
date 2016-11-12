@@ -1,57 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.*,com.bfw.po.*,com.bfw.system.dto.*"%>
+    pageEncoding="UTF-8" import="java.util.*,com.jyw.model.*,com.jyw.system.dto.*"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>    
-<%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html>
 <head>
 <base href="<%=basePath%>">
 <title>权限变更</title>
-<!-- 新 Bootstrap 核心 CSS 文件 -->
-<link rel="stylesheet" href="resources/css/bootstrap.min.css">
-<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="resources/js/jquery.min.js"></script>
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="resources/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-$().ready(function(){
-	
-	//全选
-	$("input[id=all]").click(function(){
-		var allchecked = this.checked;
-		var arr = $(this).parent().parent().parent().find("input");
-		for(var i=1;i<arr.length;i++){
-			arr[i].checked = allchecked;
-		}
-	});
-	
-	// 
-	$("input[id=anthortyId]").click(function(){
-		var arr = $(this).parent().parent().parent().find("input");
-		for(var i=1;i<arr.length;i++){
-			if(arr[i].checked){
-				arr[0].checked = true;
-				return;
-			}
-		}
-		
-		var arr2 = $(this).parent().parent().parent().find("input[checked=true]");
-		if(arr2.length == 0){
-			arr[0].checked = false;
-		}
-	});
-	
-});
-
-
-</script>
-
+    <jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
+    <script type="text/javascript">
+    $().ready(function(){
+        //全选
+        $("input[id=all]").click(function(){
+            var allchecked = this.checked;
+            var arr = $(this).parent().parent().parent().find("input");
+            for(var i=1;i<arr.length;i++){
+                arr[i].checked = allchecked;
+            }
+        });
+        //
+        $("input[id=anthortyId]").click(function(){
+            var arr = $(this).parent().parent().parent().find("input");
+            for(var i=1;i<arr.length;i++){
+                if(arr[i].checked){
+                    arr[0].checked = true;
+                    return;
+                }
+            }
+            var arr2 = $(this).parent().parent().parent().find("input[checked=true]");
+            if(arr2.length == 0){
+                arr[0].checked = false;
+            }
+        });
+    });
+    </script>
 </head>
 <body>
 <div style="padding:0px; margin:0px;">
