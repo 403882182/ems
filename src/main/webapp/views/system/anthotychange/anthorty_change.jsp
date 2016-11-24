@@ -15,6 +15,16 @@
     <jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
     <script type="text/javascript">
     $().ready(function(){
+        //Ajax表单提交
+        $("#form").submit(function(){
+            $(this).ajaxSubmit({
+                dataType:  "text",
+                success:function (data) {
+                    alert(data);
+                }
+            });
+            return false; //不刷新页面
+        });
         //全选
         $("input[id=all]").click(function(){
             var allchecked = this.checked;
@@ -23,7 +33,7 @@
                 arr[i].checked = allchecked;
             }
         });
-        //
+        //如果子菜单勾选则父菜单必定勾选
         $("input[id=anthortyId]").click(function(){
             var arr = $(this).parent().parent().parent().find("input");
             for(var i=1;i<arr.length;i++){
@@ -46,7 +56,7 @@
     	<li><a href="#">系统管理</a></li>
         <li>权限变更</li>
     </ul>
-<form action="anthotychange/add.do"  method="post" class="form-horizontal">
+<form action="anthotychange/changeAuth.do"  method="post" class="form-horizontal" id="form">
 
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
 	<div class="row">

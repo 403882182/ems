@@ -12,6 +12,36 @@
 <base href="<%=basePath%>">
 <title>数据字典</title>
     <jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
+    <script>
+        $(function () {
+            $("#form").validate({
+                submitHandler: function(form)
+                {
+                    $(form).ajaxSubmit({
+                        dataType:  "text",
+                        success:function (data) {
+                            alert(data);
+                        },
+                        resetForm:true
+                    })
+                },
+                errorPlacement: function ( error, element ) {
+                    error.addClass( "help-block" );
+                    if ( element.prop( "type" ) === "checkbox" ) {
+                        error.insertAfter( element.parent( "label" ) );
+                    } else {
+                        error.insertAfter( element );
+                    }
+                },
+                highlight: function ( element, errorClass, validClass ) {
+                    $( element ).parents( ".col-sm-5" ).addClass( "has-error" ).removeClass( "has-success" );
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                    $( element ).parents( ".col-sm-5" ).addClass( "has-success" ).removeClass( "has-error" );
+                }
+            });
+        })
+    </script>
 </head>
 <body>
 
@@ -23,7 +53,7 @@
     </ul>
 </div>
 
-<form action="datadictionary/add.do" method="post" class="form-horizontal">
+<form action="datadictionary/add.do" method="post" class="form-horizontal" id="form">
 
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
 	<div class="row">
@@ -31,7 +61,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">编号</label>
                 <div class="col-sm-9">
-                	<input type="text" name="dataId" readonly="readonly" class="form-control input-sm" placeholder="请输入编号"/>
+                	<input type="text" readonly="readonly" class="form-control input-sm" placeholder="自动生成编号"/>
                 </div>
             </div>
         
@@ -40,7 +70,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">名称</label>
                 <div class="col-sm-9">
-                	<input type="text" name="dataContent" class="form-control input-sm" placeholder="请输入名称"/>
+                	<input type="text" name="dataContent" class="form-control input-sm" placeholder="请输入名称" required/>
                 </div>
             </div>
         </div>
@@ -51,7 +81,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">类型</label>
                 <div class="col-sm-9">
-                	<input type="text" name="dataType" class="form-control input-sm" placeholder="请输入类型"/>
+                	<input type="text" name="dataType" class="form-control input-sm" placeholder="请输入类型" required/>
                 </div>
             </div>
         
@@ -76,7 +106,7 @@
    	<div class="row">
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="保存"/>
-            <input  type="reset" class="btn  btn-danger" value="取消"/>
+            <input  type="button" class="btn  btn-danger" onclick="window.location.href='datadictionary/list.do'" value="返回"/>
         </div>
     </div>
 </form>

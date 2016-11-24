@@ -35,6 +35,11 @@ public class AnthortyInfo implements Serializable {
      */
     private String anthortyUrl;
 
+    /**
+     * 标识是否选中
+     */
+    private boolean checked = false;
+
     /** 
      * 构造查询条件
      */
@@ -53,7 +58,14 @@ public class AnthortyInfo implements Serializable {
         super();
     }
 
-    /** 
+    public boolean getChecked() {
+        return checked;
+    }
+    public void setChecked(boolean checked) {
+        this.checked = checked;
+    }
+
+    /**
      * 获取 权限编号 anthorty_info.anthorty_id
      * @return 权限编号
      */

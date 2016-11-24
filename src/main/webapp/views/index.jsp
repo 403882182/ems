@@ -34,7 +34,7 @@
 	<div class="navbar-container" id="navbar-container">
 		<div class="navbar-header pull-left">
 			<a href="#" class="navbar-brand"> <small> <i
-					class="icon-leaf"></i> 北风网教务管理系统
+					class="icon-leaf"></i> 椒鱼网教务管理系统
 			</small>
 			</a>
 			<!-- /.brand -->
@@ -149,7 +149,7 @@
 						<ul class="submenu">
 							<c:forEach var="sub" items="${dto.getList()}">
 								<li>
-									<a href="" target="mainframe">
+									<a href="${sub.getAnthortyUrl()}" target="mainframe">
 										<i class="icon-double-angle-right"></i>
 										<span>${sub.getAnthortyName()}</span>
 									</a>

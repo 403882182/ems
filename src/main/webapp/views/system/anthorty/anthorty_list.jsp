@@ -12,9 +12,19 @@
 <head>
 <base href="<%=basePath%>">
 <title>员工管理</title>
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/dtree.css">
 	<jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
-	<link rel="stylesheet" href="resources/css/dtree.css">
-	<script src="resources/js/dtree.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/dtree.js"></script>
+	<script>
+		function loadTree(list){
+            tree = new dTree('tree');
+            $.each(list,function (i,item) {
+                tree.add(item.anthortyId,item.anthortyPid, item.anthortyName
+                        +'', 'anthorty/show.do?anthortyId='+item.anthortyId, '', 'mainiframe');
+            });
+            $("#treeDiv").html(tree.toString());
+		}
+	</script>
 </head>
 <body>
 <div style="padding:0px; margin:0px;">
@@ -26,26 +36,48 @@
 
 <div class="row">
 
-	<div class="col-sm-2"  style=" padding-left:30px;">
+	<div class="col-sm-2"  style=" padding-left:30px;" id="treeDiv">
     	<script type="text/jscript">
-		
-        	 d = new dTree('d');
-        	 
-        	 <%List<AnthortyInfo> list =  (List<AnthortyInfo>)request.getAttribute("list");
-        	 if(list!=null && list.size()>0){
-        	 for(AnthortyInfo anth :list){
 
-        	 %>
-        	
-			d.add(<%=anth.getAnthortyId()%>,<%=anth.getAnthortyPid()%>,'<%=anth.getAnthortyName()%>','anthorty/show.do?anthortyId=<%=anth.getAnthortyId()%>','','mainiframe');
-			<%}}%>
-           /*  d.add(1,0,'系统管理','','提示','');
-			d.add(2,1,'员工管理','anthorty_show.html','提示','mainiframe');
-			d.add(3,1,'角色管理','view/system/anthorty/anthorty_add.jsp','提示','mainiframe');
-			d.add(4,1,'角色变更','anthorty_add.html','提示','mainiframe');
-			d.add(5,0,'招生管理','','提示','mainiframe');
-			d.add(6,5,'学生线索','anthorty_add.html','提示','mainiframe'); */
-			document.write(d);
+			<%--
+				1.定义js树对象
+					tree = new dTree('tree');
+				2.增加 js树结点
+					add(id,pid,name,url,title,target,icon,iconOpen,open);
+				3.// 输出js树
+					document.write(tree);
+			--%>
+			tree = new dTree('tree');
+			<%
+				List<AnthortyInfo> list =  (List<AnthortyInfo>)request.getAttribute("list");
+				if(list!=null && list.size()>0){
+					for(AnthortyInfo anth :list){
+			%>
+				tree.add(
+						<%--节点自身的id(唯一)--%>
+						<%=anth.getAnthortyId()%>,
+						<%--节点的父节点id--%>
+						<%=anth.getAnthortyPid()%>,
+						<%--节点显示在页面上的名称--%>
+						'<%=anth.getAnthortyName()%>',
+						<%--节点的链接地址--%>
+						'anthorty/show.do?anthortyId=<%=anth.getAnthortyId()%>',
+						<%--鼠标放在节点上显示的提示信息--%>
+						'',
+						<%--节点链接所打开的目标frame--%>
+						'mainiframe',
+						<%--节点关闭状态时显示的图标--%>
+						'',
+						<%--节点打开状态时显示的图标--%>
+						'',
+						<%--节点第一次加载是否打开--%>
+						''
+				);
+			<%
+					}
+				}
+			%>
+			document.write(tree);
         </script>
     </div>
     <div class="col-sm-10">
@@ -53,9 +85,8 @@
         <script type="text/javascript">
         	var height = jQuery(window).height()-50;
 			jQuery("#mainframe").attr("height",height+"px");
-        	jQuery("#mainframe").attr("src","view/system/anthorty/anthorty_show.jsp");
+        	jQuery("#mainframe").attr("src","views/system/anthorty/anthorty_show.jsp");
         </script>
-        
     </div>
 
 </div>

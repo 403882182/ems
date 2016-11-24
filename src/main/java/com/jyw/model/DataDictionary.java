@@ -1,6 +1,8 @@
 
 package com.jyw.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import java.io.Serializable;
 
 /**
@@ -18,11 +20,13 @@ public class DataDictionary implements Serializable {
     /** 
      * 内容
      */
+    @NotEmpty
     private String dataContent;
 
     /** 
      * 类型
      */
+    @NotEmpty
     private String dataType;
 
     /** 

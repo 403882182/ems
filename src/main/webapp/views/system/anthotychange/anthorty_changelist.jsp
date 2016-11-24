@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -41,12 +42,31 @@
 </div>
 
 <div class="row" style="padding:15px; padding-top:0px; " align="right">
-	<display:table class="table  table-condensed table-striped" name="list"  pagesize="10" requestURI="roleinfo/list.do">
-		<display:column property="roleId" title="角色编号"/>
-		<display:column  property="roleName" title="角色名称"/>
-		<display:column property="roleDesc" title="角色描述"/>
-		<display:column href="anthotychange/load.do" paramId="roleId" paramProperty="roleId" value="权限变更"  title="权限变更"/>
-	</display:table>
+	<table class="table  table-condensed table-striped" name="list">
+		<thead>
+			<tr>
+				<th>角色编号</th>
+				<th>角色名称</th>
+				<th>角色描述</th>
+				<th>权限变更</th>
+			</tr>
+		</thead>
+		<tbody>
+		<c:forEach items="${page.list}" var="item">
+			<tr>
+				<td>${item.roleId}</td>
+				<td>${item.roleName}</td>
+				<td>${item.roleDesc}</td>
+				<td><a href="anthotychange/load.do?roleId=${item.roleId}">权限变更</a></td>
+			</tr>
+		</c:forEach>
+			<tr>
+				<td colspan="4" style="text-align:center">
+					<ul id="paging"></ul>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
 
 </body>

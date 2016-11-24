@@ -433,29 +433,4 @@
       user_passowrd = #{userPassowrd,jdbcType=VARCHAR}
     where staff_id = #{staffId,jdbcType=INTEGER}
   </update>
-
-  <select id="getStaffInfoList" parameterType="com.jyw.model.StaffInfo" resultMap="BaseResultMap">
-    SELECT
-    <include refid="Base_Column_List"/>
-    from staff_info  where  staff_state !='0'
-    <if test="staffId != null and staffId !=''">
-      and staffId = #{staffId,jdbcType=INTEGER}
-    </if>
-    <if test="staffName != null and staffName!='' ">
-      and staff_name=#{staffName}
-    </if>
-    <if test="staffMobilePhone != null and staffMobilePhone!='' ">
-      and staff_mobile_phone=#{staffMobilePhone}
-    </if>
-    <if test="userNumber != null and userNumber!='' ">
-      and user_number=#{userNumber}
-    </if>
-    <if test="userPassowrd != null and userPassowrd!='' ">
-      and user_passowrd=#{userPassowrd}
-    </if>
-    <if test="staffState != null and staffState!='' ">
-      and staff_state=#{staffState}
-    </if>
-    order by staff_id  desc
-  </select>
 </mapper>
