@@ -1,167 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="577f914a-2b80-4725-927f-bbf144cc2dd6" name="Default" comment="最新版本">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/finance/controller/StaffSalaryController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/student/controller/StudentController.java" />
+    <list default="true" id="577f914a-2b80-4725-927f-bbf144cc2dd6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ems.iml" afterPath="$PROJECT_DIR$/ems.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/classinfo/mapper/ClassInfoMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/classinfo/mapper/ClassInfoMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/classinfo/mapper/DisciplineInfoMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/classinfo/mapper/DisciplineInfoMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/classinfo/mapper/SyllabusInfoMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/classinfo/mapper/SyllabusInfoMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/educational/mapper/AttendanceInfoMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/educational/mapper/AttendanceInfoMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/educational/mapper/AttendanceInfoMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/educational/mapper/AttendanceInfoMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/educational/mapper/ClassTransactionInfoMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/educational/mapper/ClassTransactionInfoMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/educational/mapper/ClassTransactionInfoMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/educational/mapper/ClassTransactionInfoMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/educational/service/AttendanceInfoService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/educational/service/AttendanceInfoService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/educational/service/ClassTransactionInfoService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/educational/service/ClassTransactionInfoService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/educational/service/impl/AttendanceInfoServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/educational/service/impl/AttendanceInfoServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/educational/service/impl/ClassTransactionInfoServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/educational/service/impl/ClassTransactionInfoServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/finance/mapper/StaffSalaryMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/finance/mapper/StaffSalaryMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/finance/mapper/StaffSalaryMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/finance/mapper/StaffSalaryMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/finance/mapper/StudentPaymentMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/finance/mapper/StudentPaymentMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/finance/mapper/StudentPaymentMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/finance/mapper/StudentPaymentMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/finance/service/StaffSalaryService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/finance/service/StaffSalaryService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/finance/service/StudentPaymentService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/finance/service/StudentPaymentService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/finance/service/impl/StaffSalaryServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/finance/service/impl/StaffSalaryServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/finance/service/impl/StudentPaymentServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/finance/service/impl/StudentPaymentServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/marketing/mapper/EmailInfoMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/marketing/mapper/EmailInfoMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/marketing/mapper/EmailInfoMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/marketing/mapper/EmailInfoMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/marketing/mapper/MarketActiveMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/marketing/mapper/MarketActiveMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/marketing/mapper/MarketActiveMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/marketing/mapper/MarketActiveMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/marketing/mapper/MessafeInfoMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/marketing/mapper/MessafeInfoMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/marketing/mapper/MessafeInfoMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/marketing/mapper/MessafeInfoMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/marketing/service/EmailInfoService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/marketing/service/EmailInfoService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/marketing/service/MarketActiveService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/marketing/service/MarketActiveService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/marketing/service/MessafeInfoService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/marketing/service/MessafeInfoService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/marketing/service/impl/EmailInfoServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/marketing/service/impl/EmailInfoServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/marketing/service/impl/MarketActiveServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/marketing/service/impl/MarketActiveServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/marketing/service/impl/MessafeInfoServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/marketing/service/impl/MessafeInfoServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/model/AttendanceInfo.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/model/AttendanceInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/model/AuditionInfo.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/model/AuditionInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/model/ClassTransactionInfo.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/model/ClassTransactionInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/model/StaffInfo.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/model/StaffInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/model/StaffSalary.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/model/StaffSalary.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/model/StudentInfo.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/model/StudentInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/model/StudentPayment.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/model/StudentPayment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/model/TrackRecordInfo.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/model/TrackRecordInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/recruitstudent/mapper/AuditionInfoMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/recruitstudent/mapper/AuditionInfoMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/recruitstudent/mapper/AuditionInfoMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/recruitstudent/mapper/AuditionInfoMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/recruitstudent/mapper/TrackRecordInfoMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/recruitstudent/mapper/TrackRecordInfoMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/recruitstudent/mapper/TrackRecordInfoMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/recruitstudent/mapper/TrackRecordInfoMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/recruitstudent/service/AuditionInfoService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/recruitstudent/service/AuditionInfoService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/recruitstudent/service/TrackRecordInfoService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/recruitstudent/service/TrackRecordInfoService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/recruitstudent/service/impl/AuditionInfoServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/recruitstudent/service/impl/AuditionInfoServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/recruitstudent/service/impl/StudentInfoServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/recruitstudent/service/impl/StudentInfoServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/recruitstudent/service/impl/TrackRecordInfoServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/recruitstudent/service/impl/TrackRecordInfoServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/student/mapper/CommunicateInfoMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/student/mapper/CommunicateInfoMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/student/mapper/CommunicateInfoMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/student/mapper/CommunicateInfoMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/student/mapper/EvaluationInfoMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/student/mapper/EvaluationInfoMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/student/mapper/EvaluationInfoMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/student/mapper/EvaluationInfoMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/student/mapper/StudentWriteGradeMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/student/mapper/StudentWriteGradeMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/student/mapper/StudentWriteGradeMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/student/mapper/StudentWriteGradeMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/student/service/CommunicateInfoService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/student/service/CommunicateInfoService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/student/service/EvaluationInfoService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/student/service/EvaluationInfoService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/student/service/StudentWriteGradeService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/student/service/StudentWriteGradeService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/student/service/impl/CommunicateInfoServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/student/service/impl/CommunicateInfoServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/student/service/impl/EvaluationInfoServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/student/service/impl/EvaluationInfoServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/student/service/impl/StudentWriteGradeServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/student/service/impl/StudentWriteGradeServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/system/controller/AnthotychangeController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/system/controller/AnthotychangeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/system/controller/LoginController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/system/controller/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/system/mapper/RoleInfoMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/system/mapper/RoleInfoMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/system/mapper/RoleInfoMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/system/mapper/RoleInfoMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/system/mapper/StaffInfoMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/system/mapper/StaffInfoMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/system/mapper/StaffInfoMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/system/mapper/StaffInfoMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/system/service/RoleInfoService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/system/service/RoleInfoService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/system/service/StaffInfoService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/system/service/StaffInfoService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/system/service/impl/RoleInfoServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/system/service/impl/RoleInfoServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/system/service/impl/StaffInfoServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/system/service/impl/StaffInfoServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jyw/utils/DBUtils.java" afterPath="$PROJECT_DIR$/src/main/java/com/jyw/utils/DBUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/jdbc.properties" afterPath="$PROJECT_DIR$/src/main/resources/jdbc.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ems.tld" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ems.tld" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/classinfo/classinfo/classinfo_add.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/classinfo/classinfo/classinfo_add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/classinfo/classinfo/classinfo_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/classinfo/classinfo/classinfo_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/classinfo/classinfo/classinfo_update.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/classinfo/classinfo/classinfo_update.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/classinfo/classroominfo/classroominfo_add.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/classinfo/classroominfo/classroominfo_add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/classinfo/classroominfo/classroominfo_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/classinfo/classroominfo/classroominfo_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/classinfo/classroominfo/classroominfo_update.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/classinfo/classroominfo/classroominfo_update.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/classinfo/disciplineinfo/disciplineinfo_add.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/classinfo/disciplineinfo/disciplineinfo_add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/classinfo/disciplineinfo/disciplineinfo_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/classinfo/disciplineinfo/disciplineinfo_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/classinfo/disciplineinfo/disciplineinfo_update.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/classinfo/disciplineinfo/disciplineinfo_update.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/classinfo/syllabusinfo/syllabusinfo_add.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/classinfo/syllabusinfo/syllabusinfo_add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/classinfo/syllabusinfo/syllabusinfo_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/classinfo/syllabusinfo/syllabusinfo_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/classinfo/syllabusinfo/syllabusinfo_update.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/classinfo/syllabusinfo/syllabusinfo_update.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/classinfo/teacher/teacher_add.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/classinfo/teacher/teacher_add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/classinfo/teacher/teacher_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/classinfo/teacher/teacher_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/classinfo/teacher/teacher_show.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/classinfo/teacher/teacher_show.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/classinfo/teacher/teacher_update.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/classinfo/teacher/teacher_update.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/educational/attendanceinfo/attendanceinfo_add.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/educational/attendanceinfo/attendanceinfo_add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/educational/attendanceinfo/attendanceinfo_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/educational/attendanceinfo/attendanceinfo_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/educational/attendanceinfo/attendanceinfo_update.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/educational/attendanceinfo/attendanceinfo_update.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/educational/classtransactioninfo/classtransactioninfo_add.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/educational/classtransactioninfo/classtransactioninfo_add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/educational/classtransactioninfo/classtransactioninfo_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/educational/classtransactioninfo/classtransactioninfo_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/educational/classtransactioninfo/classtransactioninfo_update.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/educational/classtransactioninfo/classtransactioninfo_update.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/finance/staffsalary/staffsalary_add.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/finance/staffsalary/staffsalary_add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/finance/staffsalary/staffsalary_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/finance/staffsalary/staffsalary_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/finance/studentpayment/student_payment.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/finance/studentpayment/student_payment.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/finance/studentpayment/studentpayment_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/finance/studentpayment/studentpayment_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/finance/studentpayment/studentpayment_show.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/finance/studentpayment/studentpayment_show.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/marketing/emailinfo/emailinfo_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/marketing/emailinfo/emailinfo_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/marketing/emailinfo/emailinfo_send.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/marketing/emailinfo/emailinfo_send.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/marketing/emailinfo/emailinfo_show.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/marketing/emailinfo/emailinfo_show.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/marketing/marketactive/marketactive_add.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/marketing/marketactive/marketactive_add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/marketing/marketactive/marketactive_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/marketing/marketactive/marketactive_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/marketing/marketactive/marketactive_update.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/marketing/marketactive/marketactive_update.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/marketing/messafeinfo/messafeinfo_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/marketing/messafeinfo/messafeinfo_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/marketing/messafeinfo/messafeinfo_send.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/marketing/messafeinfo/messafeinfo_send.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/marketing/messafeinfo/messafeinfo_show.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/marketing/messafeinfo/messafeinfo_show.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/marketing/template/template_add.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/marketing/template/template_add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/marketing/template/template_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/marketing/template/template_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/marketing/template/template_update.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/marketing/template/template_update.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/auditioninfo/auditioninfo_add.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/auditioninfo/auditioninfo_add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/auditioninfo/auditioninfo_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/auditioninfo/auditioninfo_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/auditioninfo/auditioninfo_update.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/auditioninfo/auditioninfo_update.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/recruitstudent/recruitstudent_add.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/recruitstudent/recruitstudent_add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/recruitstudent/recruitstudent_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/recruitstudent/recruitstudent_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/recruitstudent/recruitstudent_positive.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/recruitstudent/recruitstudent_positive.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/recruitstudent/recruitstudent_show.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/recruitstudent/recruitstudent_show.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/recruitstudent/recruitstudent_update.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/recruitstudent/recruitstudent_update.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/studentpool/studentpool_add.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/studentpool/studentpool_add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/studentpool/studentpool_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/studentpool/studentpool_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/studentpool/studentpool_show.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/studentpool/studentpool_show.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/studentpool/studentpool_update.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/studentpool/studentpool_update.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/trackrecord/trackrecord_add.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/trackrecord/trackrecord_add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/trackrecord/trackrecord_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/trackrecord/trackrecord_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/trackrecord/trackrecord_update.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/recruitstudent/trackrecord/trackrecord_update.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/student/communicateinfo/communicateinfo_add.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/student/communicateinfo/communicateinfo_add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/student/communicateinfo/communicateinfo_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/student/communicateinfo/communicateinfo_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/student/communicateinfo/communicateinfo_update.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/student/communicateinfo/communicateinfo_update.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/student/evaluationinfo/evaluationinfo_add.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/student/evaluationinfo/evaluationinfo_add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/student/evaluationinfo/evaluationinfo_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/student/evaluationinfo/evaluationinfo_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/student/evaluationinfo/evaluationinfo_update.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/student/evaluationinfo/evaluationinfo_update.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/student/student/student_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/student/student/student_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/student/student/student_show.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/student/student/student_show.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/student/student/student_update.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/student/student/student_update.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/student/studentwritegrade/studentwritegrade_add.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/student/studentwritegrade/studentwritegrade_add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/student/studentwritegrade/studentwritegrade_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/student/studentwritegrade/studentwritegrade_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/student/studentwritegrade/studentwritegrade_update.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/student/studentwritegrade/studentwritegrade_update.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/studentphone/evaluation_add.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/studentphone/evaluation_add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/studentphone/evaluation_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/studentphone/evaluation_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/studentphone/student_index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/studentphone/student_index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/studentphone/student_info.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/studentphone/student_info.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/studentphone/student_payment.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/studentphone/student_payment.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/studentphone/student_score.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/studentphone/student_score.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/system/roleinfo/roleinfo_add.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/system/roleinfo/roleinfo_add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/system/roleinfo/roleinfo_change.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/system/roleinfo/roleinfo_change.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/system/roleinfo/roleinfo_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/system/roleinfo/roleinfo_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/system/roleinfo/roleinfo_update.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/system/roleinfo/roleinfo_update.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/system/roleinfo/staffinfo_role_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/system/roleinfo/staffinfo_role_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/system/staffinfo/staffinfo_add.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/system/staffinfo/staffinfo_add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/system/staffinfo/staffinfo_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/system/staffinfo/staffinfo_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/system/staffinfo/staffinfo_show.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/system/staffinfo/staffinfo_show.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/system/staffinfo/staffinfo_update.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/system/staffinfo/staffinfo_update.jsp" />
     </list>
     <ignored path="ems.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -291,8 +132,8 @@
       <file leaf-file-name="student_list.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/views/student/student/student_list.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="33" column="96" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="96" />
+            <state relative-caret-position="144">
+              <caret line="32" column="57" selection-start-line="32" selection-start-column="57" selection-end-line="32" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -2049,7 +1890,7 @@
       <workItem from="1480121104959" duration="4732000" />
       <workItem from="1480142156144" duration="9560000" />
       <workItem from="1480157263271" duration="1186000" />
-      <workItem from="1480209117293" duration="36341000" />
+      <workItem from="1480209117293" duration="36661000" />
     </task>
     <task id="LOCAL-00001" summary="框架">
       <created>1478449385360</created>
@@ -2114,11 +1955,18 @@
       <option name="project" value="LOCAL" />
       <updated>1479965794835</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="葛楚源整合2013/11/27 20：07">
+      <created>1480248548942</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1480248548942</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="399169000" />
+    <option name="totallyTimeSpent" value="399489000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
@@ -2252,7 +2100,8 @@
     <MESSAGE value="登录目前已经基本实现功能，包括权限的授予也已完成&#10;&#10;request.setAttribute(&quot;staff&quot;,staff)&#10;&#10;" />
     <MESSAGE value="更新" />
     <MESSAGE value="最新版本" />
-    <option name="LAST_COMMIT_MESSAGE" value="最新版本" />
+    <MESSAGE value="葛楚源整合2013/11/27 20：07" />
+    <option name="LAST_COMMIT_MESSAGE" value="葛楚源整合2013/11/27 20：07" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2781,8 +2630,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/views/student/student/student_list.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="33" column="96" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="96" />
+        <state relative-caret-position="144">
+          <caret line="32" column="57" selection-start-line="32" selection-start-column="57" selection-end-line="32" selection-end-column="57" />
           <folding />
         </state>
       </provider>
