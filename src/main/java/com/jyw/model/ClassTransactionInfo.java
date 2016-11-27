@@ -11,6 +11,7 @@ import java.util.Date;
 public class ClassTransactionInfo implements Serializable {
     private static final long serialVersionUID = 1L;
 
+
     /** 
      * 班级事务信息编号
      */
@@ -45,8 +46,14 @@ public class ClassTransactionInfo implements Serializable {
      * 备注信息
      */
     private String classTransactionRemark;
+    /**
+     * 班级表
+     */
+private ClassInfo classInfo;
 
-    /** 
+
+
+    /**
      * 构造查询条件
      */
     public ClassTransactionInfo(Integer classTransactionId, Integer classId, String classTransactionTitle, String classTransactionContent, String classTransactionPerson, Date classTransactionTime, String classTransactionRemark) {
@@ -177,7 +184,20 @@ public class ClassTransactionInfo implements Serializable {
     public void setClassTransactionRemark(String classTransactionRemark) {
         this.classTransactionRemark = classTransactionRemark == null ? null : classTransactionRemark.trim();
     }
-
+    /**
+     * 获取 班级表
+     * @param
+     */
+    public ClassInfo getClassInfo() {
+        return classInfo;
+    }
+    /**
+     * 设置 班级表
+     * @param
+     */
+    public void setClassInfo(ClassInfo classInfo) {
+        this.classInfo = classInfo;
+    }
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

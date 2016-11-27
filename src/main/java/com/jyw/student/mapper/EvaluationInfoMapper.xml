@@ -243,4 +243,44 @@
       evaluation_time = #{evaluationTime,jdbcType=TIMESTAMP}
     where evaluation_id = #{evaluationId,jdbcType=INTEGER}
   </update>
+  <resultMap id="selectAllEvaluationMap" type="com.jyw.model.EvaluationInfoEx">
+    <id column="evaluation_id" property="evaluationId"/>
+    <result column="student_id" property="studentId"/>
+    <result column="evaluation_title" property="evaluationTitle"/>
+    <result column="evaluation_content" property="evaluationContent"/>
+    <result column="evaluation_course" property="evaluationCourse"/>
+    <result column="evaluation_teacher" property="evaluationTeacher"/>
+    <result column="evaluation_time" property="evaluationTime"/>
+    <association property="studentInfo" javaType="com.jyw.model.StudentInfo">
+        <id column="student_id" property="studentId"/>
+        <result column="student_name" property="studentName"/>
+    </association>
+  </resultMap>
+  <select id="selectAllEvaluation" parameterType="com.jyw.model.EvaluationInfoEx" resultMap="selectAllEvaluationMap">
+    SELECT
+    student_info.student_name,
+    evaluation_info.evaluation_id,
+    evaluation_info.student_id,
+    evaluation_info.evaluation_title,
+    evaluation_info.evaluation_content,
+    evaluation_info.evaluation_course,
+    evaluation_info.evaluation_teacher,
+    evaluation_info.evaluation_time
+    FROM
+    student_info
+    INNER JOIN evaluation_info ON evaluation_info.student_id = student_info.student_id
+<where>
+  <if test="studentInfo !=null">
+     <if test="studentInfo.studentId !=null">
+       AND student_info.student_id=${studentInfo.studentId}
+     </if>
+    <if test="studentInfo.studentName !=null and studentInfo.studentName !=''">
+      AND student_info.student_name LIKE '%${studentInfo.studentName}%'
+    </if>
+    <if test="studentInfo.staffId !=null">
+      AND student_info.staff_id=${studentInfo.staffId}
+    </if>
+  </if>
+</where>
+  </select>
 </mapper>

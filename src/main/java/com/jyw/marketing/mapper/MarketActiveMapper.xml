@@ -322,4 +322,69 @@
       active_content = #{activeContent,jdbcType=VARCHAR}
     where active_id = #{activeId,jdbcType=INTEGER}
   </update>
+  <resultMap id="selectAllMarketActionExReqeustMap" type="com.jyw.model.MarketActiveEx">
+    <id column="active_id" property="activeId"/>
+    <result column="active_name" property="activeName"/>
+    <result column="active_start" property="activeStart"/>
+    <result column="active_end" property="activeEnd"/>
+    <result column="active_type" property="activeType"/>
+    <result column="active_coste_emtimate" property="activeCosteEmtimate"/>
+    <result column="active_coste" property="activeCoste"/>
+    <result  column="active_student" property="activeStudent"/>
+    <result column="active_content" property="activeContent"/>
+    <result column="active_refect_estimate" property="activeRefectEstimate"/>
+    <association property="staffInfo" javaType="com.jyw.model.StaffInfo">
+        <id column="staff_id" property="staffId"/>
+            <result column="staff_name" property="staffName"/>
+            </association>
+    <association property="dataDictionary" javaType="com.jyw.model.DataDictionary">
+        <id column="active_state" property="dataId"/>
+        <result column="data_content" property="dataContent"/>
+    </association>
+  </resultMap>
+  <select id="selectAllMarketActionEx" resultMap="selectAllMarketActionExReqeustMap" parameterType="com.jyw.model.MarketActiveEx" >
+      SELECT
+data_dictionary.data_content,
+market_active.active_id,
+market_active.staff_id,
+market_active.active_name,
+market_active.active_state,
+market_active.active_start,
+market_active.active_end,
+market_active.active_type,
+market_active.active_coste_emtimate,
+market_active.active_coste,
+market_active.active_refect_estimate,
+market_active.active_student,
+market_active.active_content,
+staff_info.staff_name
+FROM
+market_active
+INNER JOIN data_dictionary ON data_dictionary.data_id = market_active.active_state
+INNER JOIN staff_info ON market_active.staff_id = staff_info.staff_id
+<where>
+  <if test="staffInfo!=null">
+      <if test="staffInfo.staffId !=null and staffInfo.staffId !=0">
+          AND  market_active.staff_id=${staffInfo.staffId}
+      </if>
+     <if test="staffInfo.staffName !=null and staffInfo.staffName !=''">
+         AND staff_info.staff_name=#{staffInfo.staffName}
+     </if>
+  </if>
+  <if test="activeName !=null and  activeName!=''">
+    AND market_active.active_name=#{activeName}
+  </if>
+  <if test="dataDictionary !=null">
+      <if test="dataDictionary.dataContent !=null and dataDictionary.dataContent !=''">
+        AND data_dictionary.data_content=#{dataDictionary.dataContent}
+      </if>
+  </if>
+  <if test="activeId !=null and activeId !=0">
+    AND market_active.active_id=${activeId}
+  </if>
+  <if test="activeState !=null and activeState !=0">
+    AND market_active.active_state=${activeState}
+  </if>
+</where>
+  </select>
 </mapper>

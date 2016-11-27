@@ -2,6 +2,9 @@ package com.jyw.marketing.service;
 
 import com.jyw.model.EmailInfo;
 import com.jyw.model.EmailInfoCriteria;
+import com.jyw.model.EmailInfoEx;
+import com.jyw.model.StaffInfo;
+
 import java.util.List;
 
 public interface EmailInfoService {
@@ -26,4 +29,9 @@ public interface EmailInfoService {
     int insert(EmailInfo record);
 
     int insertSelective(EmailInfo record);
+
+    /**
+     * 获取邮箱封装类信息
+     */
+    List<EmailInfoEx>  getAllEmailInfoEx(EmailInfoEx emailInfoEx);
 }

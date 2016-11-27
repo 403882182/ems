@@ -1,6 +1,7 @@
 
 package com.jyw.educational.mapper;
 
+import com.jyw.model.ClassInfo;
 import com.jyw.model.ClassTransactionInfo;
 import com.jyw.model.ClassTransactionInfoCriteria;
 import java.util.List;
@@ -35,14 +36,18 @@ public interface ClassTransactionInfoMapper {
      * 动态字段,写入数据库记录
      * @param record
      */
-    int insertSelective(ClassTransactionInfo record);
+    int insertSelective(ClassTransactionInfo transactionInfo);
 
     /** 
      * 根据指定的条件查询符合条件的数据库记录
      * @param example
      */
-    List<ClassTransactionInfo> selectByExample(ClassTransactionInfoCriteria example);
+    List<ClassTransactionInfo> selectTransactionInfo(String class_transaction_title);
 
+    /**
+     * 查询班级事务表
+     */
+    List<ClassInfo> selectClassInfo();
     /** 
      * 根据指定主键获取一条数据库记录
      * @param classTransactionId

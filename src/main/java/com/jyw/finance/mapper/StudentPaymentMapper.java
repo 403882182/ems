@@ -1,13 +1,20 @@
 
 package com.jyw.finance.mapper;
 
+import com.jyw.model.StudentInfo;
 import com.jyw.model.StudentPayment;
 import com.jyw.model.StudentPaymentCriteria;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface StudentPaymentMapper {
-    /** 
+
+    /**
+     * 根据指定的条件模糊查询符合条件的数据库记录
+     * @param keyName
+     */
+    List<StudentInfo> selectByKeyName(@Param("keyName") String keyName, @Param("student_Sate") int studentSate, @Param("staffId") Integer staffId);
+    /**
      * 根据指定的条件获取数据库记录数
      * @param example
      */

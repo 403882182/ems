@@ -1,20 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
-%>    
-<%@ taglib prefix="s" uri="http://jyw.com" %>
+%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html>
-<head>
 <base href="<%=basePath%>">
-<title>c</title>
-    <jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
-    <script  type="text/javascript" src="resources/My97DatePicker/WdatePicker.js"></script>
+<title>营销活动</title>
+<jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
+<script src="${pageContext.request.contextPath}/resources/My97DatePicker/WdatePicker.js"></script>
+
 <script type="text/javascript">
 
 	function setText(obj){
@@ -72,8 +71,11 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">活动状态</label>
                 <div class="col-sm-5">
-                <s:select type="active_state"  name="activeState"  />
-                
+                    <select type="active_state" name="activeState">
+                        <c:forEach items="${dataDictionaryStateList}" var="s" >
+                            <option value="${s.dataId}">${s.dataContent}</option>
+                        </c:forEach>
+                    </select>
               
                 </div>
             </div>
@@ -94,7 +96,11 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">活动类型</label>
                 <div class="col-sm-5">
-                	<s:select type="active_type"  name="activeType"  />
+                    <select type="active_type"  name="activeType"  >
+                        <c:forEach items="${dataDictionaryTypeList}" var="t">
+                            <option value="${t.dataId}">${t.dataContent}</option>
+                        </c:forEach>
+                    </select>
                 </div>
             </div>
         </div>
@@ -126,7 +132,11 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">预期反应</label>
                 <div class="col-sm-6">
-                	 <s:select type="active_refect_estimate"  name="activeRefectEstimate"  />
+                    <select type="active_refect_estimate"   name="activeRefectEstimate" >
+                        <c:forEach items="${dataDictionaryStudent_sate}" var="s">
+                            <option value="${s.dataId}">${s.dataContent}</option>
+                        </c:forEach>
+                    </select>
                 </div>
             </div>
         </div>

@@ -258,4 +258,54 @@
       email_state = #{emailState,jdbcType=VARCHAR}
     where email_id = #{emailId,jdbcType=INTEGER}
   </update>
+  <!--查询出邮箱信息相关 Strat-->
+  <resultMap id="getEmailInfoExRequestMap" type="com.jyw.model.EmailInfoEx">
+    <id column="email_id" property="emailId"/>
+    <result column="email_title" property="emailTitle"/>
+    <result column="email_content" property="emailContent"/>
+    <result column="email_time" property="emailTime"/>
+    <result column="email_man" property="emailMan"/>
+    <result column="email_addr" property="emailAddr"/>
+    <result column="email_state" property="emailState"/>
+    <association property="staffInfo" javaType="com.jyw.model.StaffInfo">
+        <id column="staff_id" property="staffId"/>
+        <result column="staff_name" property="staffName"/>
+    </association>
+  </resultMap>
+  <select id="getAllEmailInfoEx" resultMap="getEmailInfoExRequestMap" parameterType="com.jyw.model.EmailInfoEx">
+SELECT
+email_info.staff_id ,
+email_info.email_id,
+email_info.email_title,
+email_info.email_content,
+email_info.email_time,
+email_info.email_man,
+email_info.email_addr,
+email_info.email_state,
+staff_info.staff_name
+FROM
+email_info
+INNER JOIN staff_info ON email_info.staff_id = staff_info.staff_id
+    <where>
+      <if test="emailTitle!=''and emailTitle!=null">
+        AND email_info.email_title LIKE '%${emailTitle}%'
+      </if>
+      <if test="emailId!=0 and emailId!=null ">
+        AND email_info.email_id=${emailId}
+      </if>
+
+          <if test="staffInfo!=null">
+            <if test="staffInfo.staffName!=null and staffInfo.staffName!=''">
+              <!--收信人登入者-->
+              AND (email_info.email_man=#{staffInfo.staffName}
+            </if>
+              <!--发信人的id为登入者-->
+            <if test="staffInfo.staffId!=null and staffInfo.staffId!=0">
+              OR email_info.staff_id=${staffInfo.staffId})
+            </if>
+          </if>
+    </where>
+  </select>
+  <!--end-->
+
 </mapper>

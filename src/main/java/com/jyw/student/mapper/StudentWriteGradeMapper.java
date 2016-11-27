@@ -4,6 +4,8 @@ package com.jyw.student.mapper;
 import com.jyw.model.StudentWriteGrade;
 import com.jyw.model.StudentWriteGradeCriteria;
 import java.util.List;
+
+import com.jyw.model.StudentWriteGradeEx;
 import org.apache.ibatis.annotations.Param;
 
 public interface StudentWriteGradeMapper {
@@ -74,4 +76,8 @@ public interface StudentWriteGradeMapper {
      * @param record
      */
     int updateByPrimaryKey(StudentWriteGrade record);
+    /**
+     * 通过条件获取学生成绩集合
+     */
+    List<StudentWriteGradeEx> Getstudentwritegrade ( StudentWriteGradeEx studentWriteGradeEx);
 }

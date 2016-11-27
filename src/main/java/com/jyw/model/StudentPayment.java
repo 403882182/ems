@@ -66,6 +66,7 @@ public class StudentPayment implements Serializable {
      */
     private String paymentRemark;
 
+    private StudentInfo studentInfo;
     /** 
      * 构造查询条件
      */
@@ -83,13 +84,20 @@ public class StudentPayment implements Serializable {
         this.paymentRemark = paymentRemark;
     }
 
-    /** 
+    /**
      * 构造查询条件
      */
     public StudentPayment() {
         super();
     }
 
+    public void setStudentInfo(StudentInfo studentInfo) {
+        this.studentInfo = studentInfo;
+    }
+
+    public StudentInfo getStudentInfo() {
+        return studentInfo;
+    }
     /** 
      * 获取 缴费编号 student_payment.payment_id
      * @return 缴费编号

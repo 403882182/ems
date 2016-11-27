@@ -4,6 +4,8 @@ package com.jyw.student.mapper;
 import com.jyw.model.EvaluationInfo;
 import com.jyw.model.EvaluationInfoCriteria;
 import java.util.List;
+
+import com.jyw.model.EvaluationInfoEx;
 import org.apache.ibatis.annotations.Param;
 
 public interface EvaluationInfoMapper {
@@ -74,4 +76,6 @@ public interface EvaluationInfoMapper {
      * @param record
      */
     int updateByPrimaryKey(EvaluationInfo record);
+
+    List<EvaluationInfoEx> selectAllEvaluation(EvaluationInfoEx evaluationInfoEx);
 }

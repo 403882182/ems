@@ -26,4 +26,6 @@ public interface AuditionInfoService {
     int insert(AuditionInfo record);
 
     int insertSelective(AuditionInfo record);
+
+    List<AuditionInfo> getAuditionList(String name,AuditionInfo info,Integer staffId);
 }

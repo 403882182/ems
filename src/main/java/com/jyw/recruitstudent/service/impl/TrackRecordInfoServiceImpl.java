@@ -4,11 +4,15 @@ import com.jyw.recruitstudent.mapper.TrackRecordInfoMapper;
 import com.jyw.model.TrackRecordInfo;
 import com.jyw.model.TrackRecordInfoCriteria;
 import com.jyw.recruitstudent.service.TrackRecordInfoService;
+
 import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 @Service
 public class TrackRecordInfoServiceImpl implements TrackRecordInfoService {
@@ -18,7 +22,7 @@ public class TrackRecordInfoServiceImpl implements TrackRecordInfoService {
     private static final Logger logger = LoggerFactory.getLogger(TrackRecordInfoServiceImpl.class);
 
     public int countByExample(TrackRecordInfoCriteria example) {
-        int count = (int)this.trackRecordInfoMapper.countByExample(example);
+        int count = (int) this.trackRecordInfoMapper.countByExample(example);
         logger.debug("count: {}", count);
         return count;
     }
@@ -61,5 +65,13 @@ public class TrackRecordInfoServiceImpl implements TrackRecordInfoService {
 
     public int insertSelective(TrackRecordInfo record) {
         return this.trackRecordInfoMapper.insertSelective(record);
+    }
+
+    public List<TrackRecordInfo> selectByTrackRecordInfo(String name, TrackRecordInfo trackRecordInfo,Integer staffId) {
+        return this.trackRecordInfoMapper.selectByTrackRecordInfo(name, trackRecordInfo,staffId);
+    }
+
+    public List<TrackRecordInfo> selectByStudentId(TrackRecordInfo trackRecordInfo) {
+        return this.trackRecordInfoMapper.selectByStudentId(trackRecordInfo);
     }
 }

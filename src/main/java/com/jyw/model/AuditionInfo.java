@@ -41,7 +41,24 @@ public class AuditionInfo implements Serializable {
      */
     private String auditionDesc;
 
-    /** 
+    /**
+     * 学生对象，获取学员姓名
+     */
+    private StudentInfo studentInfo;
+
+    /**
+     * get,set方法
+     * @return
+     */
+    public StudentInfo getStudentInfo() {
+        return studentInfo;
+    }
+
+    public void setStudentInfo(StudentInfo studentInfo) {
+        this.studentInfo = studentInfo;
+    }
+
+    /**
      * 构造查询条件
      */
     public AuditionInfo(Integer auditionId, Integer studentId, Date auditionTime, String auditionAddr, String auditionCourse, String auditionDesc) {

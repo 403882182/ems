@@ -6,6 +6,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>    
+<%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
 <!doctype html>
 <html>
 <head>

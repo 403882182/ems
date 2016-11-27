@@ -4,6 +4,9 @@ package com.jyw.marketing.mapper;
 import com.jyw.model.EmailInfo;
 import com.jyw.model.EmailInfoCriteria;
 import java.util.List;
+
+import com.jyw.model.EmailInfoEx;
+import com.jyw.model.StaffInfo;
 import org.apache.ibatis.annotations.Param;
 
 public interface EmailInfoMapper {
@@ -74,4 +77,9 @@ public interface EmailInfoMapper {
      * @param record
      */
     int updateByPrimaryKey(EmailInfo record);
+
+    /**
+     * 获取邮箱封装类信息
+     */
+    List<EmailInfoEx> getAllEmailInfoEx(EmailInfoEx mailInfoEx);
 }

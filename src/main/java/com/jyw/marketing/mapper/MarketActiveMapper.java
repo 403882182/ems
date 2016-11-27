@@ -4,6 +4,8 @@ package com.jyw.marketing.mapper;
 import com.jyw.model.MarketActive;
 import com.jyw.model.MarketActiveCriteria;
 import java.util.List;
+
+import com.jyw.model.MarketActiveEx;
 import org.apache.ibatis.annotations.Param;
 
 public interface MarketActiveMapper {
@@ -74,4 +76,6 @@ public interface MarketActiveMapper {
      * @param record
      */
     int updateByPrimaryKey(MarketActive record);
+    //获取活动信息
+   List<MarketActiveEx> selectAllMarketActionEx(MarketActiveEx marketActiveEx);
 }

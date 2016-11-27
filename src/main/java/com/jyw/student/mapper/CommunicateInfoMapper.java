@@ -4,6 +4,9 @@ package com.jyw.student.mapper;
 import com.jyw.model.CommunicateInfo;
 import com.jyw.model.CommunicateInfoCriteria;
 import java.util.List;
+
+import com.jyw.model.CommunicateInfoEx;
+import com.jyw.model.StudentInfo;
 import org.apache.ibatis.annotations.Param;
 
 public interface CommunicateInfoMapper {
@@ -74,4 +77,18 @@ public interface CommunicateInfoMapper {
      * @param record
      */
     int updateByPrimaryKey(CommunicateInfo record);
+
+    /**
+     * 获取所有的咨询信息
+     * @param communicateInfoEx
+     * @return
+     */
+    List<CommunicateInfoEx> selectAllCommunicateInfo(CommunicateInfoEx communicateInfoEx);
+
+    /**
+     * 获取负责人的负责的学生
+     * @param staffId
+     * @return
+     */
+    List<StudentInfo> GetStdentBystaffId(Integer staffId);
 }

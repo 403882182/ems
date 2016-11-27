@@ -12,9 +12,23 @@
 <base href="<%=basePath%>">
 <title>登录</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="resources/css/jquery.mobile-1.3.2.min.css" rel="stylesheet">
-<script src="resources/js/jquery-1.8.3.min.js"></script>
-<script src="resources/js/jquery.mobile-1.3.2.min.js"></script>
+<link href="${pageContext.request.contextPath}/resources/css/jquery.mobile-1.3.2.min.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/resources/js/jquery-1.8.3.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery.mobile-1.3.2.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery.form.js"></script>
+    <script type="text/javascript">
+            $(function () {
+                $("#f").submit(function () {
+                    $(this).ajaxSubmit({
+                        dataType:"text",
+                        success:function (data) {
+                            alert(data)
+                        }
+                    });
+                    return false;
+                })
+            })
+    </script>
 </head>
 <body>
 
@@ -27,7 +41,7 @@
 
   </div>
          <div data-role="content">
-        		<form action="<%=basePath%>evaluationphone/add.do" data-ajax="false" method="get">
+        		<form action="<%=basePath%>studentphone/add.do" data-ajax="false" method="get" id="f">
                 	<div data-role="fieldcontain">
                 	<label for="evaluationTitle">主题:</label>
                     <input type="text" id="evaluationTitle" placeholder="请输入主题" name="evaluationTitle"/>
@@ -41,7 +55,7 @@
                     
                     </div>
                     
-                	<input type="submit" value="添加评价"/>
+                	<input type="submit" value="添加评价" id="s"/>
                 </form>
         </div>
   <div data-role="footer" data-position="fixed">

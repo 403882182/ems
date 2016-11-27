@@ -6,6 +6,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>    
+<%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
 <!doctype html>
 <html>
 <head>
@@ -31,7 +32,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">发送人</label>
                 <div class="col-sm-9">
-                	<p class="form-control-static">${emailInfo.staffName }</p>
+                	<p class="form-control-static">${emailInfo.staffInfo.staffName }</p>
                 </div>
             </div>
         </div>

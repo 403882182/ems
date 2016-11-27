@@ -62,4 +62,6 @@ public class AuditionInfoServiceImpl implements AuditionInfoService {
     public int insertSelective(AuditionInfo record) {
         return this.auditionInfoMapper.insertSelective(record);
     }
+
+    public List<AuditionInfo> getAuditionList(String name,AuditionInfo info,Integer staffId){return this.auditionInfoMapper.getAuditionList(name,info,staffId);}
 }

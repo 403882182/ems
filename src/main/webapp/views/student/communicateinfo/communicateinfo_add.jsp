@@ -11,10 +11,11 @@
 <!doctype html>
 <html>
 <head>
-<base href="<%=basePath%>">
-<title>管理</title>
+    <base href="<%=basePath%>">
+    <title>沟通记录管理</title>
     <jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
-    <script  type="text/javascript" src="resources/My97DatePicker/WdatePicker.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/My97DatePicker/WdatePicker.js"></script>
+
 </head>
 <body>
 <div style="padding:0px; margin:0px;">
@@ -42,7 +43,7 @@
             	<label class="col-sm-3 control-label">学员</label>
                 <div class="col-sm-9">
                 	 <select name="studentId" class="form-control input-sm">
-               				<c:forEach items="${stulist }" var="stu">
+               				<c:forEach items="${stulist}" var="stu">
                					<option value="${stu.studentId }">${stu.studentName }</option>
                				</c:forEach>
                			</select>

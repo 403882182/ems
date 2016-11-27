@@ -6,7 +6,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>    
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="s" uri="http://jyw.com" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
@@ -14,8 +14,13 @@
 <head>
 <base href="<%=basePath%>">
 <title>c</title>
-    <jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
-    <script  type="text/javascript" src="resources/My97DatePicker/WdatePicker.js"></script>
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="resources/css/bootstrap.min.css">
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="resources/js/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="resources/js/bootstrap.min.js"></script>
+<script  type="text/javascript" src="resources/My97DatePicker/WdatePicker.js"></script>
 </head>
 <body>
 
@@ -199,9 +204,10 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">意向状态</label>
                 <div class="col-sm-6">
-                 <p class="form-control-static"><s:dataname dataId="${stuinfo.studentSate }"/></p>
-                	
+                    <p class="form-control-static"><s:dataname dataId="${stuinfo.studentSate }"/></p>
+
                 </div>
+
             </div>
         </div>
     </div>
@@ -242,12 +248,12 @@
 	        			<tr>
 	        				<td>${stuinfo.studentName }</td>
 	        				<td>${payment.paymentSituation }</td>
-	        				<td>${payment.paymentTime }</td>
+	        				<td><fmt:formatDate value="${payment.paymentTime }"/></td>
 	        				<td>${payment.shouldAmount }</td>
 	        				<td>${payment.discountAmount }</td>
 	        				<td>${payment.realAmount }</td>
 	        				<td>${payment.debtAmount }</td>
-	        				<td><a href="studentpayment/delete.do?paymentId=${payment.paymentId }">删除缴费</a></td>
+	        				<td><a href="studentpayment/delete/${payment.paymentId }">删除缴费</a></td>
 	        			</tr>
 	        		</c:forEach>
 	        	</table>
@@ -256,7 +262,7 @@
    	    </div>
    	<div class="row">
     	<div class="col-sm-9 ">
- 			 <a class="btn btn-warning" href="studentpayment/list.do">返回上一级</a>
+ 			 <a class="btn btn-warning" href="studentpayment/list">返回上一级</a>
         </div>
     </div>
 </form>

@@ -2,6 +2,8 @@ package com.jyw.marketing.service;
 
 import com.jyw.model.MarketActive;
 import com.jyw.model.MarketActiveCriteria;
+import com.jyw.model.MarketActiveEx;
+
 import java.util.List;
 
 public interface MarketActiveService {
@@ -26,4 +28,6 @@ public interface MarketActiveService {
     int insert(MarketActive record);
 
     int insertSelective(MarketActive record);
+
+    List<MarketActiveEx> selectAllMarketActionEx(MarketActiveEx marketActiveEx);
 }

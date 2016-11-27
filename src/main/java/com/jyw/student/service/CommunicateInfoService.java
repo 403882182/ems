@@ -2,6 +2,9 @@ package com.jyw.student.service;
 
 import com.jyw.model.CommunicateInfo;
 import com.jyw.model.CommunicateInfoCriteria;
+import com.jyw.model.CommunicateInfoEx;
+import com.jyw.model.StudentInfo;
+
 import java.util.List;
 
 public interface CommunicateInfoService {
@@ -26,4 +29,8 @@ public interface CommunicateInfoService {
     int insert(CommunicateInfo record);
 
     int insertSelective(CommunicateInfo record);
+
+    List<CommunicateInfoEx> selectAllCommunicateInfo(CommunicateInfoEx communicateInfoEx);
+
+    List<StudentInfo> GetStdentBystaffId(Integer staffId);
 }

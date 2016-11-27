@@ -6,13 +6,14 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>    
+<%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html>
 <head>
 <base href="<%=basePath%>">
 <title>短信管理</title>
-    <jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
+	<jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
 <script type="text/javascript">
 
 	function setText(obj){

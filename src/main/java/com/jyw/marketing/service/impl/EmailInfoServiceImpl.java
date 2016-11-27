@@ -5,6 +5,9 @@ import com.jyw.model.EmailInfo;
 import com.jyw.model.EmailInfoCriteria;
 import com.jyw.marketing.service.EmailInfoService;
 import java.util.List;
+
+import com.jyw.model.EmailInfoEx;
+import com.jyw.model.StaffInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,5 +64,15 @@ public class EmailInfoServiceImpl implements EmailInfoService {
 
     public int insertSelective(EmailInfo record) {
         return this.emailInfoMapper.insertSelective(record);
+    }
+
+    /**
+     * 获取Emial的封装信息
+     * @return
+     */
+    @Override
+    public List<EmailInfoEx> getAllEmailInfoEx(EmailInfoEx emailInfoEx)
+    {
+        return this.emailInfoMapper.getAllEmailInfoEx(emailInfoEx);
     }
 }

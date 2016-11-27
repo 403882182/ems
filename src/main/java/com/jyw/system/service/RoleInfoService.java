@@ -26,4 +26,11 @@ public interface RoleInfoService {
     int insert(RoleInfo record);
 
     int insertSelective(RoleInfo record);
+
+    /**
+     * 根据角色信息获取员工列表
+     * @param record
+     * @return
+     */
+    List<RoleInfo> getRoleInfoList(RoleInfo record);
 }

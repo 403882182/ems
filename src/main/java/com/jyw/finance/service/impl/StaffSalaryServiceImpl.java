@@ -10,12 +10,24 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 @Service
 public class StaffSalaryServiceImpl implements StaffSalaryService {
-    @Autowired
+    @Resource(name="staffSalaryMapper")
     private StaffSalaryMapper staffSalaryMapper;
 
     private static final Logger logger = LoggerFactory.getLogger(StaffSalaryServiceImpl.class);
+
+    public List<StaffSalary> getStaffSalaryList(String staffName){
+        return staffSalaryMapper.getStaffSalaryList(staffName);
+    }
+
+    public List<StaffSalary> selectByName(String staffName){
+       return staffSalaryMapper.selectByName(staffName);
+    }
+
+
 
     public int countByExample(StaffSalaryCriteria example) {
         int count = (int)this.staffSalaryMapper.countByExample(example);

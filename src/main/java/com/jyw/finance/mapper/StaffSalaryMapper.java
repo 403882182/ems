@@ -7,7 +7,11 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface StaffSalaryMapper {
-    /** 
+
+    List<StaffSalary> selectByName(@Param("staffName")String staffName);
+
+    List<StaffSalary> getStaffSalaryList(@Param("staffName")String staffName);
+    /**
      * 根据指定的条件获取数据库记录数
      * @param example
      */

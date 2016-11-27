@@ -13,6 +13,7 @@
 <base href="<%=basePath%>">
 <title>员工管理</title>
     <jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
+
 </head>
 <body>
 
@@ -24,12 +25,12 @@
     </ul>
 </div>
 
-<form action="" class="form-horizontal">
+<form action="" class="form-horizontal"  method="post">
    	<div class="row">
     	<div class="col-sm-5 col-sm-offset-4">
-        	<a href="teacher/load.do?staffId=${staffInfo.staffId }" class="btn btn-success" >修改</a>
-        	<a href="teacher/delete.do?staffId=${staffInfo.staffId }" class="btn btn-success" >修改</a>
-            <a href="teacher/list.do" class="btn btn-warning">返回上一级</a>
+        	<a href="/staffInfo/selectById/${staffInfo.staffId }" class="btn btn-success" >修改</a>
+        	<a href="/staffInfo/delete/${staffInfo.staffId }" class="btn btn-success" onclick="confirm('确定删除吗')">删除</a>
+            <a href="/staffInfo/list" class="btn btn-warning">返回上一级</a>
         </div>
     </div>
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
@@ -217,9 +218,7 @@
     </div>
    	<div class="row">
     	<div class="col-sm-5 col-sm-offset-4">
-          	<a href="staffinfo_update.html" class="btn btn-success" >修改</a>
-            <input  type="reset" class="btn  btn-danger" value="删除"/>
-             <a href="teacher/list.do" class="btn btn-warning">返回上一级</a>
+             <a href="/staffInfo/list" class="btn btn-warning">返回上一级</a>
         </div>
     </div>
 </form>

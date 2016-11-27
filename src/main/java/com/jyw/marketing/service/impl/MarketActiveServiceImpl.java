@@ -5,6 +5,8 @@ import com.jyw.model.MarketActive;
 import com.jyw.model.MarketActiveCriteria;
 import com.jyw.marketing.service.MarketActiveService;
 import java.util.List;
+
+import com.jyw.model.MarketActiveEx;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,5 +63,10 @@ public class MarketActiveServiceImpl implements MarketActiveService {
 
     public int insertSelective(MarketActive record) {
         return this.marketActiveMapper.insertSelective(record);
+    }
+
+    @Override
+    public List<MarketActiveEx> selectAllMarketActionEx(MarketActiveEx marketActiveEx) {
+        return this.marketActiveMapper.selectAllMarketActionEx(marketActiveEx);
     }
 }

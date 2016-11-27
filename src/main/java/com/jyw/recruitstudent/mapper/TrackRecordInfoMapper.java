@@ -74,4 +74,14 @@ public interface TrackRecordInfoMapper {
      * @param record
      */
     int updateByPrimaryKey(TrackRecordInfo record);
+
+    /**
+     * 三表查询跟踪记录
+     */
+    List<TrackRecordInfo> selectByTrackRecordInfo(@Param("studentName") String name,@Param("enrollment") TrackRecordInfo trackRecordInfo,@Param("staffId") Integer staffId);
+
+    /**
+     * 根据学员id来查
+     */
+    List<TrackRecordInfo> selectByStudentId(@Param("track") TrackRecordInfo trackRecordInfo);
 }

@@ -21,6 +21,7 @@ public class StaffInfo implements Serializable {
      */
     private Integer roleId;
 
+    private RoleInfo roleInfo;
     /** 
      * 员工姓名
      */
@@ -170,7 +171,15 @@ public class StaffInfo implements Serializable {
         this.roleId = roleId;
     }
 
-    /** 
+    public RoleInfo getRoleInfo() {
+        return roleInfo;
+    }
+
+    public void setRoleInfo(RoleInfo roleInfo) {
+        this.roleInfo = roleInfo;
+    }
+
+    /**
      * 获取 员工姓名 staff_info.staff_name
      * @return 员工姓名
      */

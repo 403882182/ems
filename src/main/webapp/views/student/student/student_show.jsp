@@ -12,10 +12,9 @@
 <!doctype html>
 <html>
 <head>
-<base href="<%=basePath%>">
-<title>c</title>
+	<base href="<%=basePath%>">
+	<title>学员管理</title>
 	<jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
-	<script  type="text/javascript" src="resources/My97DatePicker/WdatePicker.js"></script>
 </head>
 <body>
 
@@ -27,7 +26,7 @@
     </ul>
 </div>
 
-<form action="" class="form-horizontal">
+<form action="" class="form-horizontal"  method="post">
    	<div class="row">
     	<div class="col-sm-9 col-sm-offset-2">
     	<a class="btn btn-danger" href="student/delete.do?studentId=${stuinfo.studentId }">删除学员信息</a>
@@ -225,8 +224,8 @@
 	        		</tr>
 	        		<c:forEach items="${swglist }" var="swg">
 	        			<tr>
-	        				<td>${swg.studentName }</td>
-	        				<td>${swg.staffName }</td>
+	        				<td>${swg.studentInfo.studentName }</td>
+	        				<td>${swg.staffInfo.staffName }</td>
 	        				<td>${swg.writeGradeSubject }</td>
 	        				<td>${swg.writeGrade }</td>
 	        				<td><fmt:formatDate value="${swg.writeGradeTime }"/></td>
@@ -250,8 +249,8 @@
 	        		</tr>
 	        		<c:forEach items="${commlist }" var="comm">
 	        			<tr>
-	        				<td>${comm.studentName }</td>
-	        				<td>${comm.staffName }</td>
+	        				<td>${comm.studentInfo.studentName }</td>
+	        				<td>${comm.staffInfo.staffName }</td>
 	        				<td>${comm.communicateContent }</td>
 	        				<td><fmt:formatDate value="${comm.communicateTime }"/></td>
 	        				
@@ -276,7 +275,7 @@
 	        		</tr>
 	        		<c:forEach items="${evaluationlist }" var="evaluation">
 	        			<tr>
-	        				<td>${evaluation.studentName }</td>
+	        				<td>${evaluation.studentInfo.studentName }</td>
 	        				<td>${evaluation.evaluationTitle }</td>
 	        				<td>${evaluation.evaluationContent }</td>
 	        				<td>${evaluation.evaluationCourse }</td>
@@ -304,7 +303,7 @@
 	        			<tr>
 	        				<td>${track.trackRecordTitle }</td>
 	        				<td>${track.trackRecordContent }</td>
-	        				<td>${track.dataContent }</td>
+	        				<td>${track.dataDictionary.dataContent }</td>
 	        				<td><fmt:formatDate value="${track.trackRecordTime }"/></td>
 	        				<td><fmt:formatDate value="${track.nextRecordTime }"/></td>
 	        			</tr>

@@ -6,16 +6,16 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>    
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="s" uri="http://jyw.com" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html>
 <head>
-<base href="<%=basePath%>">
-<title>c</title>
+    <base href="<%=basePath%>">
+    <title>学员池</title>
     <jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
-    <script  type="text/javascript" src="resources/My97DatePicker/WdatePicker.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/My97DatePicker/WdatePicker.js"></script>
 </head>
 <body>
 
@@ -27,7 +27,7 @@
     </ul>
 </div>
 
-<form action="" class="form-horizontal">
+<form action="" class="form-horizontal" method="post">
    	<div class="row">
     	<div class="col-sm-6 col-sm-offset-2">
         	<a class="btn btn-info" href="studentpool/load.do?studentId=${stuinfo.studentId }">修改学员信息</a>

@@ -62,4 +62,9 @@ public class RoleInfoServiceImpl implements RoleInfoService {
     public int insertSelective(RoleInfo record) {
         return this.roleInfoMapper.insertSelective(record);
     }
+
+    @Override
+    public List<RoleInfo> getRoleInfoList(RoleInfo record) {
+        return roleInfoMapper.getRoleInfoList(record);
+    }
 }

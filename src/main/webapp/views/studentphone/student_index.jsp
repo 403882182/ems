@@ -12,27 +12,27 @@
 <base href="<%=basePath%>">
 <title>登录</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="resources/css/jquery.mobile-1.3.2.min.css" rel="stylesheet">
-<script src="resources/js/jquery-1.8.3.min.js"></script>
-<script src="resources/js/jquery.mobile-1.3.2.min.js"></script>
+<link href="${pageContext.request.contextPath}/resources/css/jquery.mobile-1.3.2.min.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/resources/js/jquery-1.8.3.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery.mobile-1.3.2.min.js"></script>
 </head>
 <body>
 <div data-role="page">
 
   <div data-role="header">
       <a href="<%=basePath%>view/studentphone/student_index.jsp"  data-ajax="false" data-role="button">首页</a>
-      <h1>${stuinfo.studentName }，欢迎您</h1>
+      <h1>${sessionScope.stuinfo.studentName }，欢迎您</h1>
       <a href="<%=basePath%>studentphone/loadlogin.do"  data-ajax="false" data-role="button">退出</a>
   </div>
     <div data-role="content">
         
            <div class="ui-grid-a">
-               <div class="ui-block-a"><a href="studentscore/list.do?studentId=${stuinfo.studentId }" data-ajax="false" data-role="button"><img src="<%=basePath%>resources/img/ckcj.png" width="100%" height="100%"/></a></div>
-               <div class="ui-block-b"><a href="studentphone/studentpayment/list.do?studentId=${stuinfo.studentId }" data-ajax="false" data-role="button"><img src="<%=basePath%>resources/img/jfxx.png" width="100%" height="100%"/></a></div>
+               <div class="ui-block-a"><a href="studentscore/studentWriteGrade/${stuinfo.studentId }" data-ajax="false" data-role="button"><img src="<%=basePath%>resources/img/ckcj.png" width="100%" height="100%"/></a></div>
+               <div class="ui-block-b"><a href="studentphone/studentpayment/${stuinfo.studentId }" data-ajax="false" data-role="button"><img src="<%=basePath%>resources/img/jfxx.png" width="100%" height="100%"/></a></div>
            </div>
               <div class="ui-grid-a">
-               <div class="ui-block-a"><a href="evaluationphone/list.do?studentId=${stuinfo.studentId }" data-ajax="false" data-role="button"><img src="<%=basePath%>resources/img/pjxx.png" width="100%" height="100%"/></a></div>
-               <div class="ui-block-b"><a href="view/studentphone/student_info.jsp" data-ajax="false" data-role="button"><img src="<%=basePath%>resources/img/grxx.png" width="100%" height="100%"/></a></div>
+               <div class="ui-block-a"><a href="studentphone/list.do/${stuinfo.studentId }" data-ajax="false" data-role="button"><img src="<%=basePath%>resources/img/pjxx.png" width="100%" height="100%"/></a></div>
+               <div class="ui-block-b"><a href="studentphone/info" data-ajax="false" data-role="button"><img src="<%=basePath%>resources/img/grxx.png" width="100%" height="100%"/></a></div>
            </div>	
     </div>
   <div data-role="footer" data-position="fixed">
@@ -40,7 +40,5 @@
   </div>
 
 </div>
-<body>
-
 </body>
 </html>

@@ -10,7 +10,6 @@ import java.util.Date;
 */
 public class StaffSalary implements Serializable {
     private static final long serialVersionUID = 1L;
-
     /** 
      * 员工薪水编号
      */
@@ -25,7 +24,8 @@ public class StaffSalary implements Serializable {
      * 财务人员
      */
     private Integer staStaffId;
-
+    //财务人员
+    private String  financeName;
     /** 
      * 本月薪水
      */
@@ -55,11 +55,12 @@ public class StaffSalary implements Serializable {
      * 备注信息
      */
     private String staffRemark;
-
+    private StaffInfo staffInfo;
+    private String url;
     /** 
      * 构造查询条件
      */
-    public StaffSalary(Integer staffSalaryId, Integer staffId, Integer staStaffId, Double totalSalary, Double deductSalary, Double realSalary, String isUesd, Date staffSalaryTime, String staffRemark) {
+    public StaffSalary(String url,String financeName,Integer staffSalaryId, Integer staffId, Integer staStaffId, Double totalSalary, Double deductSalary, Double realSalary, String isUesd, Date staffSalaryTime, String staffRemark) {
         this.staffSalaryId = staffSalaryId;
         this.staffId = staffId;
         this.staStaffId = staStaffId;
@@ -69,6 +70,8 @@ public class StaffSalary implements Serializable {
         this.isUesd = isUesd;
         this.staffSalaryTime = staffSalaryTime;
         this.staffRemark = staffRemark;
+        this.url=url;
+        this.financeName=financeName;
     }
 
     /** 
@@ -78,7 +81,31 @@ public class StaffSalary implements Serializable {
         super();
     }
 
-    /** 
+    public void setFinanceName(String financeName) {
+        this.financeName = financeName;
+    }
+
+    public String getFinanceName() {
+        return financeName;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setStaffInfo(StaffInfo staffInfo) {
+        this.staffInfo = staffInfo;
+    }
+
+    public StaffInfo getStaffInfo() {
+        return staffInfo;
+    }
+
+    /**
      * 获取 员工薪水编号 staff_salary.staff_salary_id
      * @return 员工薪水编号
      */

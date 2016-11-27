@@ -6,17 +6,19 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>    
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
-
-<%@ taglib prefix="s" uri="http://jyw.com" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
 <!doctype html>
 <html>
 <head>
 <base href="<%=basePath%>">
-<title>c</title>
+<title>营销活动</title>
     <jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
-    <script  type="text/javascript" src="resources/My97DatePicker/WdatePicker.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/My97DatePicker/WdatePicker.js"></script>
+
 <script type="text/javascript">
 
 	function setText(obj){
@@ -41,6 +43,7 @@
 </div>
 
 <form action="marketactive/update.do" method="post" class="form-horizontal">
+    <input type="hidden" name="_method" value="PUT"/>
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
 	<div class="row">
     	<div class="col-sm-5">
@@ -74,9 +77,15 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">活动状态</label>
                 <div class="col-sm-5">
-                <s:select type="active_state"  name="activeState" selectedId="${market.activeState }"  />
-                
-              
+                <select type="active_state" name="activeState">
+                    <c:forEach items="${dataDictionaryStateList}" var="s" >
+
+                            <c:if test="${s.dataId eq market.dataDictionary.dataId}">
+                            <option value="${s.dataId}" selected="selected">${s.dataContent}</option>
+                            </c:if>
+                                <option value="${s.dataId}">${s.dataContent}</option>
+                    </c:forEach>
+                    </select>
                 </div>
             </div>
         </div>
@@ -96,7 +105,14 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">活动类型</label>
                 <div class="col-sm-5">
-                	<s:select type="active_type"  name="activeType"  selectedId="${market.activeType }" />
+                	<select type="active_type"  name="activeType"  >
+                        <c:forEach items="${dataDictionaryTypeList}" var="t">
+                            <c:if test="${t.dataId == market.activeType}">
+                                <option value="${t.dataId}" selected="selected">${t.dataContent}</option>
+                            </c:if>
+                            <option value="${t.dataId}">${t.dataContent}</option>
+                        </c:forEach>
+                        </select>
                 </div>
             </div>
         </div>
@@ -128,7 +144,14 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">预期反应</label>
                 <div class="col-sm-6">
-                	 <s:select type="active_refect_estimate"  name="activeRefectEstimate" selectedId="${market.activeRefectEstimate }"  />
+                	 <select type="active_refect_estimate"   name="activeRefectEstimate" selectedId="${market.activeRefectEstimate }" >
+                        <s:forEach items="${dataDictionaryStudent_sate}" var="s">
+                                <c:if test="${s.dataId == market.activeRefectEstimate}">
+                                    <option value="${s.dataId}" selected="selected">${s.dataContent}</option>
+                                </c:if>
+                            <option value="${s.dataId}">${s.dataContent}</option>
+                        </s:forEach>
+                         </select>
                 </div>
             </div>
         </div>
@@ -163,7 +186,5 @@
         </div>
     </div>
 </form>
-
-
 </body>
 </html>

@@ -12,9 +12,10 @@
 <html>
 <head>
 <base href="<%=basePath%>">
-<title>管理</title>
+<title>班级事务管理</title>
     <jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
-    <script  type="text/javascript" src="resources/My97DatePicker/WdatePicker.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/My97DatePicker/WdatePicker.js"></script>
+
 </head>
 <body>
 <div style="padding:0px; margin:0px;">
@@ -24,7 +25,7 @@
     </ul>
 </div>
 
-<form action="classtransactioninfo/update.do" method="post" class="form-horizontal">
+<form action="classtransactioninfo/updateByPrimaryKey" method="post" class="form-horizontal">
 
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
 	<div class="row">

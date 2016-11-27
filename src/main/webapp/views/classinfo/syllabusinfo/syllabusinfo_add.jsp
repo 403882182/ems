@@ -6,12 +6,12 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<%@ taglib prefix="s" uri="http://jyw.com" %>
+
 <!doctype html>
 <html>
 <head>
-<base href="<%=basePath%>">
-<title>管理</title>
+    <base href="<%=basePath%>">
+    <title>课程管理</title>
     <jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
 </head>
 <body>
@@ -24,7 +24,7 @@
     </ul>
 </div>
 
-<form action="syllabusinfo/add.do" method="post" class="form-horizontal">
+<form action="syllabusInfo/add" method="post" class="form-horizontal">
 
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
 	<div class="row">
@@ -123,7 +123,7 @@
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="保存"/>
 
-              <a class="btn btn-warning" href="syllabusinfo/list.do">返回上一级</a>
+              <a class="btn btn-warning" href="/syllabusInfo/list">返回上一级</a>
         </div>
     </div>
 </form>

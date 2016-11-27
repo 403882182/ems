@@ -1,5 +1,7 @@
 package com.jyw.student.service.impl;
 
+import com.jyw.model.CommunicateInfoEx;
+import com.jyw.model.StudentInfo;
 import com.jyw.student.mapper.CommunicateInfoMapper;
 import com.jyw.model.CommunicateInfo;
 import com.jyw.model.CommunicateInfoCriteria;
@@ -62,4 +64,13 @@ public class CommunicateInfoServiceImpl implements CommunicateInfoService {
     public int insertSelective(CommunicateInfo record) {
         return this.communicateInfoMapper.insertSelective(record);
     }
+
+    @Override
+    public List<CommunicateInfoEx> selectAllCommunicateInfo(CommunicateInfoEx communicateInfoEx){
+        return  this.communicateInfoMapper.selectAllCommunicateInfo(communicateInfoEx);
+    }
+    @Override
+  public   List<StudentInfo> GetStdentBystaffId(Integer staffId){
+      return  this.communicateInfoMapper.GetStdentBystaffId(staffId);
+  }
 }

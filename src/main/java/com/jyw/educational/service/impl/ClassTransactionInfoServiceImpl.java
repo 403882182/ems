@@ -1,6 +1,7 @@
 package com.jyw.educational.service.impl;
 
 import com.jyw.educational.mapper.ClassTransactionInfoMapper;
+import com.jyw.model.ClassInfo;
 import com.jyw.model.ClassTransactionInfo;
 import com.jyw.model.ClassTransactionInfoCriteria;
 import com.jyw.educational.service.ClassTransactionInfoService;
@@ -27,11 +28,29 @@ public class ClassTransactionInfoServiceImpl implements ClassTransactionInfoServ
         return this.classTransactionInfoMapper.selectByPrimaryKey(classTransactionId);
     }
 
-    public List<ClassTransactionInfo> selectByExample(ClassTransactionInfoCriteria example) {
-        return this.classTransactionInfoMapper.selectByExample(example);
+    /***
+     * 查询所有班级事务
+     * @param class_transaction_title
+     * @return
+     */
+    public List<ClassTransactionInfo> selectTransactionInfo(String class_transaction_title) {
+        return this.classTransactionInfoMapper.selectTransactionInfo(class_transaction_title);
     }
 
-    public int deleteByPrimaryKey(Integer classTransactionId) {
+    /**
+     * 查询班级信息
+     * @return
+     */
+    public List<ClassInfo> selectClassInfo(){
+        return  this.classTransactionInfoMapper.selectClassInfo();
+    }
+
+    /**
+     * 删除班级事务
+     * @param classTransactionId
+     * @return
+     */
+   public int deleteByPrimaryKey(Integer classTransactionId) {
         return this.classTransactionInfoMapper.deleteByPrimaryKey(classTransactionId);
     }
 
@@ -39,6 +58,11 @@ public class ClassTransactionInfoServiceImpl implements ClassTransactionInfoServ
         return this.classTransactionInfoMapper.updateByPrimaryKeySelective(record);
     }
 
+    /**
+     * 修改班级事务
+     * @param record
+     * @return
+     */
     public int updateByPrimaryKey(ClassTransactionInfo record) {
         return this.classTransactionInfoMapper.updateByPrimaryKey(record);
     }
@@ -55,6 +79,11 @@ public class ClassTransactionInfoServiceImpl implements ClassTransactionInfoServ
         return this.classTransactionInfoMapper.updateByExample(record, example);
     }
 
+    /**
+     * 添加班级事务信息
+     * @param record
+     * @return
+     */
     public int insert(ClassTransactionInfo record) {
         return this.classTransactionInfoMapper.insert(record);
     }

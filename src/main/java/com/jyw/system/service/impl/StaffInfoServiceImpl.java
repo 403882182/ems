@@ -62,4 +62,10 @@ public class StaffInfoServiceImpl implements StaffInfoService {
     public int insertSelective(StaffInfo record) {
         return this.staffInfoMapper.insertSelective(record);
     }
+
+    @Override
+    public List<StaffInfo> getStaffList(StaffInfo record) {
+        return this.staffInfoMapper.getStaffInfoList(record);
+    }
+
 }

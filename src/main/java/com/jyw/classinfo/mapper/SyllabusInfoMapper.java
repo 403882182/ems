@@ -43,6 +43,7 @@ public interface SyllabusInfoMapper {
      */
     List<SyllabusInfo> selectByExample(SyllabusInfoCriteria example);
 
+
     /** 
      * 根据指定主键获取一条数据库记录
      * @param syllabusId

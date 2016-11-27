@@ -2,6 +2,8 @@ package com.jyw.student.service;
 
 import com.jyw.model.EvaluationInfo;
 import com.jyw.model.EvaluationInfoCriteria;
+import com.jyw.model.EvaluationInfoEx;
+
 import java.util.List;
 
 public interface EvaluationInfoService {
@@ -26,4 +28,6 @@ public interface EvaluationInfoService {
     int insert(EvaluationInfo record);
 
     int insertSelective(EvaluationInfo record);
+
+    List<EvaluationInfoEx> selectAllEvaluation(EvaluationInfoEx evaluationInfoEx);
 }

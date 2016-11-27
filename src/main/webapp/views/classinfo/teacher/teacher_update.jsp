@@ -13,7 +13,8 @@
 <base href="<%=basePath%>">
 <title>员工管理</title>
     <jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
-    <script  type="text/javascript" src="resources/My97DatePicker/WdatePicker.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/My97DatePicker/WdatePicker.js"></script>
+
 </head>
 <body>
 
@@ -25,13 +26,13 @@
     </ul>
 </div>
 
-<form action="teacher/update.do" method="post" class="form-horizontal">
-   	<div class="row">
-    	<div class="col-sm-3 col-sm-offset-4">
-        	<input  type="submit" class="btn btn-success" value="保存"/>
-             <a href="teacher/list.do" class="btn btn-warning">返回</a>
-        </div>
-    </div>
+<form action="staffInfo/update" method="post" class="form-horizontal">
+   	<%--<div class="row">--%>
+    	<%--<div class="col-sm-3 col-sm-offset-4">--%>
+        	<%--<input  type="submit" class="btn btn-success" value="保存"/>--%>
+             <%--<a href="teacher/list.do" class="btn btn-warning">返回</a>--%>
+        <%--</div>--%>
+    <%--</div>--%>
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
 	<div class="row">
     	<div class="col-sm-5">
@@ -225,7 +226,7 @@
    	<div class="row">
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="保存"/>
-           <a href="teacher/list.do" class="btn btn-warning">返回</a>
+           <a href="/staffInfo/list" class="btn btn-warning">返回</a>
         </div>
     </div>
 </form>

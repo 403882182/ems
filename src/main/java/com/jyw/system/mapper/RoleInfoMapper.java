@@ -74,4 +74,11 @@ public interface RoleInfoMapper {
      * @param record
      */
     int updateByPrimaryKey(RoleInfo record);
+
+    /**
+     * 根据角色信息获取员工列表
+     * @param record
+     * @return
+     */
+    List<RoleInfo> getRoleInfoList(RoleInfo record);
 }

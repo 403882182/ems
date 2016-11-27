@@ -1,5 +1,6 @@
 package com.jyw.student.service.impl;
 
+import com.jyw.model.EvaluationInfoEx;
 import com.jyw.student.mapper.EvaluationInfoMapper;
 import com.jyw.model.EvaluationInfo;
 import com.jyw.model.EvaluationInfoCriteria;
@@ -61,5 +62,10 @@ public class EvaluationInfoServiceImpl implements EvaluationInfoService {
 
     public int insertSelective(EvaluationInfo record) {
         return this.evaluationInfoMapper.insertSelective(record);
+    }
+
+    @Override
+    public List<EvaluationInfoEx> selectAllEvaluation(EvaluationInfoEx evaluationInfoEx){
+        return  this.evaluationInfoMapper.selectAllEvaluation(evaluationInfoEx);
     }
 }

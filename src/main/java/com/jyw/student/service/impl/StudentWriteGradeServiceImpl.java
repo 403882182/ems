@@ -1,5 +1,6 @@
 package com.jyw.student.service.impl;
 
+import com.jyw.model.StudentWriteGradeEx;
 import com.jyw.student.mapper.StudentWriteGradeMapper;
 import com.jyw.model.StudentWriteGrade;
 import com.jyw.model.StudentWriteGradeCriteria;
@@ -61,5 +62,8 @@ public class StudentWriteGradeServiceImpl implements StudentWriteGradeService {
 
     public int insertSelective(StudentWriteGrade record) {
         return this.studentWriteGradeMapper.insertSelective(record);
+    }
+    public List<StudentWriteGradeEx> Getstudentwritegrade (StudentWriteGradeEx studentWriteGradeEx){
+        return  this.studentWriteGradeMapper.Getstudentwritegrade(studentWriteGradeEx);
     }
 }

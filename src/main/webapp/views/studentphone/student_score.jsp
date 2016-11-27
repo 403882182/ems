@@ -15,8 +15,8 @@
 <title>成绩信息</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="resources/css/jquery.mobile-1.3.2.min.css" rel="stylesheet">
-<script src="resources/js/jquery-1.8.3.min.js"></script>
-<script src="resources/js/jquery.mobile-1.3.2.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery-1.8.3.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery.mobile-1.3.2.min.js"></script>
 </head>
 <body>
 
@@ -31,12 +31,12 @@
     <div data-role="content">
     <ul data-role="listview" data-filter="true" data-filter-placeholder="请输入搜索内容">
       
-      <c:forEach items="${list }" var="swg">
+      <c:forEach items="${lists}" var="swg">
       <li>
         <img src="<%=basePath%>resources/img/xycj.png" width="100%" height="100%">
             <h2>${swg.writeGradeSubject }</h2>
            
-            <p>  <b>成绩：</b>${swg.writeGrade }  <b>监考人和阅卷人：</b>${swg.staffName } </p>
+            <p>  <b>成绩：</b>${swg.writeGrade }  <b>监考人和阅卷人：</b>${swg.staffInfo.staffName } </p>
 			<p>   <b>考试时间：</b> <fmt:formatDate value="${swg.writeGradeTime }"/></p>
              <p>${swg.writeGradeNote }</p>
       </li>      

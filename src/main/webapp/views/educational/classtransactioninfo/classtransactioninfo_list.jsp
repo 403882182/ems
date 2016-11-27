@@ -6,12 +6,13 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<%@ taglib prefix="s" uri="http://jyw.com" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html>
 <head>
 <base href="<%=basePath%>">
-<title>管理</title>
+<title>班级事务管理</title>
 	<jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
 </head>
 <body>
@@ -22,16 +23,21 @@
         <li>班级事务</li>
     </ul>
 </div>
-<form action="classtransactioninfo/list.do"  method="post" class="form-inline">
-<div class="row alert alert-info"  style="margin:0px; padding:3px;" >
-
-     <div class="form-group">
+<form action="classtransactioninfo/list.do" id="queryForm"  method="post" class="form-inline">
+	<%-- 查询条件添加 --%>
+	<form:input path=""/>
+	<%-- 当前页 --%>
+	<input type="hidden" name="pageNum" id="pageNum" value="${page.pageNum}"/>
+	<%-- 总页数 --%>
+	<input type="hidden" id="pages" value="${page.pages}"/>
+	<div class="row alert alert-info"  style="margin:0px; padding:3px;" >
+ 	<div class="form-group">
          <label class="" for="classTransactionTitle">主题：</label>
         <input type="text" class="form-control" name="classTransactionTitle" id="classTransactionTitle" placeholder="请输入主题">
       </div>
 
     <input type="submit"   class="btn btn-danger"     value="查询"/>
-    <a  class="btn btn-success"  href="classtransactioninfo/loadadd.do">添加班级事务</a>
+    <a  class="btn btn-success"  href="classtransactioninfo/selectClassInfo">添加班级事务</a>
     
 </div>
 <div align="center">
@@ -43,18 +49,33 @@
 		<p align="center" style="color: red;">${info }</p>
 	</div>	
 </div>
-<div class="row" style="padding:15px; padding-top:0px; " align="right">
-	<display:table class="table  table-condensed table-striped" name="list"  pagesize="10" requestURI="classtransactioninfo/list.do">
-		<display:column property="classTransactionId" title="编号" />
-		<display:column  property="className" title="班级"/>
-		<display:column  property="classTransactionTitle" title="主题"/>
-		<display:column  property="classTransactionContent" title="内容"/>
-		<display:column  property="classTransactionPerson" title="组织人"/>
-		<display:column  property="classTransactionTime" format="{0,date,yyyy年MM月dd日}" title="活动日期"/>
-		<display:column href="classtransactioninfo/loadupdate.do" paramId="classTransactionId" paramProperty="classTransactionId" value="修改"  title="查看"/>
-		<display:column href="classtransactioninfo/delete.do"  paramId="classTransactionId" paramProperty="classTransactionId"  value="删除"  title="删除"/>
-	</display:table>
-</div>
+	<table class="table  table-condensed table-striped" name="list" pagesize="10">
+		<tr>
+			<td>编号</td>
+			<td>班级</td>
+			<td>主题</td>
+			<td>内容</td>
+			<td>组织人</td>
+			<td>活动日期</td>
+			<td>操作</td>
+		</tr>
+		<c:forEach items="${page.list}" var="list">
+			<tr>
+				<td>${list.classTransactionId}</td>
+				<td>${list.classInfo.className}</td>
+				<td>${list.classTransactionTitle}</td>
+				<td>${list.classTransactionContent}</td>
+				<td>${list.classTransactionPerson}</td>
+				<td><fmt:formatDate value="${list.classTransactionTime}"/></td>
+				<td><a href="classtransactioninfo/updateList?classTransactionId=${list.classTransactionId}">修改</a><a href="classtransactioninfo/deleteByPrimaryKey?classTransactionId=${list.classTransactionId} ">删除</a></td>
+			</tr>
+		</c:forEach>
+		<tr>
+			<td colspan="7" style="text-align:center">
+	     <ul id="paging"></ul>
+			</td>
+		</tr>
+	</table>
 
 </form>
 

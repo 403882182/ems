@@ -4,9 +4,18 @@ package com.jyw.educational.mapper;
 import com.jyw.model.AttendanceInfo;
 import com.jyw.model.AttendanceInfoCriteria;
 import java.util.List;
+
+import com.jyw.model.StudentInfo;
 import org.apache.ibatis.annotations.Param;
 
 public interface AttendanceInfoMapper {
+    /**
+     * 根据条件查看学员考勤信息
+     * @param studentName 需要传的参数
+     * @return
+     */
+    List<AttendanceInfo> selectAttendance( @Param("studentName")String studentName,@Param("staffId")Integer staffId);
+
     /** 
      * 根据指定的条件获取数据库记录数
      * @param example
@@ -25,8 +34,16 @@ public interface AttendanceInfoMapper {
      */
     int deleteByPrimaryKey(Integer attendanceId);
 
+    /**
+     * 查找学生表里面的所有学生
+     * @return
+     */
+
+    List<StudentInfo> selectStudent();
+
+
     /** 
-     * 插入数据库记录
+     * 插入数据库记录   添加考勤
      * @param record
      */
     int insert(AttendanceInfo record);

@@ -43,6 +43,7 @@ public interface DisciplineInfoMapper {
      */
     List<DisciplineInfo> selectByExample(DisciplineInfoCriteria example);
 
+
     /** 
      * 根据指定主键获取一条数据库记录
      * @param disciplineId

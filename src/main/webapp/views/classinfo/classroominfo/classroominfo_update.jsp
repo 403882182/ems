@@ -6,12 +6,12 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<%@ taglib prefix="s" uri="http://jyw.com" %>
+
 <!doctype html>
 <html>
 <head>
-<base href="<%=basePath%>">
-<title>管理</title>
+    <base href="<%=basePath%>">
+    <title>教室管理</title>
     <jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
 </head>
 <body>
@@ -24,7 +24,7 @@
     </ul>
 </div>
 
-<form action="classroominfo/update.do" method="post" class="form-horizontal">
+<form action="classroominfo/update" method="post" class="form-horizontal">
 
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
 	<div class="row">
@@ -32,7 +32,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">编号</label>
                 <div class="col-sm-9">
-                	<input type="text" name="classroomId" value="${classroom.classroomId }" readonly="readonly" class="form-control input-sm" placeholder="请输入编号"/>
+                	<input type="text" name="classroomId" value="${classroominfo.classroomId }" readonly="readonly" class="form-control input-sm" placeholder="请输入编号"/>
                 </div>
             </div>
         
@@ -41,7 +41,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">教室名称</label>
                 <div class="col-sm-9">
-                	<input type="text" name="classroomName"  value="${classroom.classroomName }" class="form-control input-sm" placeholder="请输入教室名称"/>
+                	<input type="text" name="classroomName"  value="${classroominfo.classroomName }" class="form-control input-sm" placeholder="请输入教室名称"/>
                 </div>
             </div>
         </div>
@@ -52,7 +52,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">容纳人数</label>
                 <div class="col-sm-9">
-               			<input type="text" name="classroomMax" value="${classroom.classroomMax }" class="form-control input-sm" placeholder="请输入容纳人数"/>
+               			<input type="text" name="classroomMax" value="${classroominfo.classroomMax }" class="form-control input-sm" placeholder="请输入容纳人数"/>
                 </div>
             </div>
         </div>
@@ -60,7 +60,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">设备信息</label>
                 <div class="col-sm-9">
-               		 <input type="text" name="classroomInfo" value="${classroom.classroomInfo }" class="form-control input-sm" placeholder="请输入设备信息"/>
+               		 <input type="text" name="classroomInfo" value="${classroominfo.classroomInfo }" class="form-control input-sm" placeholder="请输入设备信息"/>
                 </div>
             </div>
         
@@ -74,7 +74,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">备注</label>
                 <div class="col-sm-9">
-                	<textarea name="classroomRemark" class="form-control">${classroom.classroomRemark }</textarea>
+                	<textarea name="classroomRemark" class="form-control">${classroominfo.classroomRemark }</textarea>
                 </div>
             </div>
         
@@ -86,7 +86,7 @@
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="保存"/>
 
-              <a class="btn btn-warning" href="classroominfo/list.do">返回上一级</a>
+              <a class="btn btn-warning" href="/classroominfo/list">返回上一级</a>
         </div>
     </div>
 </form>

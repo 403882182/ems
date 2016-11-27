@@ -46,6 +46,16 @@ public class TrackRecordInfo implements Serializable {
      */
     private Date nextRecordTime;
 
+    /**
+     * 学生对象，获取学员姓名
+     */
+    private StudentInfo studentInfo;
+
+    /**
+     *  数据字典,获取意向信息
+     */
+    private  DataDictionary dataDictionary;
+
     /** 
      * 构造查询条件
      */
@@ -176,6 +186,30 @@ public class TrackRecordInfo implements Serializable {
      */
     public void setNextRecordTime(Date nextRecordTime) {
         this.nextRecordTime = nextRecordTime;
+    }
+
+    /**
+     * 学员信息
+     * @return
+     */
+    public StudentInfo getStudentInfo() {
+        return studentInfo;
+    }
+
+    public void setStudentInfo(StudentInfo studentInfo) {
+        this.studentInfo = studentInfo;
+    }
+
+    /**
+     * 意向信息
+     * @return
+     */
+    public DataDictionary getDataDictionary() {
+        return dataDictionary;
+    }
+
+    public void setDataDictionary(DataDictionary dataDictionary) {
+        this.dataDictionary = dataDictionary;
     }
 
     @Override

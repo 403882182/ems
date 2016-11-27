@@ -243,4 +243,46 @@
       messafe_state = #{messafeState,jdbcType=VARCHAR}
     where messafe_id = #{messafeId,jdbcType=INTEGER}
   </update>
+  <resultMap id="selectAllMesssfeInforesultMap" type="com.jyw.model.MessfeInfoEx">
+    <id column="messafe_id" property="messafeId"/>
+    <result column="messafe_content" property="messafeContent"/>
+    <result column="messafe_man" property="messafeMan"/>
+    <result column="messafe_phone" property="messafePhone" />
+    <result column="messafe_time" property="messafeTime"/>
+    <result column="messafe_state" property="messafeState"/>
+    <association property="staffInfo" javaType="com.jyw.model.StaffInfo">
+      <id column="staff_id" property="staffId" />
+      <result column="staff_name" property="staffName"/>
+    </association>
+          </resultMap>
+  <select id="selectAllMesssfeInfo" parameterType="com.jyw.model.MessfeInfoEx" resultMap="selectAllMesssfeInforesultMap">
+          SELECT
+staff_info.staff_name,
+messafe_info.messafe_id,
+messafe_info.staff_id,
+messafe_info.messafe_content,
+messafe_info.messafe_man,
+messafe_info.messafe_phone,
+messafe_info.messafe_time,
+messafe_info.messafe_state
+FROM
+staff_info
+INNER JOIN messafe_info ON messafe_info.staff_id = staff_info.staff_id
+<where>
+  <if test="staffInfo!=null">
+    <if test="staffInfo.staffId !=null and staffInfo.staffId !=0">
+      AND  messafe_info.staff_id=${staffInfo.staffId}
+    </if>
+    <if test="staffInfo.staffName !=null and staffInfo.staffName !=''">
+      AND staff_info.staff_name=#{staffInfo.staffName}
+    </if>
+  </if>
+  <if test="messafePhone !=null and messafePhone!=''">
+    AND messafe_info.messafe_phone=#{messafePhone}
+  </if>
+  <if test="messafeId !=null and messafeId !=0">
+    AND messafe_id=${messafeId}
+  </if>
+</where>
+  </select>
 </mapper>

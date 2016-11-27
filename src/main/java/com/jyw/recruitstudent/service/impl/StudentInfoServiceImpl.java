@@ -12,6 +12,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class StudentInfoServiceImpl implements StudentInfoService {
+
+    /**
+     *
+     */
     @Autowired
     private StudentInfoMapper studentInfoMapper;
 

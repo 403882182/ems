@@ -12,10 +12,10 @@
 <!doctype html>
 <html>
 <head>
-<base href="<%=basePath%>">
-<title>c</title>
+    <base href="<%=basePath%>">
+    <title>招生线索</title>
     <jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
-    <script  type="text/javascript" src="resources/My97DatePicker/WdatePicker.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/My97DatePicker/WdatePicker.js"></script>
 </head>
 <body>
 
@@ -27,7 +27,7 @@
     </ul>
 </div>
 
-<form action="recruitstudent/positive.do" method="post" class="form-horizontal">
+<form action="recruitstudent/positive.do" method="post" class="form-horizontal"  method="post">
 <input type="hidden" name="studentId" value="${stuinfo.studentId }"/>
    	<div class="row">
     	<div class="col-sm-9 col-sm-offset-2">

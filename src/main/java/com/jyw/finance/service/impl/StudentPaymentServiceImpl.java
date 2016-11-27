@@ -1,6 +1,7 @@
 package com.jyw.finance.service.impl;
 
 import com.jyw.finance.mapper.StudentPaymentMapper;
+import com.jyw.model.StudentInfo;
 import com.jyw.model.StudentPayment;
 import com.jyw.model.StudentPaymentCriteria;
 import com.jyw.finance.service.StudentPaymentService;
@@ -17,6 +18,16 @@ public class StudentPaymentServiceImpl implements StudentPaymentService {
 
     private static final Logger logger = LoggerFactory.getLogger(StudentPaymentServiceImpl.class);
 
+   /* @Override
+    public List<StudentPayment> getList(StudentPayment info) {
+        // TODO Auto-generated method stub
+        return studentPaymentMapper.getStudentPaymentList(info);
+    }*/
+
+   public  List<StudentInfo> selectByKeyName(String keyword, int studentSate,Integer staffId){
+
+     return  studentPaymentMapper.selectByKeyName(keyword,studentSate,staffId);
+   }
     public int countByExample(StudentPaymentCriteria example) {
         int count = (int)this.studentPaymentMapper.countByExample(example);
         logger.debug("count: {}", count);

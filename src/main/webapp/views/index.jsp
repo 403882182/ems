@@ -33,8 +33,8 @@
 
 	<div class="navbar-container" id="navbar-container">
 		<div class="navbar-header pull-left">
-			<a href="#" class="navbar-brand"> <small> <i
-					class="icon-leaf"></i> 椒鱼网教务管理系统
+
+			<a href="#" class="navbar-brand"> <small> <img src="resources/img/logo.png" style="height:30px;"/>椒鱼网教务管理系统
 			</small>
 			</a>
 			<!-- /.brand -->

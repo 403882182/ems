@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jyw.educational.mapper.ClassTransactionInfoMapper">
+
   <resultMap id="BaseResultMap" type="com.jyw.model.ClassTransactionInfo">
     <constructor>
       <idArg column="class_transaction_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
@@ -12,6 +13,20 @@
       <arg column="class_transaction_remark" javaType="java.lang.String" jdbcType="VARCHAR" />
     </constructor>
   </resultMap>
+  <resultMap id="BaseResultMap2" type="com.jyw.model.ClassTransactionInfo">
+    <id property="classTransactionId" column="class_transaction_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    <result property="classTransactionTitle" column="class_transaction_title" javaType="java.lang.String" jdbcType="VARCHAR" />
+    <result property="classTransactionContent" column="class_transaction_content" javaType="java.lang.String" jdbcType="VARCHAR" />
+    <result property="classTransactionPerson" column="class_transaction_person" javaType="java.lang.String" jdbcType="VARCHAR" />
+    <result property="classTransactionTime" column="class_transaction_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    <association property="classInfo" column="class_id" javaType="com.jyw.model.ClassInfo" resultMap="transactionInfoMap">
+    </association>
+  </resultMap>
+  <resultMap id="transactionInfoMap" type="com.jyw.model.ClassInfo">
+    <id property="classId" column="class_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+    <result property="className" column="class_name" javaType="java.lang.String" jdbcType="VARCHAR"></result>
+  </resultMap>
+
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -74,7 +89,37 @@
     class_transaction_id, class_id, class_transaction_title, class_transaction_content, 
     class_transaction_person, class_transaction_time, class_transaction_remark
   </sql>
-  <select id="selectByExample" parameterType="com.jyw.model.ClassTransactionInfoCriteria" resultMap="BaseResultMap">
+  <!--查询班级信息-->
+  <select id="selectClassInfo"  resultMap="transactionInfoMap">
+    SELECT
+        class_info.class_id,
+        class_info.class_name
+    FROM
+        class_info
+  </select>
+
+  <!--查询班级事务信息-->
+
+  <select id="selectTransactionInfo" parameterType="java.lang.String" resultMap="BaseResultMap2">
+    SELECT
+    class_info.class_name,
+    class_transaction_info.class_transaction_title,
+    class_transaction_info.class_transaction_content,
+    class_transaction_info.class_transaction_person,
+    class_transaction_info.class_transaction_id,
+    class_transaction_info.class_transaction_time,
+    class_transaction_info.class_id
+    FROM
+    class_info
+    INNER JOIN class_transaction_info ON class_transaction_info.class_id = class_info.class_id
+
+    <if test="_parameter != null">
+      where class_transaction_title LIKE '%${value}%'
+    </if>
+
+  </select>
+
+ <!-- <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -87,23 +132,29 @@
     <if test="orderByClause != null">
       order by ${orderByClause}
     </if>
-  </select>
+  </select>-->
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from class_transaction_info
     where class_transaction_id = #{classTransactionId,jdbcType=INTEGER}
   </select>
+
+  <!--删除班级事务-->
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from class_transaction_info
     where class_transaction_id = #{classTransactionId,jdbcType=INTEGER}
   </delete>
+
+
   <delete id="deleteByExample" parameterType="com.jyw.model.ClassTransactionInfoCriteria">
     delete from class_transaction_info
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
+
+  <!--添加班级事务-->
   <insert id="insert" parameterType="com.jyw.model.ClassTransactionInfo">
     insert into class_transaction_info (class_transaction_id, class_id, class_transaction_title, 
       class_transaction_content, class_transaction_person, 
@@ -114,6 +165,8 @@
       #{classTransactionTime,jdbcType=TIMESTAMP}, #{classTransactionRemark,jdbcType=VARCHAR}
       )
   </insert>
+
+
   <insert id="insertSelective" parameterType="com.jyw.model.ClassTransactionInfo">
     insert into class_transaction_info
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -235,6 +288,7 @@
     </set>
     where class_transaction_id = #{classTransactionId,jdbcType=INTEGER}
   </update>
+  <!--修改班级事务-->
   <update id="updateByPrimaryKey" parameterType="com.jyw.model.ClassTransactionInfo">
     update class_transaction_info
     set class_id = #{classId,jdbcType=INTEGER},

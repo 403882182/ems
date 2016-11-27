@@ -25,10 +25,10 @@ public class DBUtils {
 			//加载驱动
 			Class.forName("com.mysql.jdbc.Driver");
 			//定义URL
-			String url = "jdbc:mysql://localhost:3306/ems?characterEncoding=utf-8";
+			String url = "jdbc:mysql://localhost:13306/ems?characterEncoding=utf-8";
 			
 			//获取连接
-			return  DriverManager.getConnection(url, "long", "123");
+			return  DriverManager.getConnection(url, "root", "123");
 			
 		} catch (Exception e) {
 			e.printStackTrace();

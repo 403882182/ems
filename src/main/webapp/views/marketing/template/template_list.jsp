@@ -5,7 +5,10 @@
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
-%>    
+%>
+<%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!doctype html>
 <html>
 <head>
@@ -21,38 +24,59 @@
         <li>短信邮件模板</li>
     </ul>
 </div>
-<form action="template/list.do" class="form-horizontal">
+<form:form action="template/list.do" id="queryForm" class="form-horizontal" modelAttribute="templateInfo">
 <div class="row alert alert-info"  style="margin:0px; padding:3px;" >
 
 	<div class="col-sm-2">标题:</div>
     <div class="col-sm-3">
-    	<input type="text" name="templateTitle"  class="form-control input-sm"/>
+    	<form:input type="text" path="templateTitle"  class="form-control input-sm"/>
     </div>
     <input type="submit"   class="btn btn-danger"     value="查询"/>
-    <a  class="btn btn-success"  href="view/marketing/template/template_add.jsp"   >添加模板</a>
-  
+		<%-- 当前页 --%>
+	<input type="hidden" name="pageNum" id="pageNum" value="${page.pageNum}"/>
+		<%-- 总页数 --%>
+	<input type="hidden" id="pages" value="${page.pages}"/>
+    <a  class="btn btn-success"  href="template/load.do"   >添加模板</a>
+
 </div>
 <div align="center">
 	<div class="alert alert-warning" style="margin: 0px; padding: 5px; width: 80%;display:${empty info?'none':'block'} ">
 		<button type="button" class="close" data-dismiss="alert">
 			<span aria-hidden="true">&times;</span>
-			
+
 		</button>
 		<p align="center" style="color: red;">${info }</p>
-	</div>	
+	</div>
 </div>
 <div class="row" style="padding:15px; padding-top:0px; " align="right">
-	<display:table class="table  table-condensed table-striped" name="list"  pagesize="10" requestURI="template/list.do">
-		<display:column property="templateId" title="编号"/>
-		<display:column  property="templateTitle" title="标题"/>
-		<display:column property="templateContent" title="内容"/>
-		<display:column property="templateType" title="类别"/>
-		<display:column href="template/load.do" paramId="templateId" paramProperty="templateId" value="修改"  title="修改"/>
-		<display:column href="template/delete.do"  paramId="templateId" paramProperty="templateId"  value="删除"  title="删除"/>
-	</display:table>
 </div>
-
-  </form>
+	<table class="table  table-condensed table-striped">
+		<tr>
+			<tr>
+			<td>编号</td>
+			<td>标题</td>
+			<td>内容</td>
+			<td>类别</td>
+		    <td>修改</td>
+		    <td>删除</td>
+		</tr>
+		<c:forEach items="${requestScope.templateInfoList}" var="t">
+			<tr>
+				<td>${t.templateId}</td>
+				<td>${t.templateTitle}</td>
+				<td>${t.templateContent}</td>
+				<td>${t.templateType}</td>
+				<td><a href="/template/loadupdate.do/${t.templateId}">修改</a></td>
+				<td><a href="/template/delete.do/${t.templateId}">删除</a></td>
+			</tr>
+		</c:forEach>
+		<tr>
+			<td colspan="6" style="text-align: center">
+				<ul id="paging" ></ul>
+			</td>
+		</tr>
+	</table>
+  </form:form>
 
 </body>
 </html>

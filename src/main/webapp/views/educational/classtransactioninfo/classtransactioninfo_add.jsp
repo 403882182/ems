@@ -6,15 +6,16 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<%@ taglib prefix="s" uri="http://jyw.com" %>
+<%--<%@ taglib prefix="s" uri="http://beifengwang.com" %>    --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html>
 <head>
 <base href="<%=basePath%>">
-<title>管理</title>
+<title>班级事务管理</title>
     <jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
-    <script  type="text/javascript" src="resources/My97DatePicker/WdatePicker.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/My97DatePicker/WdatePicker.js"></script>
+
 </head>
 <body>
 <div style="padding:0px; margin:0px;">
@@ -24,7 +25,7 @@
     </ul>
 </div>
 
-<form action="classtransactioninfo/add.do" method="post" class="form-horizontal">
+<form action="classtransactioninfo/insert" method="post" class="form-horizontal">
 
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
 	<div class="row">
@@ -32,7 +33,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">编号</label>
                 <div class="col-sm-9">
-                	<input type="text" name="classTransactionId" class="form-control input-sm" placeholder="请输入编号"/>
+                	<input type="text" name="classTransactionId" readonly="readonly" class="form-control input-sm" placeholder="请输入编号"/>
                 </div>
             </div>
         
@@ -60,7 +61,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">活动日期</label>
                 <div class="col-sm-9">
-               		 <input type="text" name="classTransactionTime" onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" placeholder="请输入活动日期"/>
+               		 <input type="text" name="classTransactionTime" onclick="WdatePicker()"  class="form-control input-sm" placeholder="请输入活动日期"/>
                 </div>
             </div>
         
@@ -73,16 +74,14 @@
             	<label class="col-sm-3 control-label">组班级</label>
                 <div class="col-sm-9">
                 		<select name="classId" class="form-control input-sm">
-                			<c:forEach items="${classlist }" var="classinfo">
-                			<option  value="${classinfo.classId }" ${classinfo.classId==transactinfo.classId?'selected':'' } >${classinfo.className }</option>
-                			</c:forEach>
-                		</select>
+                    <c:forEach items="${classlist }" var="classinfo">
+                        <option  value="${classinfo.classId }" ${classinfo.classId==transactinfo.classId?'selected':'' } >${classinfo.className }</option>
+                    </c:forEach>
+                </select>
 
                 </div>
             </div>
         </div>
-    
-
     </div>
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">主要内容</h5>
     	<div class="row">

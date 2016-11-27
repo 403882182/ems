@@ -112,6 +112,7 @@ public class StudentInfo implements Serializable {
 
     /** 
      * 标识
+     * -1表示无效 0表示未分配学员 1已分配学员 2报名学员
      */
     private String studentMark;
 

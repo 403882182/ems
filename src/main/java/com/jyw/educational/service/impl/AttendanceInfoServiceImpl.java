@@ -5,6 +5,8 @@ import com.jyw.model.AttendanceInfo;
 import com.jyw.model.AttendanceInfoCriteria;
 import com.jyw.educational.service.AttendanceInfoService;
 import java.util.List;
+
+import com.jyw.model.StudentInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AttendanceInfoServiceImpl implements AttendanceInfoService {
+
+
     @Autowired
     private AttendanceInfoMapper attendanceInfoMapper;
 
@@ -23,6 +27,26 @@ public class AttendanceInfoServiceImpl implements AttendanceInfoService {
         return count;
     }
 
+    /**
+     * 根据条件查看学员考勤
+     * @param studentName
+     * @return
+     */
+    public  List<AttendanceInfo> selectAttendance(String studentName,Integer staffId){
+
+return  this.attendanceInfoMapper.selectAttendance(studentName, staffId);
+    }
+
+ /**
+     * 查看学员表中所有学员姓名
+     * @return
+     */
+  public  List<StudentInfo> selectStudent(){
+      return  this.attendanceInfoMapper.selectStudent();
+
+  }
+
+
     public AttendanceInfo selectByPrimaryKey(Integer attendanceId) {
         return this.attendanceInfoMapper.selectByPrimaryKey(attendanceId);
     }
@@ -31,6 +55,11 @@ public class AttendanceInfoServiceImpl implements AttendanceInfoService {
         return this.attendanceInfoMapper.selectByExample(example);
     }
 
+    /**
+     * 根据id删除考勤信息
+     * @param attendanceId
+     * @return
+     */
     public int deleteByPrimaryKey(Integer attendanceId) {
         return this.attendanceInfoMapper.deleteByPrimaryKey(attendanceId);
     }
@@ -39,6 +68,11 @@ public class AttendanceInfoServiceImpl implements AttendanceInfoService {
         return this.attendanceInfoMapper.updateByPrimaryKeySelective(record);
     }
 
+    /**
+     * 修改考勤
+     * @param record
+     * @return
+     */
     public int updateByPrimaryKey(AttendanceInfo record) {
         return this.attendanceInfoMapper.updateByPrimaryKey(record);
     }

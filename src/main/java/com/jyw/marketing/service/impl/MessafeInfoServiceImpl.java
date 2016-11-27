@@ -1,10 +1,13 @@
 package com.jyw.marketing.service.impl;
 
 import com.jyw.marketing.mapper.MessafeInfoMapper;
+import com.jyw.model.MarketActiveEx;
 import com.jyw.model.MessafeInfo;
 import com.jyw.model.MessafeInfoCriteria;
 import com.jyw.marketing.service.MessafeInfoService;
 import java.util.List;
+
+import com.jyw.model.MessfeInfoEx;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,5 +64,11 @@ public class MessafeInfoServiceImpl implements MessafeInfoService {
 
     public int insertSelective(MessafeInfo record) {
         return this.messafeInfoMapper.insertSelective(record);
+    }
+
+
+    public List<MessfeInfoEx>  selectAllMesssfeInfo(MessfeInfoEx messfeInfoEx)
+    {
+     return  this.messafeInfoMapper.selectAllMesssfeInfo(messfeInfoEx);
     }
 }

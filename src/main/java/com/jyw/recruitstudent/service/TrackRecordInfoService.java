@@ -26,4 +26,8 @@ public interface TrackRecordInfoService {
     int insert(TrackRecordInfo record);
 
     int insertSelective(TrackRecordInfo record);
+
+    List<TrackRecordInfo> selectByTrackRecordInfo(String name,TrackRecordInfo trackRecordInfo,Integer staffId);
+
+    List<TrackRecordInfo> selectByStudentId(TrackRecordInfo trackRecordInfo);
 }

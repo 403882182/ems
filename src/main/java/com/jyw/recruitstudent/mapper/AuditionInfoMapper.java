@@ -74,4 +74,11 @@ public interface AuditionInfoMapper {
      * @param record
      */
     int updateByPrimaryKey(AuditionInfo record);
+
+    /**
+     * 两表查询
+     * @param info
+     * @return
+     */
+    List<AuditionInfo> getAuditionList(@Param("studentName") String name,@Param("au") AuditionInfo info,@Param("staff") Integer staffId);
 }

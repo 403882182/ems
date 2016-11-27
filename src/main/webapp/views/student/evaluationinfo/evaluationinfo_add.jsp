@@ -11,10 +11,11 @@
 <!doctype html>
 <html>
 <head>
-<base href="<%=basePath%>">
-<title>管理</title>
+    <base href="<%=basePath%>">
+    <title>评价管理</title>
     <jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
-    <script  type="text/javascript" src="resources/My97DatePicker/WdatePicker.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/My97DatePicker/WdatePicker.js"></script>
+
 </head>
 <body>
 
@@ -62,7 +63,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">教师</label>
                 <div class="col-sm-9">
-               		 <input type="text" name="evaluationTeacher" class="form-control input-sm" placeholder="请输入教师"/>
+               		 <input type="text"  name="evaluationTeacher" class="form-control input-sm" placeholder="请输入教师名称"/>
                 </div>
             </div>
         

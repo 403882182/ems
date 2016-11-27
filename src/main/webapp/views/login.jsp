@@ -27,7 +27,7 @@
 					<div class="login-container">
 						<div class="center">
 							<h1>
-								<i class="icon-leaf green"></i> <span class="red">椒鱼网</span> <span
+								<!--<i class="icon-leaf green"></i>--><img src="resources/img/logo.png" style="height:60px;"/><span class="red">椒鱼网</span> <span
 									class="white">教务管理</span>
 							</h1>
 						</div>
@@ -56,7 +56,7 @@
 												 <label class="block clearfix"> <span
 													class="block input-icon input-icon-right"> <input id="userPw"
 														name="userPassowrd" type="password" class="form-control"
-														placeholder="请输入密码" /> <i class="icon-lock"></i>
+														placeholder="请输入密码" /><i class="icon-lock"></i>
 												</span>
 												</label>
 												

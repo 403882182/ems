@@ -27,4 +27,11 @@ public interface StaffInfoService {
     int insert(StaffInfo record);
 
     int insertSelective(StaffInfo record);
+
+    /**
+     * 根据条件查询员工信息
+     * @param record 查询条件
+     * @return
+     */
+    List<StaffInfo> getStaffList(StaffInfo record);
 }

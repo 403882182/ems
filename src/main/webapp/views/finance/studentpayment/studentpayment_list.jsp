@@ -5,14 +5,27 @@
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
-%>    
-<%@ taglib prefix="s" uri="http://jyw.com" %>
+%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%--<%@ taglib prefix="s" uri="http://beifengwang.com" %>
+<%@ taglib prefix="display" uri="http://displaytag.sf.net" %>--%>
 <!doctype html>
 <html>
 <head>
+
 <base href="<%=basePath%>">
 <title>营销活动</title>
-	<jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="resources/css/bootstrap.min.css">
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="resources/js/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="resources/js/bootstrap.min.js"></script>
+	<script src="resources/js/bootstrap-paginator.min.js"></script>
+	<script src="resources/js/paging.js"></script>
+
 </head>
 <body>
 <div style="padding:0px; margin:0px;">
@@ -21,7 +34,11 @@
         <li>查询学员</li>
     </ul>
 </div>
-<form action="studentpayment/list.do" method="post" class="form-inline">
+<form action="studentpayment/list" method="post" class="form-inline" id="queryForm">
+	<%-- 当前页 --%>
+	<input type="hidden" name="pageNum" id="pageNum" value="${page.pageNum}"/>
+	<%-- 总页数 --%>
+	<input type="hidden" id="pages" value="${page.pages}"/>
 <div class="row alert alert-info"  style="margin:0px; padding:3px;" >
 
      <div class="form-group">
@@ -29,32 +46,52 @@
         <input type="text" name="studentName" class="form-control" id="activename" placeholder="请输入学员姓名">
       </div>
   	<div class="form-group">
-         <label class="" for="activename">学员意向状态：</label>
-         <s:select name="studentSate" type="student_sate" selectedId="${stuinfo.studentSate }"/>
+
       </div>
-    <input type="submit"   class="btn btn-danger"     value="查询"/>
-  
+
+    <input type="submit"   class="btn btn-danger" value="查询"/>
+
 </div>
 <div align="center">
 	<div class="alert alert-warning" style="margin: 0px; padding: 5px; width: 80%;display:${empty info?'none':'block'} ">
 		<button type="button" class="close" data-dismiss="alert">
-			<span aria-hidden="true">&times;</span>
-			
+			<span aria-hidden="true"></span>
+
 		</button>
-		<p align="center" style="color: red;">${info }</p>
-	</div>	
+		<p align="center" style="color: red;">${info}</p>
+	</div>
 </div>
 <div class="row" style="padding:15px; padding-top:0px; " align="right">
-		<display:table class="table  table-condensed table-striped" name="list"  pagesize="10" requestURI="studentpayment/list.do">
-		<display:column property="studentId" title="编号" />
-		<display:column  href="studentpayment/show.do" paramId="studentId" paramProperty="studentId"  property="studentName" title="姓名"/>
-		<display:column  property="studentSex" title="性别"/>
-		<display:column  property="studentAge" title="年龄"/>
-		<display:column  property="studentTellphone" title="手机号码"/>
-		<display:column  property="studentEmail" title="电子邮件"/>
-		<display:column  property="studentSchool" title="所在院校"/>
-		<display:column href="studentpayment/loadpayment.do"  paramId="studentId" paramProperty="studentId"  value="学员缴费"  title="学员缴费"/>
-</display:table>               	                
+		<table class="table  table-condensed table-striped">
+			<tr>
+                <td >编号</td>
+                <td>姓名</td>
+                <td>性别 </td>
+                <td>年龄</td>
+                <td>手机号码</td>
+                <td >电子邮件</td>
+                <td >所在院校</td>
+				<td >学员缴费</td>
+			</tr>
+
+				<c:forEach items="${page.list}" var="list">
+			<tr>
+					<td>${list.studentId}</td>
+					<td><a href="studentpayment/payment/${list.studentId}">${list.studentName}</a></td>
+					<td>${list.studentSex}</td>
+					<td>${list.studentAge}</td>
+					<td>${list.studentTellphone}</td>
+                    <td>${list.studentEmail}</td>
+					<td>${list.studentSchool}</td>
+					<td><a href="studentpayment/loadpayment/${list.studentId}">学员缴费</a></td>
+			</tr>
+				</c:forEach>
+			<tr>
+				<td colspan="8" style="text-align:center">
+					<ul id="paging"></ul>
+				</td>
+			</tr>
+		</table>
 </div>
 </form>
 </body>

@@ -1,9 +1,12 @@
 
 package com.jyw.marketing.mapper;
 
+import com.jyw.model.MarketActiveEx;
 import com.jyw.model.MessafeInfo;
 import com.jyw.model.MessafeInfoCriteria;
 import java.util.List;
+
+import com.jyw.model.MessfeInfoEx;
 import org.apache.ibatis.annotations.Param;
 
 public interface MessafeInfoMapper {
@@ -74,4 +77,7 @@ public interface MessafeInfoMapper {
      * @param record
      */
     int updateByPrimaryKey(MessafeInfo record);
+
+    List<MessfeInfoEx>  selectAllMesssfeInfo(MessfeInfoEx marketActiveEx);
+
 }

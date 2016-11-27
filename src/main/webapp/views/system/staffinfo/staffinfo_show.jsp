@@ -12,7 +12,13 @@
 <head>
 <base href="<%=basePath%>">
 <title>员工管理</title>
-    <jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="resources/css/bootstrap.min.css">
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="resources/js/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="resources/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 
@@ -27,8 +33,8 @@
 <form action="" class="form-horizontal">
    	<div class="row">
     	<div class="col-sm-5 col-sm-offset-4">
-        	<a href="system/load.do?staffId=${staffInfo.staffId }" class="btn btn-success" >修改</a>
-        	<a href="system/delete.do?staffId=${staffInfo.staffId }" class="btn btn-success" >修改</a>
+        	<a href="/system/update/${staffInfo.staffId }" class="btn btn-success" >修改</a>
+        	<a href="/system/delete/${staffInfo.staffId }" class="btn btn-danger" >删除</a>
             <a href="system/list.do" class="btn btn-warning">返回上一级</a>
         </div>
     </div>
@@ -231,9 +237,9 @@
     </div>
    	<div class="row">
     	<div class="col-sm-5 col-sm-offset-4">
-          	<a href="staffinfo_update.html" class="btn btn-success" >修改</a>
-            <input  type="reset" class="btn  btn-danger" value="删除"/>
-             <a href="system/list.do" class="btn btn-warning">返回上一级</a>
+            <a href="/system/update/${staffInfo.staffId }" class="btn btn-success" >修改</a>
+            <a href="/system/delete/${staffInfo.staffId }" class="btn btn-danger" >删除</a>
+            <a href="system/list.do" class="btn btn-warning">返回上一级</a>
         </div>
     </div>
 </form>

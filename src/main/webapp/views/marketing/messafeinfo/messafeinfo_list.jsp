@@ -6,29 +6,48 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>    
+<%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!doctype html>
 <html>
 <head>
 <base href="<%=basePath%>">
 <title>短信管理</title>
 	<jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
+	<script>
+		$(function (){
+			$(".delete").click(function () {
+				var href=$(this).attr("href");
+				$("#from1").attr("action",href).submit();
+				return false;
+			})
+				})
+	</script>
 </head>
 <body>
-
+<form id="form1" action="" method="post">
+	<input type="hidden" name="_method" value="DELETE">
+</form>
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
     	<li><a href="#">营销管理</a></li>
         <li>短信管理</li>
     </ul>
 </div>
-<form action="messafeinfo/list.do" method="post" class="form-horizontal">
+<form:form action="messafeinfo/list.do" id="queryForm" method="post" class="form-horizontal" modelAttribute="messafeInfo">
 <div class="row alert alert-info"  style="margin:0px; padding:3px;" >
 
 	<div class="col-sm-2">电话号码:</div>
     <div class="col-sm-3">
-    	<input type="text" name="messafePhone"  class="form-control input-sm"/>
+    	<form:input type="text" path="messafePhone"  class="form-control input-sm"/>
     </div>
     <input type="submit"   class="btn btn-danger"     value="查询"/>
+		<%-- 当前页 --%>
+	<input type="hidden" name="pageNum" id="pageNum" value="${page.pageNum}"/>
+		<%-- 总页数 --%>
+	<input type="hidden" id="pages" value="${page.pages}"/>
     <a  class="btn btn-success"  href="messafeinfo/load.do"   >发送短信</a>
    
 </div>
@@ -42,17 +61,35 @@
 	</div>	
 </div>
 <div class="row" style="padding:15px; padding-top:0px; " align="right">
-	<display:table class="table  table-condensed table-striped" name="list"  pagesize="10" requestURI="messafeinfo/list.do">
-		<display:column property="messafeId" title="编号"/>
-		<display:column  property="staffName" title="发送人"/>
-		<display:column property="messafeTime" format="{0,date,yyyy年MM月dd日}"  title="发送时间"/>
-		<display:column property="messafeMan" title="接收人"/>
-		<display:column property="messafePhone" title="接收号码"/>
-		<display:column href="messafeinfo/show.do" paramId="messafeId" paramProperty="messafeId" value="查看"  title="查看"/>
-		<display:column href="messafeinfo/delete.do"  paramId="messafeId" paramProperty="messafeId"  value="删除"  title="删除"/>
-	</display:table>
+	<table class="table  table-condensed table-striped">
+		<tr>
+			<td>编号</td>
+			<td>发送人</td>
+			<td>发送时间</td>
+			<td>接收人</td>
+			<td>接收号码</td>
+			<td>查看</td>
+			<td>删除</td>
+		</tr>
+		<c:forEach items="${page.list}" var="m">
+				<tr>
+					<td>${m.messafeId}</td>
+					<td>${m.staffInfo.staffName}</td>
+					<td><f:formatDate value="${m.messafeTime}" dateStyle="full"/> </td>
+					<td>${m.messafeMan}</td>
+					<td>${m.messafePhone}</td>
+					<td><a href="/messafeinfo/show.do/${m.messafeId}">查看</a></td>
+					<td><a class=".delete" href="/email/delete.do/${m.messafeId}">删除</a></td>
+				</tr>
+		</c:forEach>
+		<tr>
+			<td colspan="7" style="text-align: center">
+				<ul id="paging" ></ul>
+			</td>
+		</tr>
+	</table>
 </div>
 
- </form>
+ </form:form>
 </body>
 </html>

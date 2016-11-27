@@ -1,7 +1,10 @@
 package com.jyw.marketing.service;
 
+import com.jyw.model.MarketActiveEx;
 import com.jyw.model.MessafeInfo;
 import com.jyw.model.MessafeInfoCriteria;
+import com.jyw.model.MessfeInfoEx;
+
 import java.util.List;
 
 public interface MessafeInfoService {
@@ -26,4 +29,6 @@ public interface MessafeInfoService {
     int insert(MessafeInfo record);
 
     int insertSelective(MessafeInfo record);
+
+    List<MessfeInfoEx> selectAllMesssfeInfo(MessfeInfoEx marketActiveEx);
 }

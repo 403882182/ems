@@ -6,12 +6,12 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<%@ taglib prefix="s" uri="http://jyw.com" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html>
 <head>
-<base href="<%=basePath%>">
-<title>短信管理</title>
+	<base href="<%=basePath%>">
+	<title>教室管理</title>
 	<jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
 </head>
 <body>
@@ -24,16 +24,21 @@
 </div>
 
 
-<form action="classroominfo/list.do" method="post" class="form-inline">
+<form action="/classroominfo/list" method="post" class="form-inline"  id="queryForm">
 <div class="row alert alert-info"  style="margin:0px; padding:3px;" >
 
      <div class="form-group">
          <label class="" for="classroomName">教室名称：</label>
-        <input type="text" name="classroomName" class="form-control" id="classroomName" placeholder="请输入教室名称">
+		 <input type="text" name="classroomName" class="form-control" id="classroomName" placeholder="请输入教室名称">
       </div>
 
+	<%-- 当前页 --%>
+	<input type="hidden" name="pageNum" id="pageNum" value="${page.pageNum}"/>
+	<%-- 总页数 --%>
+	<input type="hidden" id="pages" value="${page.pages}"/>
     <input type="submit"   class="btn btn-danger"     value="查询"/>
-    <a  class="btn btn-success"  href="view/classinfo/classroominfo/classroominfo_add.jsp">添加教室</a>
+
+    <a  class="btn btn-success"  href="views/classinfo/classroominfo/classroominfo_add.jsp">添加教室</a>
     
 </div>
 <div align="center">
@@ -46,14 +51,33 @@
 	</div>	
 </div>
 <div class="row" style="padding:15px; padding-top:0px; " align="right">
-	<display:table class="table  table-condensed table-striped" name="list"  pagesize="10" requestURI="classroominfo/list.do">
-		<display:column property="classroomId" title="编号" />
-		<display:column  property="classroomName" title="教室名称"/>
-		<display:column  property="classroomMax" title="容纳人数"/>
-		<display:column property="classroomInfo" title="设备信息"/>
-		<display:column href="classroominfo/load.do" paramId="classroomId" paramProperty="classroomId" value="修改"  title="查看"/>
-		<display:column href="classroominfo/delete.do"  paramId="classroomId" paramProperty="classroomId"  value="删除"  title="删除"/>
-	</display:table>
+	<table class="table  table-condensed table-striped">
+		<tr>
+			<td>编号</td>
+			<td>教室名称</td>
+			<td>容纳人数</td>
+			<td>设备信息</td>
+			<td>操作</td>
+		</tr>
+		<c:forEach items="${page.list}" var="items">
+			<tr>
+				<td>${items.classroomId}</td>
+				<td>${items.classroomName}</td>
+				<td>${items.classroomMax}</td>
+				<td>${items.classroomInfo}</td>
+				<td>
+					<a href="/classroominfo/selectById/${items.classroomId}">修改</a>
+					<a href="/classroominfo/delete/${items.classroomId}" onclick="return confirm('确定删除吗？')">删除</a></td>
+			</tr>
+
+		</c:forEach>
+		<tr>
+			<td colspan="5" style="text-align:center">
+				<ul id="paging"></ul>
+			</td>
+		</tr>
+
+	</table>
 </div>
 
 </form>

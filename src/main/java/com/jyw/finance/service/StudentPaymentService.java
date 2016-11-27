@@ -1,10 +1,14 @@
 package com.jyw.finance.service;
 
+import com.jyw.model.StudentInfo;
 import com.jyw.model.StudentPayment;
 import com.jyw.model.StudentPaymentCriteria;
 import java.util.List;
 
 public interface StudentPaymentService {
+
+    List<StudentInfo> selectByKeyName(String KeyName, int studentSate,Integer staffId);
+
     int countByExample(StudentPaymentCriteria example);
 
     StudentPayment selectByPrimaryKey(Integer paymentId);

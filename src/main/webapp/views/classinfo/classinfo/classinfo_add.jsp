@@ -1,18 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
 <%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://"
+            + request.getServerName() + ":" + request.getServerPort()
+            + path + "/";
 %>
 <%@ taglib prefix="s" uri="http://jyw.com" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
 <html>
 <head>
-<base href="<%=basePath%>">
-<title>管理</title>
+    <base href="<%=basePath%>">
+    <title>班级管理</title>
     <jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
     <script src="${pageContext.request.contextPath}/resources/My97DatePicker/WdatePicker.js"></script>
 </head>
@@ -25,7 +26,7 @@
     </ul>
 </div>
 
-<form action="classinfo/add.do" method="post" class="form-horizontal">
+<form action="classInfo/add" method="post" class="form-horizontal">
 
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
 	<div class="row">
@@ -83,7 +84,7 @@
             	<label class="col-sm-3 control-label">教师</label>
                 <div class="col-sm-9">
                		 <select name="staffId" class="form-control input-sm">
-               		 	<c:forEach items="${stafflist }" var="staff">
+               		 	<c:forEach items="${staffInfo }" var="staff">
                      	<option value="${staff.staffId }">${staff.staffName }</option>
                      	</c:forEach>
           
@@ -100,7 +101,7 @@
             	<label class="col-sm-3 control-label">学科</label>
                 <div class="col-sm-9">
                	   <select name="disciplineId" class="form-control input-sm">
-                    	<c:forEach items="${disciplist }" var="discip">
+                    	<c:forEach items="${disciplineInfo }" var="discip">
                      	<option value="${discip.disciplineId }">${discip.disciplineName }</option>
                      	</c:forEach>
                      </select>
@@ -112,7 +113,7 @@
             	<label class="col-sm-3 control-label">课程表</label>
                 <div class="col-sm-9">
                		 <select name="syllabusId" class="form-control input-sm">
-                       	<c:forEach items="${sylllist }" var="syll">
+                       	<c:forEach items="${syllabusInfo }" var="syll">
                      	<option value="${syll.syllabusId }">${syll.syllabusName }</option>
                      	</c:forEach>
                      </select>
@@ -128,7 +129,7 @@
             	<label class="col-sm-3 control-label">教室</label>
                 <div class="col-sm-9">
                	   <select name="classroomId" class="form-control input-sm">
-                     	<c:forEach items="${roomlist }" var="room">
+                     	<c:forEach items="${classroomInfo }" var="room">
                      	<option value="${room.classroomId }">${room.classroomName }</option>
                      	</c:forEach>
                      </select>
@@ -155,7 +156,7 @@
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="保存"/>
 
-              <a class="btn btn-warning" href="classinfo/list.do">返回上一级</a>
+              <a class="btn btn-warning" href="/classInfo/list">返回上一级</a>
         </div>
     </div>
 </form>

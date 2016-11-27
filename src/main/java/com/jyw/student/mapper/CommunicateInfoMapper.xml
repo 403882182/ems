@@ -210,4 +210,59 @@
       communicate_content = #{communicateContent,jdbcType=VARCHAR}
     where communicate_id = #{communicateId,jdbcType=INTEGER}
   </update>
+
+  <resultMap id="selectAllCommunicateInfoMap"  type="com.jyw.model.CommunicateInfoEx">
+<id column="communicate_id" property="communicateId" />
+    <result column="communicate_time" property="communicateTime"/>
+    <result column="communicate_content" property="communicateContent"/>
+    <association property="staffInfo" javaType="com.jyw.model.StaffInfo">
+      <id column="staff_id" property="staffId"/>
+      <result column="staff_name" property="staffName"/>
+    </association>
+    <association property="studentInfo" javaType="com.jyw.model.StudentInfo">
+      <id column="student_id" property="studentId"/>
+      <result column="student_name" property="studentName"/>
+    </association>
+  </resultMap>
+  <select id="selectAllCommunicateInfo" parameterType="com.jyw.model.CommunicateInfoEx" resultMap="selectAllCommunicateInfoMap">
+    SELECT
+    staff_info.staff_name,
+    communicate_info.communicate_id,
+    communicate_info.student_id,
+    communicate_info.staff_id,
+    communicate_info.communicate_time,
+    communicate_info.communicate_content,
+    student_info.student_name,
+    student_info.class_id
+    FROM
+    communicate_info
+    INNER JOIN staff_info ON communicate_info.staff_id = staff_info.staff_id
+    INNER JOIN student_info ON student_info.staff_id = staff_info.staff_id AND communicate_info.student_id = student_info.student_id
+    <where>
+  <if test="staffInfo!=null">
+      <if test="staffInfo.staffId!=null and staffInfo.staffId!=0">
+         AND communicate_info.staff_id=${staffInfo.staffId}
+      </if>
+  </if>
+    <if test="studentInfo!=null">
+        <if test="studentInfo.studentName!=null and studentInfo.studentName!=''">
+              AND student_info.student_name LIKE '%${studentInfo.studentName}%'
+        </if>
+        <if test="studentInfo.studentId!=null">
+              AND student_info.student_id=#{studentInfo.studentId}
+        </if>
+    </if>
+</where>
+  </select>
+  <select id="GetStdentBystaffId" resultType="com.jyw.model.StudentInfo" parameterType="java.lang.Integer">
+    SELECT
+    student_info.student_id studentId,
+    student_info.staff_id staffId,
+    student_info.student_name studentName
+    FROM
+    student_info
+    <where>
+      student_info.staff_id=${value}
+    </where>
+  </select>
 </mapper>

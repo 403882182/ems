@@ -5,14 +5,19 @@
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
-%>    
+%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html>
 <head>
 <base href="<%=basePath%>">
 <title>角色变更</title>
-    <jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="resources/css/bootstrap.min.css">
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="resources/js/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="resources/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -24,8 +29,8 @@
     </ul>
 </div>
 
-<form action="roleinfo/changeRole.do" class="form-horizontal">
-	<input type="hidden" name="staffId" value="${staffInfo.staffId }">
+<form action="roleinfo/update.do" class="form-horizontal" method="post">
+	<input type="hidden" name="staffInfo.staffId" value="${staffInfo.staffId }">
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
 	<div class="row">
     	<div class="col-sm-5">
@@ -75,11 +80,11 @@
             <div class="form-group">
             		<label class="col-sm-3 control-label">角色</label>
                 <div class="col-sm-6">
-                		<select name="roleId" class="form-control input-sm" >
-                			<option value="">请选择</option>
-                			<c:forEach items="${list }" var="role">
-                        		<option value="${role.roleId }" ${role.roleId==staffInfo.roleId?'selected':'' }   >${role.roleName }</option>
-							</c:forEach>
+                		<select name="staffInfo.roleId" class="form-control input-sm" >
+                			<option>请选择</option>
+                            <c:forEach items="${roleList }" var="role">
+                                <option value="${role.roleId }" ${role.roleId==staffInfo.roleId?'selected':'' }   >${role.roleName }</option>
+                            </c:forEach>
                         </select>
                 </div>
             </div>
@@ -89,7 +94,7 @@
    	<div class="row">
     	<div class="col-sm-5 col-sm-offset-4">
           	<input type="submit" class="btn btn-success" value="角色变更"/>
-            <a class="btn btn-warning">返回上一级</a>
+            <a class="btn btn-warning" href="/roleinfo/staffinforolelist.do">返回上一级</a>
           
         </div>
     </div>

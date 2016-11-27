@@ -11,10 +11,10 @@
 <!doctype html>
 <html>
 <head>
-<base href="<%=basePath%>">
-<title></title>
+    <base href="<%=basePath%>">
+    <title>试听记录</title>
     <jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
-    <script  type="text/javascript" src="resources/My97DatePicker/WdatePicker.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/My97DatePicker/WdatePicker.js"></script>
 </head>
 <body>
 <div style="padding:0px; margin:0px;">

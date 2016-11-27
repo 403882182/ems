@@ -2,6 +2,8 @@ package com.jyw.student.service;
 
 import com.jyw.model.StudentWriteGrade;
 import com.jyw.model.StudentWriteGradeCriteria;
+import com.jyw.model.StudentWriteGradeEx;
+
 import java.util.List;
 
 public interface StudentWriteGradeService {
@@ -26,4 +28,6 @@ public interface StudentWriteGradeService {
     int insert(StudentWriteGrade record);
 
     int insertSelective(StudentWriteGrade record);
+
+    List<StudentWriteGradeEx> Getstudentwritegrade (StudentWriteGradeEx studentWriteGradeEx);
 }

@@ -5,6 +5,11 @@ import com.jyw.model.StaffSalaryCriteria;
 import java.util.List;
 
 public interface StaffSalaryService {
+
+    List<StaffSalary> getStaffSalaryList(String staffName);
+
+    List<StaffSalary> selectByName(String staffName);
+
     int countByExample(StaffSalaryCriteria example);
 
     StaffSalary selectByPrimaryKey(Integer staffSalaryId);

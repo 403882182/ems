@@ -6,14 +6,16 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>    
+<%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="frm" uri="http://www.springframework.org/tags/form" %>
 <!doctype html>
 <html>
 <head>
 <base href="<%=basePath%>">
 <title>短信管理</title>
-    <jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
-<script type="text/javascript">
+	<jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
+	<script type="text/javascript">
 
 	function setText(obj){
 	
@@ -23,6 +25,7 @@
 			$("#emailTitle").val('')
 		}
 	}
+	$
 
 </script>
 </head>
@@ -36,8 +39,8 @@
     </ul>
 </div>
 
-<form action="email/send.do" method="post" class="form-horizontal">
-
+<frm:form action="email/send.do" method="post" class="form-horizontal" modelAttribute="EmailInfo">
+    <frm:errors path="*"/>
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
 	<div class="row">
     	<div class="col-sm-5">
@@ -71,7 +74,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">接收人</label>
                 <div class="col-sm-9">
-                	<input type="text" name="emailMan" class="form-control input-sm" placeholder="请输入接收人"/>
+                	<frm:input type="text" path="emailMan" class="form-control input-sm" placeholder="请输入接收人"/>
                 </div>
             </div>
         </div>
@@ -83,7 +86,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">邮件地址</label>
                 <div class="col-sm-9">
-                	<input type="text" name="emailAddr" class="form-control input-sm"  placeholder="请输入电话号码"/>
+                	<frm:input type="text" path="emailAddr" class="form-control input-sm"  placeholder="请输入电话号码"/>
                 </div>
             </div>
         
@@ -97,7 +100,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">邮件内容</label>
                 <div class="col-sm-9">
-                	<textarea id="emailContent" name="emailContent" class="form-control"></textarea>
+                	<frm:textarea id="emailContent" path="emailContent" class="form-control"></frm:textarea>
                 </div>
             </div>
         
@@ -112,7 +115,7 @@
               <a class="btn btn-warning" href="email/list.do">返回上一级</a>
         </div>
     </div>
-</form>
+</frm:form>
 
 </body>
 </html>

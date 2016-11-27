@@ -7,11 +7,15 @@
 			+ path + "/";
 %>
 <%@ taglib prefix="s" uri="http://jyw.com" %>
+<%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="frm" uri="http://www.springframework.org/tags/form" %>
 <!doctype html>
 <html>
 <head>
-<base href="<%=basePath%>">
-<title>管理</title>
+	<base href="<%=basePath%>">
+	<title>评价管理</title>
 	<jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
 </head>
 <body>
@@ -22,15 +26,19 @@
         <li>学员评价</li>
     </ul>
 </div>
-<form action="evaluationinfo/list.do" class="form-inline">
+<frm:form action="evaluationinfo/list.do" id="queryForm" class="form-inline" modelAttribute="evaluationInfoEx">
 <div class="row alert alert-info"  style="margin:0px; padding:3px;" >
 
      <div class="form-group">
          <label class="" for="studentName">学员姓名：</label>
-        <input type="text" name="studentName" class="form-control" id="studentName" placeholder="请输入学员姓名">
+        <frm:input type="text" path="studentInfo.studentName" class="form-control" id="studentName" placeholder="请输入学员姓名" />
       </div>
 
     <input type="submit"   class="btn btn-danger"     value="查询"/>
+	<%-- 当前页 --%>
+	<input type="hidden" name="pageNum" id="pageNum" value="${page.pageNum}"/>
+	<%-- 总页数 --%>
+	<input type="hidden" id="pages" value="${page.pages}"/>
     <a  class="btn btn-success"  href="evaluationinfo/loadadd.do">添加评价</a>
     
 </div>
@@ -44,19 +52,39 @@
 	</div>	
 </div>
 <div class="row" style="padding:15px; padding-top:0px; " align="right">
-	<display:table class="table  table-condensed table-striped" name="list"  pagesize="10" requestURI="evaluationinfo/list.do">
-		<display:column property="evaluationId" title="编号" />
-		<display:column  property="studentName" title="学员姓名"/>
-		<display:column  property="evaluationTitle" title="主题"/>
-		<display:column  property="evaluationContent" title="评价内容"/>
-		<display:column  property="evaluationCourse" title="课程名称"/>
-		<display:column  property="evaluationTeacher" title="教师"/>
-		<display:column  property="evaluationTime" format="{0,date,yyyy年MM月dd日}"  title="评价时间"/>
-		<display:column href="evaluationinfo/loadupdate.do" paramId="evaluationId" paramProperty="evaluationId" value="修改"  title="查看"/>
-		<display:column href="evaluationinfo/delete.do"  paramId="evaluationId" paramProperty="evaluationId"  value="删除"  title="删除"/>
-	</display:table>
+	<table class="table  table-condensed table-striped">
+			<tr>
+				<td>编号</td>
+				<td>学员姓名</td>
+				<td>主题</td>
+				<td>评价内容</td>
+				<td>课程名称</td>
+				<td>教师</td>
+				<td>评价时间</td>
+				<td>修改/查看</td>
+				<td>删除</td>
+			</tr>
+		<c:forEach items="${evaluationInfoices}" var="e">
+				<tr>
+					<td>${e.evaluationId}</td>
+					<td>${e.studentInfo.studentName}</td>
+					<td>${e.evaluationTitle}</td>
+					<td>${e.evaluationContent}</td>
+					<td>${e.evaluationCourse}</td>
+					<td>${e.evaluationTeacher}</td>
+					<td><f:formatDate value="${e.evaluationTime}"/></td>
+					<td><a href="/evaluationinfo/loadupdate.do/${e.evaluationId}">修改/查看</a></td>
+					<td><a href="/evaluationinfo/delete.do/${e.evaluationId}">删除</a></td>
+				</tr>
+		</c:forEach>
+		<tr>
+			<td colspan="9" style="text-align: center">
+				<ul id="paging" ></ul>
+			</td>
+		</tr>
+	</table>
 </div>
-</form>
+</frm:form>
 
 
 

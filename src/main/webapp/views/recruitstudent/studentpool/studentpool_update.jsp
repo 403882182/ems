@@ -5,16 +5,16 @@
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
-%>    
+%>
 <%@ taglib prefix="s" uri="http://jyw.com" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html>
 <head>
-<base href="<%=basePath%>">
-<title>c</title>
+    <base href="<%=basePath%>">
+    <title>学员池</title>
     <jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
-    <script  type="text/javascript" src="resources/My97DatePicker/WdatePicker.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/My97DatePicker/WdatePicker.js"></script>
 </head>
 <body>
 
@@ -26,7 +26,7 @@
     </ul>
 </div>
 
-<form action="studentpool/update.do" class="form-horizontal">
+<form action="studentpool/update.do" class="form-horizontal" method="post">
    	<div class="row">
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="保存"/>

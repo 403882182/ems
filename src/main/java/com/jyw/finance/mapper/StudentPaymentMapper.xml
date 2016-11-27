@@ -3,6 +3,7 @@
 <mapper namespace="com.jyw.finance.mapper.StudentPaymentMapper">
   <resultMap id="BaseResultMap" type="com.jyw.model.StudentPayment">
     <constructor>
+
       <idArg column="payment_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="student_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="staff_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
@@ -16,6 +17,38 @@
       <arg column="payment_remark" javaType="java.lang.String" jdbcType="VARCHAR" />
     </constructor>
   </resultMap>
+  <resultMap id="spt" type="com.jyw.model.StudentPayment">
+    <id  property="paymentId" column="payment_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    <result property="staffId" column="staff_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    <result property="paymentSituation" column="payment_situation" javaType="java.lang.String" jdbcType="VARCHAR" />
+    <result property="paymentId" column="payment_method" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    <result property="paymentTime" column="payment_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    <result property="discountAmount" column="discount_amount" javaType="java.lang.Double" jdbcType="DOUBLE" />
+    <result property="shouldAmount" column="should_amount" javaType="java.lang.Double" jdbcType="DOUBLE" />
+    <result property="realAmount" column="real_amount" javaType="java.lang.Double" jdbcType="DOUBLE" />
+    <result property="debtAmount" column="debt_amount" javaType="java.lang.Double" jdbcType="DOUBLE" />
+    <result property="paymentRemark" column="payment_remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+    <association property="studentInfo" column="student_id" javaType="com.jyw.model.StudentInfo" resultMap="studentInfoResultMap">
+     <!-- <id property="studentId"  column="student_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <result property="studentName" column="student_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <result property="studentSex" column="student_sex" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <result property="studentAge" column="student_age" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <result property="studentTellphone" column="student_tellphone" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <result property="studentEmail" column="student_email" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <result property="studentSchool" column="student_school" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+    </association>
+  </resultMap>
+  <resultMap id="studentInfoResultMap" type="com.jyw.model.StudentInfo">
+    <id property="studentId"  column="student_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    <result property="studentName" column="student_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+    <result property="studentSex" column="student_sex" javaType="java.lang.String" jdbcType="VARCHAR" />
+    <result property="studentAge" column="student_age" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    <result property="studentTellphone" column="student_tellphone" javaType="java.lang.String" jdbcType="VARCHAR" />
+    <result property="studentEmail" column="student_email" javaType="java.lang.String" jdbcType="VARCHAR" />
+    <result property="studentSchool" column="student_school" javaType="java.lang.String" jdbcType="VARCHAR" />
+    <result property="studentSate" column="student_sate" javaType="java.lang.Integer" jdbcType="INTEGER" />
+  </resultMap>
+
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -78,6 +111,21 @@
     payment_id, student_id, staff_id, payment_situation, payment_method, payment_time, 
     discount_amount, should_amount, real_amount, debt_amount, payment_remark
   </sql>
+<select id="selectByKeyName" resultMap="studentInfoResultMap">
+  SELECT
+  *
+  FROM
+  student_info
+  WHERE
+  (student_mark='1'OR student_mark='2')
+  AND staff_id = #{staffId}
+  <if test="keyName!=null">
+    AND student_name LIKE #{keyName}
+  </if>
+ <!-- <if test="student_Sate!=0">
+   AND student_info.student_sate= #{student_Sate}
+  </if>-->
+</select>
   <select id="selectByExample" parameterType="com.jyw.model.StudentPaymentCriteria" resultMap="BaseResultMap">
     select
     <if test="distinct">
@@ -92,6 +140,7 @@
       order by ${orderByClause}
     </if>
   </select>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

@@ -13,8 +13,8 @@
 <title>登录</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="resources/css/jquery.mobile-1.3.2.min.css" rel="stylesheet">
-<script src="resources/js/jquery-1.8.3.min.js"></script>
-<script src="resources/js/jquery.mobile-1.3.2.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery-1.8.3.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery.mobile-1.3.2.min.js"></script>
 </head>
 <body>
 

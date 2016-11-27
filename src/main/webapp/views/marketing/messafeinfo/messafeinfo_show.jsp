@@ -5,7 +5,7 @@
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
-%>    
+%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html>
@@ -32,7 +32,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">发送人</label>
                 <div class="col-sm-9">
-                	<p class="form-control-static">${mess.staffName }</p>
+                	<p class="form-control-static">${mess.staffInfo.staffName }</p>
                 </div>
             </div>
         </div>

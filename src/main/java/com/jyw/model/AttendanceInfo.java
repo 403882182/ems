@@ -10,7 +10,7 @@ import java.util.Date;
 */
 public class AttendanceInfo implements Serializable {
     private static final long serialVersionUID = 1L;
-
+private StudentInfo studentInfo;
     /** 
      * 考勤编号
      */
@@ -60,7 +60,15 @@ public class AttendanceInfo implements Serializable {
         super();
     }
 
-    /** 
+    public StudentInfo getStudentInfo() {
+        return studentInfo;
+    }
+
+    public void setStudentInfo(StudentInfo studentInfo) {
+        this.studentInfo = studentInfo;
+    }
+
+    /**
      * 获取 考勤编号 attendance_info.attendance_id
      * @return 考勤编号
      */

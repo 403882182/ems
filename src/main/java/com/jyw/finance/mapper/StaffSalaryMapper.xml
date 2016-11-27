@@ -10,9 +10,35 @@
       <arg column="deduct_salary" javaType="java.lang.Double" jdbcType="DOUBLE" />
       <arg column="real_salary" javaType="java.lang.Double" jdbcType="DOUBLE" />
       <arg column="is_uesd" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="staff_salary_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
       <arg column="staff_remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="finance_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="staff_salary_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+        <arg column="staff_remark" javaType="java.lang.String" jdbcType="VARCHAR" />
     </constructor>
+    <association property="staffInfo" column="student_id" javaType="com.jyw.model.StaffInfo" resultMap="stalary1">
+      <result property="staffId" column="staff_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <result property="staffName" column="staff_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </association>
+  </resultMap>
+  <resultMap id="stalary1" type="com.jyw.model.StaffInfo">
+    <result property="staffId" column="staff_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    <result property="staffName" column="staff_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="staffSalary" type="com.jyw.model.StaffSalary">
+    <id property="staffSalaryId" column="staff_salary_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    <result property="staStaffId" column="sta_staff_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    <result property="totalSalary" column="total_salary" javaType="java.lang.Double" jdbcType="DOUBLE" />
+    <result property="deductSalary" column="deduct_salary" javaType="java.lang.Double" jdbcType="DOUBLE" />
+    <result property="realSalary" column="real_salary" javaType="java.lang.Double" jdbcType="DOUBLE" />
+    <result property="isUesd" column="is_uesd" javaType="java.lang.String" jdbcType="VARCHAR" />
+    <result property="staffRemark" column="staff_remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+    <result property="financeName" column="finance_name"  javaType="java.lang.String" jdbcType="VARCHAR" />
+    <result property="staffSalaryTime" column="staff_salary_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    <result property="staffRemark" column="staff_remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+    <association property="staffInfo" column="staff_id" javaType="com.jyw.model.StaffInfo" resultMap="stalary1">
+      <result property="staffId" column="staff_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <result property="staffName" column="staff_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </association>
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -76,6 +102,14 @@
     staff_salary_id, staff_id, sta_staff_id, total_salary, deduct_salary, real_salary, 
     is_uesd, staff_salary_time, staff_remark
   </sql>
+  <select id="getStaffSalaryList" resultMap="staffSalary">
+    select a.*,b.staff_name,c.staff_name as finance_name
+    from  staff_salary a,staff_info b,staff_info c
+    where a.staff_id=b.staff_id  and a.sta_staff_id=c.staff_id
+    <if test="_parameter!=null">
+      and b.staff_name like '%${staffName}%'
+    </if>
+  </select>
   <select id="selectByExample" parameterType="com.jyw.model.StaffSalaryCriteria" resultMap="BaseResultMap">
     select
     <if test="distinct">

@@ -7,10 +7,13 @@ import com.jyw.system.dto.AnthortyDTO;
 import com.jyw.system.service.AnthortyInfoService;
 import com.jyw.system.service.RoleAnthorityInfoService;
 import com.jyw.system.service.RoleInfoService;
+import com.jyw.system.service.StaffInfoService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -29,7 +32,8 @@ public class AnthotychangeController {
     private RoleAnthorityInfoService roleAnthorityInfoService;
     @Autowired
     private AnthortyInfoService anthortyInfoService;
-
+    @Autowired
+    private StaffInfoService staffInfoService;
     /**
      * 查询角色信息
      * @param pageNum
@@ -40,14 +44,15 @@ public class AnthotychangeController {
     @RequestMapping("/list.do")
     public String list(@RequestParam(required = false,defaultValue = "1") int pageNum,
                        RoleInfo roleInfo, Map<String,Object> map){
+        PageHelper.startPage(pageNum,10);
         RoleInfoCriteria criteria = new RoleInfoCriteria();
         //判断是否为空
-        if(StringUtils.isNotEmpty(roleInfo.getRoleName())){
+        if(roleInfo!=null&&StringUtils.isNotEmpty(roleInfo.getRoleName())){
             criteria.or()
                     .andRoleNameLike("%" + roleInfo.getRoleName() + "%");
         }
         //分页
-        PageHelper.startPage(pageNum,10);
+
         //查询所有角色信息
         List<RoleInfo> list = roleInfoService.selectByExample(criteria);
         //存入分页类中

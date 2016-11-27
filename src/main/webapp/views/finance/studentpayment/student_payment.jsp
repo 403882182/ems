@@ -6,16 +6,22 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>    
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="s" uri="http://jyw.com" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
 <html>
 <head>
 <base href="<%=basePath%>">
 <title>c</title>
-    <jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
-    <script  type="text/javascript" src="resources/My97DatePicker/WdatePicker.js"></script>
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="resources/css/bootstrap.min.css">
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="resources/js/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="resources/js/bootstrap.min.js"></script>
+<script  type="text/javascript" src="resources/My97DatePicker/WdatePicker.js"></script>
    <script type="text/javascript">
    	function total(){
    		//应交金额
@@ -41,12 +47,12 @@
     </ul>
 </div>
 
-<form action="studentpayment/payment.do" method="post" class="form-horizontal">
+<form action="studentpayment/insertPayment" method="post" class="form-horizontal">
 <input type="hidden" name="studentId" value="${stuinfo.studentId }"/>
    	<div class="row">
     	<div class="col-sm-9">
  
-            <a class="btn btn-warning" href="studentpayment/list.do">返回上一级</a>
+            <a class="btn btn-warning" href="studentpayment/list">返回上一级</a>
         </div>
     </div>
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
@@ -187,8 +193,9 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">缴费方式</label>
                 <div class="col-sm-9">
-                  <s:select  name="paymentMethod" type="payment_method"></s:select>
-                 </div>
+                    <s:select  name="paymentMethod" type="payment_method"></s:select>
+                </div>
+
             </div>
         </div>
     </div>
@@ -199,7 +206,8 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">缴费时间</label>
                 <div class="col-sm-9">
-               		<input type="text" name="paymentTime" onclick="WdatePicker()" class="form-control input-sm" placeholder="请输入缴费情况"/>
+               		<input type="text" name="paymentTime1" readonly="readonly" onclick="WdatePicker()" class="form-control input-sm"value="<f:formatDate value="${studentPayment.paymentTime}"/>" />
+                    <input type="hidden" name="paymentTime" value="${studentPayment.paymentTime}" />
                  </div>
             </div>
         </div>
@@ -263,7 +271,7 @@
    	<div class="row">
     	<div class="col-sm-9 ">
     			
- 			 <a class="btn btn-warning" href="studentpayment/list.do">返回上一级</a>
+ 			 <a class="btn btn-warning" href="studentpayment/list">返回上一级</a>
  			  <input type="submit" class="btn btn-success"  value="学员缴费"/>
         </div>
     </div>

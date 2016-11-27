@@ -14,22 +14,22 @@
 <base href="<%=basePath%>">
 <title>登录</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="resources/css/jquery.mobile-1.3.2.min.css" rel="stylesheet">
-<script src="resources/js/jquery-1.8.3.min.js"></script>
-<script src="resources/js/jquery.mobile-1.3.2.min.js"></script>
+<link href="${pageContext.request.contextPath}/resources/css/jquery.mobile-1.3.2.min.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/resources/js/jquery-1.8.3.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery.mobile-1.3.2.min.js"></script>
 </head>
 <body>
 
 <div data-role="page">
 
   <div data-role="header">
-       <a href="view/studentphone/student_index.jsp"  data-ajax="false" data-role="button">首页</a>
+       <a href="views/studentphone/student_index.jsp"  data-ajax="false" data-role="button">首页</a>
        <h1>评价信息</h1>
            <a href="<%=basePath%>studentphone/loadlogin.do"  data-ajax="false" data-role="button">退出</a>
   </div>
     <div data-role="content">
     <ul data-role="listview" data-filter="true" data-filter-placeholder="请输入搜索内容">
-    <c:forEach items="${list }" var="evaluation">
+    <c:forEach items="${list}" var="evaluation">
 	 <li>
         <img src="<%=basePath%>resources/img/info.png" width="100%" height="100%">
             <h2>${evaluation.evaluationTitle }</h2>

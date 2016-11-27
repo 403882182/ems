@@ -6,15 +6,16 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<%@ taglib prefix="s" uri="http://jyw.com" %>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html>
 <head>
-<base href="<%=basePath%>">
-<title>管理</title>
+    <base href="<%=basePath%>">
+    <title>考勤管理</title>
     <jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
-    <script  type="text/javascript" src="resources/My97DatePicker/WdatePicker.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/My97DatePicker/WdatePicker.js"></script>
+
 </head>
 <body>
 <div style="padding:0px; margin:0px;">
@@ -25,7 +26,7 @@
     </ul>
 </div>
 
-<form action="attendanceinfo/add.do" method="post" class="form-horizontal">
+<form action="attendanceinfo/insert" method="post" class="form-horizontal">
 
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
 	<div class="row">
@@ -44,8 +45,7 @@
                 <div class="col-sm-9">
                 	<select name="studentId" class="form-control input-sm" >
                 		<c:forEach items="${stulist }" var="stu">
-                		
-                    	<option value="${stu.studentId }" >${stu.studentName }</option>
+                		<option value="${stu.studentId }" >${stu.studentName }</option>
                     	</c:forEach>
                     </select>
                 </div>

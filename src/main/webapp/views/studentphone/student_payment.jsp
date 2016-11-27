@@ -7,7 +7,7 @@
 			+ path + "/";
 %>        
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="s" uri="http://jyw.com" %>
+<%@ taglib prefix="s" uri="http://jiaoyuwang.com" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -15,9 +15,9 @@
 <base href="<%=basePath%>">
 <title>登录</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="resources/css/jquery.mobile-1.3.2.min.css" rel="stylesheet">
-<script src="resources/js/jquery-1.8.3.min.js"></script>
-<script src="resources/js/jquery.mobile-1.3.2.min.js"></script>
+<link href="${pageContext.request.contextPath}/resources/css/jquery.mobile-1.3.2.min.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/resources/js/jquery-1.8.3.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery.mobile-1.3.2.min.js"></script>
 </head>
 <body>
 
@@ -32,7 +32,7 @@
     <div data-role="content">
     <ul data-role="listview" data-filter="true" data-filter-placeholder="请输入搜索内容">
      
-     <c:forEach items="${list }" var="payment">
+     <c:forEach items="${listp}" var="payment">
       <li>
         <img src="<%=basePath%>resources/img/xyjf.png" width="100%" height="100%">
             <h2>${payment.paymentSituation }</h2>

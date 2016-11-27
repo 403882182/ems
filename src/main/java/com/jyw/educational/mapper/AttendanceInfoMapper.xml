@@ -10,6 +10,13 @@
       <arg column="attendance_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
       <arg column="attendance_remark" javaType="java.lang.String" jdbcType="VARCHAR" />
     </constructor>
+    <association property="studentInfo" column="student_id" javaType="com.jyw.model.StudentInfo" resultMap="studentInfoResultMap">
+   </association>
+</resultMap>
+
+  <resultMap id="studentInfoResultMap" type="com.jyw.model.StudentInfo">
+    <id property="studentId" column="student_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+    <result property="studentName" column="student_name" javaType="java.lang.String" jdbcType="VARCHAR"></result>
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -72,26 +79,35 @@
   <sql id="Base_Column_List">
     attendance_id, student_id, attendance_desc, attendance_state, attendance_time, attendance_remark
   </sql>
-  <select id="selectByExample" parameterType="com.jyw.model.AttendanceInfoCriteria" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from attendance_info
+
+  <!--查询全部学员教考勤信息 -->
+  <select id="selectAttendance" resultMap="BaseResultMap">
+    SELECT
+    attendance_info.attendance_id,
+    student_info.student_name,
+    attendance_info.attendance_state,
+    attendance_info.attendance_desc,
+    attendance_info.attendance_time,
+    attendance_info.attendance_remark,
+    attendance_info.student_id
+    FROM
+    attendance_info
+    INNER JOIN student_info ON attendance_info.student_id = student_info.student_id
+    where student_info.staff_id= #{staffId}
     <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
+     AND student_info.student_name LIKE #{studentName}
     </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
+
   </select>
+
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from attendance_info
     where attendance_id = #{attendanceId,jdbcType=INTEGER}
   </select>
+  <!--根据id删除考勤信息-->
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from attendance_info
     where attendance_id = #{attendanceId,jdbcType=INTEGER}
@@ -102,7 +118,16 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.jyw.model.AttendanceInfo">
+
+  <!--查询studentInfo所有学员姓名-->
+  <select id="selectStudent"  resultMap="studentInfoResultMap" >
+  select student_id,student_name
+  from student_info
+ </select>
+
+
+  <!--添加考勤-->
+<insert id="insert" parameterType="com.jyw.model.AttendanceInfo" >
     insert into attendance_info (attendance_id, student_id, attendance_desc, 
       attendance_state, attendance_time, attendance_remark
       )
@@ -110,6 +135,7 @@
       #{attendanceState,jdbcType=VARCHAR}, #{attendanceTime,jdbcType=TIMESTAMP}, #{attendanceRemark,jdbcType=VARCHAR}
       )
   </insert>
+  <!--添加考勤到数据库-->
   <insert id="insertSelective" parameterType="com.jyw.model.AttendanceInfo">
     insert into attendance_info
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -153,6 +179,7 @@
       </if>
     </trim>
   </insert>
+
   <select id="countByExample" parameterType="com.jyw.model.AttendanceInfoCriteria" resultType="java.lang.Long">
     select count(*) from attendance_info
     <if test="_parameter != null">
@@ -218,6 +245,9 @@
     </set>
     where attendance_id = #{attendanceId,jdbcType=INTEGER}
   </update>
+
+
+  <!--修改考勤-->
   <update id="updateByPrimaryKey" parameterType="com.jyw.model.AttendanceInfo">
     update attendance_info
     set student_id = #{studentId,jdbcType=INTEGER},

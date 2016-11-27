@@ -7,11 +7,12 @@
 			+ path + "/";
 %>    
 <%@ taglib prefix="s" uri="http://jyw.com" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html>
 <head>
-<base href="<%=basePath%>">
-<title>营销活动</title>
+	<base href="<%=basePath%>">
+	<title>招生线索</title>
 	<jsp:include page="${pageContext.request.contextPath}/views/common/script.jsp"/>
 </head>
 <body>
@@ -21,7 +22,11 @@
         <li>招生线索</li>
     </ul>
 </div>
-<form action="recruitstudent/list.do" method="post" class="form-inline">
+<form action="recruitstudent/list.do" method="post" class="form-inline" id="queryForm">
+	<%-- 当前页 --%>
+	<input type="hidden" name="pageNum" id="pageNum" value="${page.pageNum}"/>
+	<%-- 总页数 --%>
+	<input type="hidden" id="pages" value="${page.pages}"/>
 <div class="row alert alert-info"  style="margin:0px; padding:3px;" >
 
      <div class="form-group">
@@ -30,10 +35,10 @@
       </div>
   	<div class="form-group">
          <label class="" for="activename">学员意向状态：</label>
-         <s:select name="studentSate" type="student_sate" selectedId="${stuinfo.studentSate }"/>
+			<s:select name="studentSate" type="student_sate" selectedId="${stuinfo.studentSate }"/>
       </div>
     <input type="submit"   class="btn btn-danger"     value="查询"/>
-    <a  class="btn btn-success"  href="view/recruitstudent/recruitstudent/recruitstudent_add.jsp">添加学员</a>
+    <a  class="btn btn-success"  href="views/recruitstudent/recruitstudent/recruitstudent_add.jsp">添加学员</a>
 </div>
 <div align="center">
 	<div class="alert alert-warning" style="margin: 0px; padding: 5px; width: 80%;display:${empty info?'none':'block'} ">
@@ -45,17 +50,38 @@
 	</div>	
 </div>
 <div class="row" style="padding:15px; padding-top:0px; " align="right">
-		<display:table class="table  table-condensed table-striped" name="list"  pagesize="10" requestURI="recruitstudent/list.do">
-		<display:column property="studentId" title="编号" />
-		<display:column  href="recruitstudent/show.do" paramId="studentId" paramProperty="studentId"  property="studentName" title="姓名"/>
-		<display:column  property="studentSex" title="性别"/>
-		<display:column  property="studentAge" title="年龄"/>
-		<display:column  property="studentTellphone" title="手机号码"/>
-		<display:column  property="studentEmail" title="电子邮件"/>
-		<display:column  property="studentSchool" title="所在院校"/>
-		<display:column href="recruitstudent/load.do" paramId="studentId" paramProperty="studentId" value="修改"  title="修改"/>
-		<display:column href="recruitstudent/delete.do"  paramId="studentId" paramProperty="studentId"  value="删除"  title="删除"/>
-</display:table>               	                
+	<table class="table  table-condensed table-striped">
+		<tr>
+			<td>编号</td>
+			<td>姓名</td>
+			<td>性别</td>
+			<td>年龄</td>
+			<td>手机号码</td>
+			<td>电子邮件</td>
+			<td>所在院校</td>
+			<td>操作</td>
+		</tr>
+		<c:forEach items="${page.list}" var="items">
+			<tr>
+				<td>${items.studentId}</td>
+				<td><a href="/recruitstudent/show.do?studentId=${items.studentId}">${items.studentName}</a></td>
+				<td>${items.studentSex}</td>
+				<td>${items.studentAge}</td>
+				<td>${items.studentTellphone}</td>
+				<td>${items.studentEmail}</td>
+				<td>${items.studentSchool}</td>
+				<td><a href="/recruitstudent/load.do?studentId=${items.studentId}">修改</a>
+					<a href="/recruitstudent/delete.do?studentId=${items.studentId}">删除</a>
+				</td>
+
+			</tr>
+		</c:forEach>
+		<tr>
+			<td colspan="8" style="text-align:center">
+				<ul id="paging"></ul>
+			</td>
+		</tr>
+	</table>
 </div>
 </form>
 </body>

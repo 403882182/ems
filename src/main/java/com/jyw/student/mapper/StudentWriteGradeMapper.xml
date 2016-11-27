@@ -243,4 +243,59 @@
       write_grade_note = #{writeGradeNote,jdbcType=VARCHAR}
     where write_grade_id = #{writeGradeId,jdbcType=INTEGER}
   </update>
+<resultMap id="GetstudentwritegradeBystaffidMap" type="com.jyw.model.StudentWriteGradeEx">
+<id column="write_grade_id" property="writeGradeId" />
+  <result column="student_id" property="studentId"/>
+  <result column="staff_id" property="staffId"/>
+  <result column="write_grade_subject" property="writeGradeSubject"/>
+  <result column="write_grade" property="writeGrade"/>
+  <result column="write_grade_time" property="writeGradeTime"/>
+  <result column="write_grade_notewrite_grade_note" property="writeGradeNote"/>
+
+  <association property="staffInfo" javaType="com.jyw.model.StaffInfo">
+    <id column="staff_id" property="staffId"/>
+    <result column="staff_name" property="staffName"/>
+  </association>
+
+  <association property="studentInfo" javaType="com.jyw.model.StudentInfo">
+    <id column="student_id" property="studentId"/>
+    <result column="student_name" property="studentName"/>
+  </association>
+
+
+</resultMap>
+
+  <select id="Getstudentwritegrade" parameterType="com.jyw.model.StudentWriteGradeEx" resultMap="GetstudentwritegradeBystaffidMap">
+    SELECT
+student_write_grade.write_grade_id,
+student_write_grade.student_id,
+student_write_grade.staff_id,
+student_write_grade.write_grade_subject,
+student_write_grade.write_grade,
+student_write_grade.write_grade_time,
+student_write_grade.write_grade_note,
+staff_info.staff_name,
+student_info.student_name
+FROM
+student_write_grade
+INNER JOIN staff_info ON student_write_grade.staff_id = staff_info.staff_id
+INNER JOIN student_info ON student_info.staff_id = staff_info.staff_id
+AND student_write_grade.student_id = student_info.student_id
+<where>
+  <if test="staffInfo !=null">
+      <if test="staffInfo.staffId !=null and staffInfo.staffId !=0">
+            AND  student_write_grade.staff_id=${staffInfo.staffId}
+      </if>
+  </if>
+  <if test="studentInfo !=null">
+    <if test="studentInfo.studentName !=null and studentInfo.studentName !=''">
+            AND student_info.student_name LIKE '%${studentInfo.studentName}%'
+    </if>
+    <if test="studentInfo.studentId!=null">
+      AND student_info.student_id=#{studentInfo.studentId}
+    </if>
+  </if>
+</where>
+  </select>
+
 </mapper>
