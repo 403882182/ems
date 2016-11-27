@@ -21,21 +21,13 @@
 
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">招生管理</a></li>
+    	<li>招生管理</li>
         <li>学员池</li>
         <li>查看学员</li>
     </ul>
 </div>
 
 <form action="" class="form-horizontal" method="post">
-   	<div class="row">
-    	<div class="col-sm-6 col-sm-offset-2">
-        	<a class="btn btn-info" href="studentpool/load.do?studentId=${stuinfo.studentId }">修改学员信息</a>
-        	<a class="btn btn-danger" href="studentpool/delete.do?studentId=${stuinfo.studentId }">删除学员信息</a>
-           
-            <a class="btn btn-warning" href="studentpool/list.do">返回上一级</a>
-        </div>
-    </div>
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
 	<div class="row">
     	<div class="col-sm-5">

@@ -25,7 +25,7 @@
 <body>
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">财务管理</a></li>
+    	<li>财务管理</li>
          <li>添加员工薪水信息</li>
   
     </ul>

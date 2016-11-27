@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-		 pageEncoding="UTF-8" import="java.util.*,com.jyw.model.*,com.jyw.system.dto.*"%>
+		 pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	String path = request.getContextPath();
@@ -21,8 +21,81 @@
 	<link rel="stylesheet" href="resources/assets/css/ace-skins.min.css" />
 	<script src="resources/assets/js/ace-extra.min.js"></script>
 	<script src="resources/assets/jquery.min.js"></script>
+	<script>
+		function notifyMe(body) {
+			// 检查浏览器是否支持通知
+			if (!("Notification" in window)) {
+				alert("此浏览器不支持桌面通知");
+			}
+			// 让我们检查用户是否可以得到一些通知
+			else if (Notification.permission === "granted") {
+				// 用户接受授权请求 允许显示通知
+				var notification = new Notification("您好！您有新的邮件.",{
+					icon: 'resources/img/email.jpg',
+					body: body
+				});
+				notification.onshow = function() {
+					//5秒后关闭消息框
+					setTimeout(function() {
+						notification.close();
+					}, 10000);
+				};
+			}
+			// 否则，我们需要向用户请求权限
+			else if (Notification.permission !== 'denied') {
+				//请求用户授权
+				Notification.requestPermission(function (permission) {
+					// 用户接受授权请求 允许显示通知
+					if (permission === "granted") {
+						var notification = new Notification("您好！您有新的邮件.",{
+							icon: 'resources/img/email.jpg',
+							body: body
+						});
+						notification.onshow = function() {
+							//5秒后关闭消息框
+							setTimeout(function() {
+								notification.close();
+							}, 5000);
+						};
+					}
+				});
+			}
+		}
+		function updateEmail() {
+			$.get(
+					"updateEmail",
+					function (data) {
+						var length = 0;
+						$("#email-body a").remove();
+						var str = "";
+						for (var item in data) {
+							str += '<a href="/email/show.do/'+data[item].emailId+'" target="mainframe">' +
+									'<li class="dropdown-header"><i class="icon-envelope-alt"></i>'+data[item].emailTitle+'</li></a>';
+							length++;
+						}
+						$("#email-id").html(length);
+						$("#email-body").append(str);
+					},
+					"json"
+			);
+		}
+		$(function () {
+			if(!!window.EventSource){	//检查浏览器是否支持SSE
+				//向服务器发起连接
+				var source = new EventSource('push');
+				//接收数据
+				source.addEventListener('message',function (e) {
+					notifyMe(e.data);
+					updateEmail();
+				});
+			}else {
+				console.log("你的流浪器不支持SSE");
+			}
+		})
+	</script>
 </head>
 <body>
+<%--头部开始--%>
 <div class="navbar navbar-default" id="navbar">
 	<script type="text/javascript">
 		try {
@@ -33,56 +106,56 @@
 
 	<div class="navbar-container" id="navbar-container">
 		<div class="navbar-header pull-left">
-
-			<a href="#" class="navbar-brand"> <small> <img src="resources/img/logo.png" style="height:30px;"/>椒鱼网教务管理系统
+			<a href="javascript:void(0)" class="navbar-brand"> <small> <i
+					class="icon-leaf"></i> 椒鱼网教务管理系统
 			</small>
 			</a>
-			<!-- /.brand -->
 		</div>
-		<!-- /.navbar-header -->
 
 		<div class="navbar-header pull-right" role="navigation">
 			<ul class="nav ace-nav">
-				<!-- 	<li class="green"><a data-toggle="dropdown"
-						class="dropdown-toggle" href="#"> <i
-							class="icon-envelope icon-animated-vertical"></i> <span
-							class="badge badge-success">5</span>
+				<%--邮箱提醒-开始--%>
+				<li class="green">
+					<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+						<i class="icon-envelope icon-animated-vertical"></i>
+						<span class="badge badge-success" id="email-id">${emailInfoList.size()}</span>
 					</a>
-
-						<ul
-							class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
-							<li class="dropdown-header"><i class="icon-envelope-alt"></i>
-								5条消息</li>
-						</ul>
-
-						</li> -->
-
-				<li class="light-blue"><a data-toggle="dropdown" href="#"
-										  class="dropdown-toggle"> <img class="nav-user-photo"
-																		src="resources/assets/avatars/user.jpg" alt="Jason's Photo" />
-							<span
-									class="user-info"> <small>欢迎光临,</small>${staff.staffName }
-						</span> <i class="icon-caret-down"></i>
-				</a>
-					<ul
-							class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-
-						<!-- <li><a href="#"  target="mainframe"> <i class="icon-user"></i> 个人资料
-                        </a></li> -->
-
+					<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close" id="email-body">
+						<c:forEach var="item" items="${emailInfoList}">
+							<a href="/email/show.do/${item.emailId}" target="mainframe">
+								<li class="dropdown-header"><i class="icon-envelope-alt"></i>${item.emailTitle}</li>
+							</a>
+						</c:forEach>
+					</ul>
+				</li>
+				<%--邮箱提醒-结束--%>
+				<li class="light-blue">
+					<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+						<%--头像--%>
+						<img class="nav-user-photo" src="resources/assets/avatars/avatar2.png" alt="Jason's Photo" />
+						<%--名称--%>
+						<span class="user-info"> <small>欢迎光临</small>${staff.staffName }</span>
+						<i class="icon-caret-down"></i>
+					</a>
+					<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+						<li>
+							<a href="/system/show/${staff.staffId }"  target="mainframe">
+								<i class="icon-user"></i> 个人资料
+                       		 </a>
+						</li>
 						<li class="divider"></li>
-
-						<li><a href="/logout"> <i class="icon-off"></i> 退出
-						</a></li>
-					</ul></li>
+						<li>
+							<a href="/logout">
+								<i class="icon-off"></i> 退出
+							</a>
+						</li>
+					</ul>
+				</li>
 			</ul>
-			<!-- /.ace-nav -->
-
 		</div>
-		<!-- /.navbar-header -->
 	</div>
-	<!-- /.container -->
 </div>
+<%--头部结束--%>
 
 <div class="main-container" id="main-container">
 	<script type="text/javascript">
@@ -93,8 +166,9 @@
 	</script>
 
 	<div class="main-container-inner">
-		<a class="menu-toggler" id="menu-toggler" href="#"> <span
-				class="menu-text"></span>
+
+		<a class="menu-toggler" id="menu-toggler" href="#">
+			<span class="menu-text"></span>
 		</a>
 
 		<div class="sidebar" id="sidebar">
@@ -104,8 +178,9 @@
 				} catch (e) {
 				}
 			</script>
-
+			<%--工具栏开始--%>
 			<div class="sidebar-shortcuts" id="sidebar-shortcuts">
+				<%--工具栏-放大版--%>
 				<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
 					<button class="btn btn-success">
 						<i class="icon-signal"></i>
@@ -123,18 +198,19 @@
 						<i class="icon-cogs"></i>
 					</button>
 				</div>
-
+				<%--工具栏-迷你版--%>
 				<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
-					<span class="btn btn-success"></span> <span class="btn btn-info"></span>
-
-					<span class="btn btn-warning"></span> <span class="btn btn-danger"></span>
+					<span class="btn btn-success"></span>
+					<span class="btn btn-info"></span>
+					<span class="btn btn-warning"></span>
+					<span class="btn btn-danger"></span>
 				</div>
 			</div>
-			<!-- #sidebar-shortcuts -->
-
+			<%--工具栏结束--%>
+			<!-- 左侧菜单-开始 -->
 			<ul class="nav nav-list">
 				<li class="active">
-					<a href="views/bootm.jsp" target="mainframe">
+					<a href="bootm" target="mainframe">
 					<i class="icon-dashboard"></i><span class="menu-text">控制台 </span>
 					</a>
 				</li>
@@ -158,8 +234,10 @@
 						</ul>
 					</li>
 				</c:forEach>
-			<!-- /.nav-list -->
+			</ul>
+			<%--左侧菜单-结束--%>
 
+			<%--收缩菜单栏--%>
 			<div class="sidebar-collapse" id="sidebar-collapse">
 				<i class="icon-double-angle-left"
 				   data-icon1="icon-double-angle-left"
@@ -174,10 +252,10 @@
 			</script>
 		</div>
 
+		<%--右侧窗口--%>
 		<div class="main-content" id="mains">
-			<iframe id="mainframe" name="mainframe" src="views/bootm.jsp"
+			<iframe id="mainframe" name="mainframe" src="bootm"
 					style="width: 100%;border: 0px;"> </iframe>
-
 		</div>
 
 		<script type="text/javascript">
@@ -185,6 +263,7 @@
 			jQuery("#mainframe").attr("height", "" + height + "px;");
 		</script>
 
+		<%--右侧工具栏-开始--%>
 		<div class="ace-settings-container" id="ace-settings-container">
 			<div class="btn btn-app btn-xs btn-warning ace-settings-btn"
 				 id="ace-settings-btn">
@@ -192,6 +271,7 @@
 			</div>
 
 			<div class="ace-settings-box" id="ace-settings-box">
+
 				<div>
 					<div class="pull-left">
 						<select id="skin-colorpicker" class="hide">
@@ -205,38 +285,33 @@
 				</div>
 
 				<div>
-					<input type="checkbox" class="ace ace-checkbox-2"
-						   id="ace-settings-navbar" /> <label class="lbl"
-															  for="ace-settings-navbar"> 固定导航条</label>
+					<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar" />
+					<label class="lbl" for="ace-settings-navbar"> 固定导航条</label>
 				</div>
 
 				<div>
-					<input type="checkbox" class="ace ace-checkbox-2"
-						   id="ace-settings-sidebar" /> <label class="lbl"
-															   for="ace-settings-sidebar"> 固定滑动条</label>
+					<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar" />
+					<label class="lbl" for="ace-settings-sidebar"> 固定滑动条</label>
 				</div>
 
 				<div>
-					<input type="checkbox" class="ace ace-checkbox-2"
-						   id="ace-settings-breadcrumbs" /> <label class="lbl"
-																   for="ace-settings-breadcrumbs">固定面包屑</label>
+					<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs" />
+					<label class="lbl" for="ace-settings-breadcrumbs">固定面包屑</label>
 				</div>
 
 				<div>
-					<input type="checkbox" class="ace ace-checkbox-2"
-						   id="ace-settings-rtl" /> <label class="lbl"
-														   for="ace-settings-rtl">切换到左边</label>
+					<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" />
+					<label class="lbl" for="ace-settings-rtl">切换到左边</label>
 				</div>
 
 				<div>
-					<input type="checkbox" class="ace ace-checkbox-2"
-						   id="ace-settings-add-container" /> <label class="lbl"
-																	 for="ace-settings-add-container"> 切换窄屏 <b></b>
-				</label>
+					<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container" />
+					<label class="lbl" for="ace-settings-add-container"> 切换窄屏 <b></b></label>
 				</div>
+
 			</div>
 		</div>
-		<!-- /#ace-settings-container -->
+		<%--右侧工具栏-结束--%>
 	</div>
 	<!-- /.main-container-inner -->
 
@@ -247,9 +322,6 @@
 </div>
 <!-- /.main-container -->
 <!-- basic scripts -->
-
-
-
 
 <script type="text/javascript">
 	if ("ontouchend" in document)
@@ -522,10 +594,7 @@
 					else
 						$(this).closest('li').removeClass('selected');
 				});
-
 	})
 </script>
-
-
 </body>
 </html>

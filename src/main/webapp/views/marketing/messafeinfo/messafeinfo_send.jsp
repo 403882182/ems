@@ -6,7 +6,6 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>    
-<%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html>
@@ -27,7 +26,7 @@
 
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">营销管理</a></li>
+    	<li>营销管理</li>
         <li>短信管理</li>
         <li>发送信息</li>
     </ul>
@@ -96,7 +95,7 @@
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="发送"/>
 
-              <a class="btn btn-warning" href="messafeinfo_list.html">返回上一级</a>
+              <a class="btn btn-warning" href="/messafeinfo/list.do">返回上一级</a>
         </div>
     </div>
 </form>

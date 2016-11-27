@@ -19,7 +19,7 @@
 
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">班级管理</a></li>
+    	<li>班级管理</li>
         <li>教师管理</li>
         <li>查看教师信息</li>
     </ul>
@@ -28,9 +28,9 @@
 <form action="" class="form-horizontal"  method="post">
    	<div class="row">
     	<div class="col-sm-5 col-sm-offset-4">
-        	<a href="/staffInfo/selectById/${staffInfo.staffId }" class="btn btn-success" >修改</a>
-        	<a href="/staffInfo/delete/${staffInfo.staffId }" class="btn btn-success" onclick="confirm('确定删除吗')">删除</a>
-            <a href="/staffInfo/list" class="btn btn-warning">返回上一级</a>
+        	<a href="/teacher/selectById/${staffInfo.staffId }" class="btn btn-success" >修改</a>
+        	<a href="/teacher/delete/${staffInfo.staffId }" class="btn btn-success" onclick="confirm('确定删除吗')">删除</a>
+            <a href="/teacher/list.do" class="btn btn-warning">返回上一级</a>
         </div>
     </div>
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
@@ -218,7 +218,7 @@
     </div>
    	<div class="row">
     	<div class="col-sm-5 col-sm-offset-4">
-             <a href="/staffInfo/list" class="btn btn-warning">返回上一级</a>
+             <a href="/teacher/list.do" class="btn btn-warning">返回上一级</a>
         </div>
     </div>
 </form>

@@ -19,7 +19,7 @@
 
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">教务管理</a></li>
+    	<li>教务管理</li>
         <li>班级事务</li>
     </ul>
 </div>
@@ -57,7 +57,7 @@
 			<td>内容</td>
 			<td>组织人</td>
 			<td>活动日期</td>
-			<td>操作</td>
+			<td>&nbsp;&nbsp;&nbsp;操作</td>
 		</tr>
 		<c:forEach items="${page.list}" var="list">
 			<tr>
@@ -67,7 +67,10 @@
 				<td>${list.classTransactionContent}</td>
 				<td>${list.classTransactionPerson}</td>
 				<td><fmt:formatDate value="${list.classTransactionTime}"/></td>
-				<td><a href="classtransactioninfo/updateList?classTransactionId=${list.classTransactionId}">修改</a><a href="classtransactioninfo/deleteByPrimaryKey?classTransactionId=${list.classTransactionId} ">删除</a></td>
+				<td>
+					<a href="classtransactioninfo/updateList?classTransactionId=${list.classTransactionId}">修改</a>&nbsp;&nbsp;
+					<a href="classtransactioninfo/deleteByPrimaryKey?classTransactionId=${list.classTransactionId} ">删除</a>
+				</td>
 			</tr>
 		</c:forEach>
 		<tr>

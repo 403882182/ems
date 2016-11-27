@@ -20,7 +20,7 @@
 
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">招生管理</a></li>
+    	<li>招生管理</li>
         <li>跟踪记录</li>
     </ul>
 </div>

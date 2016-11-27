@@ -23,11 +23,11 @@
 
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">班级管理</a></li>
+    	<li>班级管理</li>
         <li>班级信息</li>
     </ul>
 </div>
-<form action="/classInfo/list"  method="post" class="form-inline" id="queryForm" >
+<form action="/classinfo/list.do"  method="post" class="form-inline" id="queryForm" >
 <div class="row alert alert-info"  style="margin:0px; padding:3px;" >
 
      <div class="form-group">
@@ -40,7 +40,7 @@
 	<input type="hidden" name="pageNum" id="pageNum" value="${page.pageNum}"/>
 	<%-- 总页数 --%>
 	<input type="hidden" id="pages" value="${page.pages}"/>
-    <a  class="btn btn-success"  href="/classInfo/addload">添加班级</a>
+    <a  class="btn btn-success"  href="/classinfo/addload">添加班级</a>
     
 </div>
 <div align="center">
@@ -70,9 +70,9 @@
 			<td><fmt:formatDate value="${items.classStartTime}" type="both"/> </td>
 			<td><fmt:formatDate value="${items.classEndTime}" type="both"/></td>
 			<td>
-                <a href="/classInfo/selectById/${items.classId}">修改</a>
+                <a href="/classinfo/selectById/${items.classId}">修改</a>
 
-                <a href="/classInfo/delete/${items.classId}" onclick="return confirm('确认删除吗？')">删除</a></td>
+                <a href="/classinfo/delete/${items.classId}" onclick="return confirm('确认删除吗？')">删除</a></td>
 
 		</tr>
 	</c:forEach>

@@ -18,7 +18,7 @@
 <body>
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">招生管理</a></li>
+    	<li>招生管理</li>
         <li>学员池</li>
     </ul>
 </div>
@@ -69,11 +69,11 @@
 				<td>${items.studentTellphone}</td>
 				<td>${items.studentEmail}</td>
 				<td>${items.studentSchool}</td>
-				<td><a href="/studentpool/load.do?studentId=${items.studentId}">修改</a>
-				<a href="/studentpool/receive.do?studentId=${items.studentId}">领取学员</a>
-				<a href="/studentpool/delete.do?studentId=${items.studentId}">删除</a>
+				<td>
+					<a href="/studentpool/load.do?studentId=${items.studentId}">修改</a>
+					<a href="/studentpool/receive.do?studentId=${items.studentId}">领取学员</a>
+					<a href="/studentpool/delete.do?studentId=${items.studentId}">删除</a>
 				</td>
-
 			</tr>
 		</c:forEach>
 		<tr>

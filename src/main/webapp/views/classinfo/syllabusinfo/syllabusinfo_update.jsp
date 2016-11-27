@@ -18,13 +18,13 @@
 
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">班级管理</a></li>
+    	<li>班级管理</li>
         <li>课程表</li>
         <li>修改课程表</li>
     </ul>
 </div>
 
-<form action="syllabusInfo/update" method="post" class="form-horizontal">
+<form action="syllabusinfo/update" method="post" class="form-horizontal">
 
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
 	<div class="row">
@@ -123,7 +123,7 @@
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="保存"/>
 
-              <a class="btn btn-warning" href="/syllabusInfo/list">返回上一级</a>
+              <a class="btn btn-warning" href="/syllabusinfo/list.do">返回上一级</a>
         </div>
     </div>
 </form>

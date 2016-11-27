@@ -18,7 +18,7 @@
 <body>
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">系统管理</a></li>
+    	<li>系统管理</li>
         <li>数据字典</li>
     </ul>
 </div>
@@ -40,7 +40,7 @@
 				<span aria-hidden="true">&times;</span>
 
 			</button>
-			<p align="center" style="color: red;">${info }</p>
+			<p align="center" style="color: #ff0000;">${info }</p>
 		</div>
 	</div>
 	<%-- 当前页 --%>

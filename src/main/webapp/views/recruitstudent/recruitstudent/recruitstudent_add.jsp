@@ -20,19 +20,13 @@
 
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">招生管理</a></li>
+    	<li>招生管理</li>
         <li>招生线索</li>
         <li>添加学员</li>
     </ul>
 </div>
 
 <form action="recruitstudent/add.do" class="form-horizontal"  method="post">
-   	<div class="row">
-    	<div class="col-sm-3 col-sm-offset-4">
-        	<input  type="submit" class="btn btn-success" value="保存"/>
-            <a class="btn btn-warning" href="recruitstudent/list.do">返回上一级</a>
-        </div>
-    </div>
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
 	<div class="row">
     	<div class="col-sm-5">

@@ -21,7 +21,7 @@
 <body>
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">教务管理</a></li>
+    	<li>教务管理</li>
          <li>修改考勤</li>
   
     </ul>

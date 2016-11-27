@@ -6,7 +6,6 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>    
-<%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="frm" uri="http://www.springframework.org/tags/form" %>
 <!doctype html>
@@ -33,7 +32,7 @@
 
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">营销管理</a></li>
+    	<li>营销管理</li>
         <li>邮件管理</li>
         <li>发送邮件</li>
     </ul>

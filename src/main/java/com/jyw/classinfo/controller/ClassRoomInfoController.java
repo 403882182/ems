@@ -32,7 +32,7 @@ public class ClassRoomInfoController {
      * @param model
      * @return
      */
-    @RequestMapping("/list")
+    @RequestMapping("/list.do")
     public String list(Model model,String classroomName,@RequestParam(required = false, defaultValue = "1")int pageNum) {
         classroomInfoCriteria=new ClassroomInfoCriteria();
         if(classroomName!=null){

@@ -90,6 +90,7 @@ public class EmailInfoController {
         emailInfoService.insertSelective(emailInfo);
         return  "redirect:/email/list.do";
     }
+
     @RequestMapping(value = "show.do/{Emailid}",method = RequestMethod.GET)
     public String showEmail(@PathVariable("Emailid")Integer id , Map<String,Object> map)
     {
@@ -97,8 +98,11 @@ public class EmailInfoController {
         emailInfoEx.setEmailId(id);
         List<EmailInfoEx> list=emailInfoService.getAllEmailInfoEx(emailInfoEx);
                 map.put("emailInfo",list.get(0));
+        emailInfoEx.setEmailState("已查看");
+        emailInfoService.updateByPrimaryKeySelective(emailInfoEx);
         return "/marketing/emailinfo/emailinfo_show";
     }
+
     @RequestMapping( value = "delete.do/{Emialid}",method = RequestMethod.DELETE)
     public String deleteEmail(@PathVariable("Emialid")Integer id,StaffInfo  staffInfo)
     {   emailInfoService.deleteByPrimaryKey(id);

@@ -18,8 +18,8 @@
 
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">班级管理</a></li>
-         <li>教室管理</li>
+    	<li>班级管理</li>
+        <li>教室管理</li>
         <li>添加教室</li>
     </ul>
 </div>
@@ -86,7 +86,7 @@
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="保存"/>
 
-              <a class="btn btn-warning" href="/classroominfo/list">返回上一级</a>
+              <a class="btn btn-warning" href="/classroominfo/list.do">返回上一级</a>
         </div>
     </div>
 </form>

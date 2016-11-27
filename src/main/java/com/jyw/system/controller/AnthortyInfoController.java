@@ -2,7 +2,10 @@ package com.jyw.system.controller;
 
 import com.jyw.model.AnthortyInfo;
 import com.jyw.model.AnthortyInfoCriteria;
+import com.jyw.model.RoleAnthorityInfo;
+import com.jyw.model.RoleAnthorityInfoCriteria;
 import com.jyw.system.service.AnthortyInfoService;
+import com.jyw.system.service.RoleAnthorityInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +22,8 @@ public class AnthortyInfoController {
 
     @Autowired
     private AnthortyInfoService anthortyInfoService;
+    @Autowired
+    private RoleAnthorityInfoService roleAnthorityInfoService;
 
     /**
      *查询所有权限信息
@@ -166,6 +171,15 @@ public class AnthortyInfoController {
             map.put("message", "请先删除下级菜单!");
             map.put("state",false);
             return map;
+        }
+        //判断此权限是否还有依赖
+        List<RoleAnthorityInfo> roleAnthorityInfoList = roleAnthorityInfoService.selectByExample(new RoleAnthorityInfoCriteria());
+        for (RoleAnthorityInfo item:roleAnthorityInfoList){
+            if(item.getAnthortyId() == anthortyId){
+                map.put("message", "还有角色拥有此权限，请先解除!");
+                map.put("state",false);
+                return map;
+            }
         }
         //删除权限
         int count = anthortyInfoService.deleteByPrimaryKey(anthortyId);

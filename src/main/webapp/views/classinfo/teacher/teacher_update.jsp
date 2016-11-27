@@ -20,19 +20,13 @@
 
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">班级管理</a></li>
+    	<li>班级管理</li>
         <li>教师管理</li>
         <li>修改教师信息</li>
     </ul>
 </div>
 
-<form action="staffInfo/update" method="post" class="form-horizontal">
-   	<%--<div class="row">--%>
-    	<%--<div class="col-sm-3 col-sm-offset-4">--%>
-        	<%--<input  type="submit" class="btn btn-success" value="保存"/>--%>
-             <%--<a href="teacher/list.do" class="btn btn-warning">返回</a>--%>
-        <%--</div>--%>
-    <%--</div>--%>
+<form action="teacher/update" method="post" class="form-horizontal">
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
 	<div class="row">
     	<div class="col-sm-5">
@@ -226,7 +220,7 @@
    	<div class="row">
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="保存"/>
-           <a href="/staffInfo/list" class="btn btn-warning">返回</a>
+           <a href="/teacher/list.do" class="btn btn-warning">返回</a>
         </div>
     </div>
 </form>

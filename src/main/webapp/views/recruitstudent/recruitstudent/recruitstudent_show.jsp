@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+    pageEncoding="UTF-8"%>
 <%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://"
-            + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
-%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 <%@ taglib prefix="s" uri="http://jyw.com" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
@@ -20,23 +20,14 @@
 <body>
 
 <div style="padding:0px; margin:0px;">
-    <ul class="breadcrumb" style="  margin:0px; ">
-        <li><a href="#">招生管理</a></li>
+ <ul class="breadcrumb" style="  margin:0px; " >
+    	<li>招生管理</li>
         <li>招生线索</li>
         <li>查看学员</li>
     </ul>
 </div>
 
 <form action="" class="form-horizontal">
-    <div class="row">
-        <div class="col-sm-9 col-sm-offset-2">
-            <a class="btn btn-success" href="recruitstudent/loadpositive.do?studentId=${stuinfo.studentId }">转为正式学员</a>
-            <a class="btn btn-info" href="recruitstudent/load.do?studentId=${stuinfo.studentId }">修改学员信息</a>
-            <a class="btn btn-danger" href="recruitstudent/delete.do?studentId=${stuinfo.studentId }">删除学员信息</a>
-
-            <a class="btn btn-warning" href="recruitstudent/list.do">返回上一级</a>
-        </div>
-    </div>
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
     <div class="row">
         <div class="col-sm-5">

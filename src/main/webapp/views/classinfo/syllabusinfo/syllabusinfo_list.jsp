@@ -19,11 +19,11 @@
 
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">班级管理</a></li>
+    	<li>班级管理</li>
         <li>课程表</li>
     </ul>
 </div>
-<form action="/syllabusInfo/list" method="post" class="form-inline" id="queryForm">
+<form action="/syllabusinfo/list.do" method="post" class="form-inline" id="queryForm">
 <div class="row alert alert-info"  style="margin:0px; padding:3px;" >
 
     <div class="form-group">
@@ -73,8 +73,8 @@
 				<td>${items.syllabusLiu}</td>
 				<td>${items.syllabusQi}</td>
 				<td>
-					<a href="/syllabusInfo/selectById/${items.syllabusId}">修改</a>
-					<a href="/syllabusInfo/delete/${items.syllabusId}" onclick="return confirm('确定删除吗？')">删除</a>
+					<a href="/syllabusinfo/selectById/${items.syllabusId}">修改</a>
+					<a href="/syllabusinfo/delete/${items.syllabusId}" onclick="return confirm('确定删除吗？')">删除</a>
 				</td>
 
 			</tr>

@@ -18,13 +18,13 @@
 
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">班级管理</a></li>
+    	<li>班级管理</li>
         <li>教室管理</li>
     </ul>
 </div>
 
 
-<form action="/classroominfo/list" method="post" class="form-inline"  id="queryForm">
+<form action="/classroominfo/list.do" method="post" class="form-inline"  id="queryForm">
 <div class="row alert alert-info"  style="margin:0px; padding:3px;" >
 
      <div class="form-group">

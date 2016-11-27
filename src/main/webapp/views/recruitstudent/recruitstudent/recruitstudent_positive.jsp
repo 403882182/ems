@@ -21,7 +21,7 @@
 
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">招生管理</a></li>
+    	<li>招生管理</li>
         <li>招生线索</li>
         <li>学员转正</li>
     </ul>
@@ -29,12 +29,6 @@
 
 <form action="recruitstudent/positive.do" method="post" class="form-horizontal"  method="post">
 <input type="hidden" name="studentId" value="${stuinfo.studentId }"/>
-   	<div class="row">
-    	<div class="col-sm-9 col-sm-offset-2">
-    	<input class="btn btn-success"  type="submit" value="保存" />	
-            <a class="btn btn-warning" href="recruitstudent/list.do">返回上一级</a>
-        </div>
-    </div>
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
 	<div class="row">
     	<div class="col-sm-5">

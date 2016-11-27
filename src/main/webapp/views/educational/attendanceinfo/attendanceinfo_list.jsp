@@ -19,7 +19,7 @@
 
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">教务管理</a></li>
+    	<li>教务管理</li>
         <li>考勤管理</li>
     </ul>
 </div>
@@ -56,7 +56,7 @@
 			<td>状态</td>
 			<td>时间</td>
 			<td>描述</td>
-			<td>操作</td>
+			<td>&nbsp;&nbsp;&nbsp;操作</td>
 		</tr>
 		<c:forEach items="${page.list}" var="list">
 			<tr>
@@ -65,14 +65,15 @@
 				<td>${list.attendanceState}</td>
 				<td><fmt:formatDate value="${list.attendanceTime}"/></td>
 				<td>${list.attendanceDesc}</td>
-				<td><a href="attendanceinfo/updatePage?attendanceId=${list.attendanceId}">修改</a><a href="attendanceinfo/deleteByPrimaryKey?attendanceId=${list.attendanceId} ">删除</a></td>
-	</tr>
-
-
+				<td>
+					<a href="attendanceinfo/updatePage?attendanceId=${list.attendanceId}">修改</a>&nbsp;&nbsp;
+					<a href="attendanceinfo/deleteByPrimaryKey?attendanceId=${list.attendanceId} ">删除</a>
+				</td>
+			</tr>
 		</c:forEach>
 		<tr>
 			<td colspan="6" style="text-align:center">
-	     <ul id="paging"></ul>
+	   			  <ul id="paging"></ul>
 			</td>
 		</tr>
 	</table>

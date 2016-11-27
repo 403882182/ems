@@ -34,10 +34,15 @@ public class AttendanceInfoController {
     private StudentInfoService studentInfoService;
 
     @RequestMapping("/list.do")
-    public String selectAttendance(String studentName,
-                                   Model model, @RequestParam(required = false,defaultValue = "1") int pageNum,@ModelAttribute("staff") StaffInfo staffInfo) {
+    public String selectAttendance(String studentName, Model model,
+                                   @RequestParam(required = false,defaultValue = "1") int pageNum,
+                                   @ModelAttribute("staff") StaffInfo staffInfo) {
         PageHelper.startPage(pageNum,10);
-        studentName="%"+studentName+"%";
+        if(studentName!=null) {
+            studentName = "%" + studentName + "%";
+        }else{
+            studentName = "%%";
+        }
         List<AttendanceInfo> list = attendanceInfoService.selectAttendance(studentName,staffInfo.getStaffId());
         PageInfo page = new PageInfo(list);
         model.addAttribute("page", page);
@@ -71,7 +76,6 @@ public class AttendanceInfoController {
 
     /**
      * 添加考勤信息
-     *
      * @param record
      * @return
      */
@@ -90,7 +94,6 @@ public class AttendanceInfoController {
 
     /**
      * 修改考勤
-     *
      * @param
      */
     @RequestMapping("/updatePage")
@@ -143,7 +146,6 @@ public class AttendanceInfoController {
      * 日期转换
      * @param bin
      */
-
     @InitBinder
     public void initBinder(ServletRequestDataBinder  bin) {
         bin.registerCustomEditor(Date.class, new CustomDateEditor(

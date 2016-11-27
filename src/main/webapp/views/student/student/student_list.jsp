@@ -18,7 +18,7 @@
 <body>
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">学员管理</a></li>
+    	<li>学员管理</li>
         <li>查询学员</li>
     </ul>
 </div>

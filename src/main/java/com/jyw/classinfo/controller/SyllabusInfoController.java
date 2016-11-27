@@ -18,7 +18,7 @@ import java.util.List;
  * Created by XXXX on 2016-11-10.
  */
 @Controller
-@RequestMapping("/syllabusInfo")
+@RequestMapping("/syllabusinfo")
 public class SyllabusInfoController {
 
     @Resource
@@ -32,7 +32,7 @@ public class SyllabusInfoController {
      * @param model
      * @return
      */
-    @RequestMapping("/list")
+    @RequestMapping("/list.do")
     public String list(Model model,String syllabusName,@RequestParam(required = false, defaultValue = "1")int pageNum) {
         syllabusInfoCriteria=new SyllabusInfoCriteria();
         if(syllabusName!=null){

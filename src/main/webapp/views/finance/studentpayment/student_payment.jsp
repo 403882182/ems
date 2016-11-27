@@ -41,7 +41,7 @@
 
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">财务管理</a></li>
+    	<li>财务管理</li>
 
         <li>学员缴费</li>
     </ul>
@@ -269,8 +269,7 @@
     </div>
    <!--结束 -->
    	<div class="row">
-    	<div class="col-sm-9 ">
-    			
+    	<div class="col-sm-3 col-sm-offset-4">
  			 <a class="btn btn-warning" href="studentpayment/list">返回上一级</a>
  			  <input type="submit" class="btn btn-success"  value="学员缴费"/>
         </div>

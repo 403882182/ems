@@ -35,7 +35,7 @@ public class DisciplineInfoController {
      * @param model
      * @return
      */
-    @RequestMapping("/list")
+    @RequestMapping("/list.do")
     public String list(Model model,String disciplineName,@RequestParam(required = false, defaultValue = "1")int pageNum) {
         disciplineInfoCriteria=new DisciplineInfoCriteria();
         if(disciplineName!=null){

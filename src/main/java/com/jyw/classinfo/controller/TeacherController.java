@@ -23,7 +23,7 @@ import java.util.List;
  * Created by XXXX on 2016-11-10.
  */
 @Controller
-@RequestMapping("/staffInfo")
+@RequestMapping("/teacher")
 public class TeacherController {
 
     @Resource
@@ -37,7 +37,7 @@ public class TeacherController {
      * @param model
      * @return
      */
-    @RequestMapping("/list")
+    @RequestMapping("/list.do")
     public String list(Model model,StaffInfo staffInfo,@RequestParam(required = false, defaultValue = "1")int pageNum) {
         staffInfoCriteria = new StaffInfoCriteria();
         if(staffInfo != null ) {

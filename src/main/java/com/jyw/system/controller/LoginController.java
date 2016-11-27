@@ -1,14 +1,17 @@
 package com.jyw.system.controller;
 
+import com.jyw.marketing.service.EmailInfoService;
 import com.jyw.model.*;
 import com.jyw.system.dto.AnthortyDTO;
 import com.jyw.system.service.AnthortyInfoService;
+import com.jyw.system.service.ReportService;
 import com.jyw.system.service.StaffInfoService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -17,13 +20,17 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@SessionAttributes("staff")
+@SessionAttributes({"staff","emailInfoList"})
 public class LoginController {
 
     @Autowired
     private AnthortyInfoService anthortyInfoService;
     @Autowired
     private StaffInfoService staffInfoService;
+    @Autowired
+    private ReportService reportService;
+    @Autowired
+    private EmailInfoService emailInfoService;
 
     /**
      * 用户登录
@@ -44,6 +51,15 @@ public class LoginController {
                 //保存当前用户到session
                 StaffInfo staff = staffList.get(0);
                 map.put("staff",staff);
+                //邮箱查看
+                EmailInfoCriteria emailInfoCriteria = new EmailInfoCriteria();
+                emailInfoCriteria.or()
+                                 .andEmailAddrEqualTo(staff.getStaffEamil())
+                                 .andEmailStateEqualTo("未查看");
+                List<EmailInfo> emailInfoList =  emailInfoService.selectByExample(emailInfoCriteria);
+                map.put("emailInfoList",emailInfoList);
+
+                //判断是否拥有权限
                 if (staff.getRoleId() != null) {
                     //通过角色id获取到权限列表
                     List<AnthortyInfo> anthList = anthortyInfoService.getAnthList(staff.getRoleId());
@@ -102,5 +118,42 @@ public class LoginController {
                 }
             }
         }
+    }
+
+    /**
+     * 邮箱更新
+     * @param staff
+     * @param map
+     * @return
+     */
+    @RequestMapping(value = "/updateEmail")
+    public @ResponseBody List<EmailInfo> updateEmail(@ModelAttribute("staff") StaffInfo staff,Map<String,Object> map){
+        //邮箱查看
+        EmailInfoCriteria emailInfoCriteria = new EmailInfoCriteria();
+        emailInfoCriteria.or()
+                .andEmailAddrEqualTo(staff.getStaffEamil())
+                .andEmailStateEqualTo("未查看");
+        List<EmailInfo> emailInfoList =  emailInfoService.selectByExample(emailInfoCriteria);
+        map.put("emailInfoList",emailInfoList);
+        return emailInfoList;
+    }
+
+    /**
+     * 控制台
+     */
+    @RequestMapping("/bootm")
+    public String getBootm(Map<String,Object> map){
+        bootm(map);
+        return "bootm";
+    }
+
+    /**
+     * 控制台数据
+     */
+    public void bootm(Map<String,Object> map){
+        map.put("studentSateList",reportService.selectStudentList());
+        map.put("studentMarkList",reportService.selectStudentMarkList());
+        map.put("studentProList",reportService.selectStudentProList());
+        map.put("studentSateList",reportService.selectStudentSateList());
     }
 }

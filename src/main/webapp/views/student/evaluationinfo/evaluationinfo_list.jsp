@@ -7,7 +7,6 @@
 			+ path + "/";
 %>
 <%@ taglib prefix="s" uri="http://jyw.com" %>
-<%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="frm" uri="http://www.springframework.org/tags/form" %>
@@ -22,7 +21,7 @@
 
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">学员管理</a></li>
+    	<li>学员管理</li>
         <li>学员评价</li>
     </ul>
 </div>

@@ -24,20 +24,13 @@
 
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">系统管理</a></li>
+    	<li>系统管理</li>
         <li>员工管理</li>
         <li>查看员工信息</li>
     </ul>
 </div>
 
 <form action="" class="form-horizontal">
-   	<div class="row">
-    	<div class="col-sm-5 col-sm-offset-4">
-        	<a href="/system/update/${staffInfo.staffId }" class="btn btn-success" >修改</a>
-        	<a href="/system/delete/${staffInfo.staffId }" class="btn btn-danger" >删除</a>
-            <a href="system/list.do" class="btn btn-warning">返回上一级</a>
-        </div>
-    </div>
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
 	<div class="row">
     	<div class="col-sm-5">

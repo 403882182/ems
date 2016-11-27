@@ -26,7 +26,7 @@ import java.util.List;
  * Created by XXXX on 2016-11-08.
  */
 @Controller
-@RequestMapping("/classInfo")
+@RequestMapping("/classinfo")
 public class ClassInfoController {
 
     @Resource
@@ -46,11 +46,10 @@ public class ClassInfoController {
 
     /**
      * 加载班级所有信息
-     *
      * @param model
      * @return
      */
-    @RequestMapping("/list")
+    @RequestMapping("/list.do")
     public String list(Model model,String className,@RequestParam(required = false, defaultValue = "1")int pageNum) {
         classInfoCriteria = new ClassInfoCriteria();
 
